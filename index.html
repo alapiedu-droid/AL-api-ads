@@ -1,23 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AL API - Buy Ads</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AL API 🇱🇰 | Buy Ads</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #111827;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #2563eb;
+    }
+
+    .nav-btn {
+      background: #2563eb;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 75px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #eef4ff, #ffffff);
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: #2563eb;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #6b7280;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .buy-btn {
+      display: inline-block;
+      margin-top: 30px;
+      background: #2563eb;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+    }
+
+    section {
+      padding: 55px 6%;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .title h2 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .title p {
+      color: #6b7280;
+    }
+
+    .channels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .channel {
+      background: white;
+      padding: 28px;
+      border-radius: 18px;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+    }
+
+    .icon {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .channel h3 {
+      margin-bottom: 8px;
+    }
+
+    .channel p {
+      color: #6b7280;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .package {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .package h3 {
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 28px;
+      font-weight: bold;
+      color: #2563eb;
+      margin: 15px 0;
+    }
+
+    .package p {
+      color: #6b7280;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .package a {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      padding: 12px;
+      background: #111827;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .cta {
+      text-align: center;
+      background: #111827;
+      color: white;
+      padding: 60px 20px;
+    }
+
+    .cta p {
+      margin-top: 10px;
+      color: #d1d5db;
+    }
+
+    footer {
+      background: #0b0f19;
+      color: #9ca3af;
+      text-align: center;
+      padding: 25px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero {
+        padding: 55px 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <h1>AL API 🇱🇰</h1>
+<header>
+  <div class="logo">AL API <span>🇱🇰</span></div>
+  <a href="#packages" class="nav-btn">BUY ADS</a>
+</header>
 
-    <h2>Buy Advertisements</h2>
+<section class="hero">
+  <h1>Advertise With <span>AL API</span></h1>
 
-    <p>
-        Promote your business, class or service
-        through AL API's educational audience.
-    </p>
+  <p>
+    Reach thousands of Sri Lankan students through
+    our educational Telegram, WhatsApp and social media channels.
+  </p>
 
-    <button>BUY ADS</button>
+  <a href="#packages" class="buy-btn">🚀 BUY ADS</a>
+</section>
+
+<section>
+  <div class="title">
+    <h2>Our Advertising Network</h2>
+    <p>Choose where you want your advertisement to appear.</p>
+  </div>
+
+  <div class="channels">
+
+    <div class="channel">
+      <div class="icon">📱</div>
+      <h3>Telegram</h3>
+      <p>Promote your advertisement through AL API Telegram channels.</p>
+    </div>
+
+    <div class="channel">
+      <div class="icon">💬</div>
+      <h3>WhatsApp</h3>
+      <p>Reach our growing WhatsApp educational audience.</p>
+    </div>
+
+    <div class="channel">
+      <div class="icon">📘</div>
+      <h3>Facebook</h3>
+      <p>Promote your business or service through our social media audience.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="packages">
+
+  <div class="title">
+    <h2>Advertising Packages</h2>
+    <p>Choose the package that suits your promotion.</p>
+  </div>
+
+  <div class="packages">
+
+    <div class="package">
+      <h3>Telegram Advertisement</h3>
+      <div class="price">Contact Us</div>
+      <p>
+        Promote your advertisement on selected
+        AL API Telegram channels.
+      </p>
+      <a href="#">SELECT PACKAGE</a>
+    </div>
+
+    <div class="package">
+      <h3>WhatsApp Advertisement</h3>
+      <div class="price">Contact Us</div>
+      <p>
+        Reach students through our WhatsApp
+        educational network.
+      </p>
+      <a href="#">SELECT PACKAGE</a>
+    </div>
+
+    <div class="package">
+      <h3>Social Media Package</h3>
+      <div class="price">Contact Us</div>
+      <p>
+        Promote your brand across multiple
+        AL API social media platforms.
+      </p>
+      <a href="#">SELECT PACKAGE</a>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="cta">
+  <h2>Ready to Promote Your Brand?</h2>
+  <p>Start advertising with AL API 🇱🇰</p>
+  <a href="#packages" class="buy-btn">GET STARTED</a>
+</section>
+
+<footer>
+  © 2026 AL API 🇱🇰 | ALapiedu.com
+</footer>
 
 </body>
 </html>
