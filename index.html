@@ -26,9 +26,6 @@ header{
   justify-content:space-between;
   align-items:center;
   border-bottom:1px solid #e5e7eb;
-  position:sticky;
-  top:0;
-  z-index:1000;
 }
 
 .logo{
@@ -42,7 +39,7 @@ header{
 
 .header-btn{
   background:#2563eb;
-  color:#fff;
+  color:white;
   padding:10px 17px;
   border-radius:10px;
   text-decoration:none;
@@ -51,14 +48,14 @@ header{
 }
 
 .hero{
-  padding:70px 20px;
+  padding:65px 20px;
   text-align:center;
   background:linear-gradient(135deg,#eef4ff,#fff);
 }
 
 .hero h1{
-  font-size:40px;
-  margin-bottom:15px;
+  font-size:38px;
+  margin-bottom:14px;
 }
 
 .hero h1 span{
@@ -74,10 +71,10 @@ header{
 
 .hero-btn{
   display:inline-block;
-  margin-top:25px;
+  margin-top:24px;
   background:#2563eb;
-  color:#fff;
-  padding:14px 27px;
+  color:white;
+  padding:14px 25px;
   border-radius:11px;
   text-decoration:none;
   font-weight:bold;
@@ -89,7 +86,7 @@ section{
 
 .title{
   text-align:center;
-  margin-bottom:30px;
+  margin-bottom:28px;
 }
 
 .title h2{
@@ -108,85 +105,80 @@ section{
 }
 
 .main-networks{
-  max-width:900px;
+  max-width:850px;
   margin:auto;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:15px;
+  gap:14px;
 }
 
-.main-network{
+.network-card{
   text-decoration:none;
   color:#111827;
-  background:#fff;
+  background:white;
   border:1px solid #e5e7eb;
   border-radius:17px;
-  padding:22px;
+  padding:20px;
   text-align:center;
-  box-shadow:0 6px 22px rgba(0,0,0,.05);
+  box-shadow:0 5px 20px rgba(0,0,0,.05);
 }
 
-.telegram-card{
+.network-card.telegram{
   border-top:4px solid #229ED9;
 }
 
-.whatsapp-card{
+.network-card.whatsapp{
   border-top:4px solid #25D366;
 }
 
-.logo-image{
-  width:48px;
-  height:48px;
-  margin-bottom:8px;
+.network-logo{
+  width:45px;
+  height:45px;
+  margin-bottom:7px;
 }
 
-.main-network h3{
-  font-size:16px;
-  margin-bottom:8px;
+.network-card h3{
+  font-size:15px;
 }
 
-.live-count{
+.member-count{
   font-size:27px;
   font-weight:900;
-  color:#2563eb;
+  margin-top:5px;
 }
 
-.whatsapp-card .live-count{
+.telegram .member-count{
+  color:#229ED9;
+}
+
+.whatsapp .member-count{
   color:#16a34a;
 }
 
-.live{
-  display:inline-block;
-  margin-top:7px;
-  font-size:10px;
-  font-weight:bold;
-  color:#16a34a;
-}
-
-.small-networks{
-  max-width:900px;
-  margin:13px auto 0;
+.network-small{
+  max-width:850px;
+  margin:12px auto 0;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:10px;
+  gap:9px;
 }
 
-.small-network{
-  text-decoration:none;
-  color:#111827;
-  background:#f8fafc;
-  border:1px solid #e5e7eb;
-  border-radius:11px;
-  padding:12px 14px;
+.small-card{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding:11px 13px;
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+  border-radius:11px;
+  text-decoration:none;
+  color:#111827;
 }
 
 .small-left{
   display:flex;
   align-items:center;
-  gap:9px;
+  gap:8px;
 }
 
 .small-logo{
@@ -195,55 +187,55 @@ section{
 }
 
 .small-name{
-  font-size:13px;
+  font-size:12px;
   font-weight:bold;
 }
 
 .small-count{
   font-size:12px;
+  color:#229ED9;
   font-weight:bold;
-  color:#2563eb;
 }
 
-/* ADVERTISEMENT BUILDER */
+/* ORDER */
 
-.ad-section{
+.order-section{
   background:#f5f7fb;
 }
 
-.builder{
+.order-box{
   max-width:900px;
   margin:auto;
   background:#fff;
   padding:30px;
   border-radius:22px;
   border:1px solid #e5e7eb;
-  box-shadow:0 12px 40px rgba(0,0,0,.06);
+  box-shadow:0 10px 35px rgba(0,0,0,.06);
 }
 
-.step-title{
+.step{
   font-size:20px;
   font-weight:900;
   margin-bottom:17px;
 }
 
-/* PLATFORM */
+/* PLATFORM SELECT */
 
 .platform-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:12px;
-  margin-bottom:30px;
+  margin-bottom:28px;
 }
 
 .platform{
   border:2px solid #e5e7eb;
-  border-radius:15px;
-  padding:20px 12px;
+  border-radius:17px;
+  padding:18px 12px;
   text-align:center;
   cursor:pointer;
-  background:#fff;
   transition:.2s;
+  background:white;
 }
 
 .platform:hover{
@@ -251,13 +243,8 @@ section{
 }
 
 .platform.selected{
+  background:#f5f9ff;
   border-color:#2563eb;
-  background:#f3f7ff;
-}
-
-.platform.telegram.selected{
-  border-color:#229ED9;
-  background:#f0faff;
 }
 
 .platform.whatsapp.selected{
@@ -270,29 +257,23 @@ section{
   background:#faf5ff;
 }
 
-.platform-icon{
-  font-size:32px;
+.platform img{
+  width:42px;
+  height:42px;
   margin-bottom:8px;
 }
 
-.platform-name{
-  font-weight:900;
+.platform h3{
   font-size:15px;
 }
 
-.platform-price{
-  margin-top:6px;
-  font-size:12px;
-  color:#6b7280;
-}
-
-.check{
-  margin-top:10px;
+.platform p{
   font-size:11px;
-  font-weight:bold;
+  color:#6b7280;
+  margin-top:5px;
 }
 
-/* PACKAGE */
+/* PACKAGE AREA */
 
 .package-area{
   display:none;
@@ -310,11 +291,17 @@ section{
 }
 
 .package{
+  position:relative;
   border:2px solid #e5e7eb;
-  border-radius:15px;
-  padding:17px;
+  border-radius:16px;
+  padding:18px;
   cursor:pointer;
-  background:#fff;
+  background:white;
+  transition:.2s;
+}
+
+.package:hover{
+  transform:translateY(-2px);
 }
 
 .package.selected{
@@ -322,23 +309,39 @@ section{
   background:#f4f8ff;
 }
 
-.package-name{
+.package.selected:after{
+  content:"✓";
+  position:absolute;
+  top:12px;
+  right:13px;
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  background:#2563eb;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+.package-title{
+  font-size:16px;
   font-weight:900;
-  font-size:15px;
 }
 
 .package-price{
   color:#2563eb;
-  font-size:23px;
+  font-size:25px;
   font-weight:900;
-  margin-top:6px;
+  margin-top:5px;
 }
 
-.package-description{
-  font-size:11px;
+.package-details{
   color:#6b7280;
-  line-height:1.6;
-  margin-top:7px;
+  font-size:11px;
+  line-height:1.7;
+  margin-top:8px;
 }
 
 /* WEBSITE */
@@ -358,25 +361,25 @@ section{
   gap:12px;
 }
 
-.website-option{
+.website{
   border:2px solid #e5e7eb;
-  border-radius:15px;
+  border-radius:16px;
   padding:18px;
   text-align:center;
   cursor:pointer;
 }
 
-.website-option.selected{
+.website.selected{
   border-color:#7c3aed;
   background:#faf5ff;
 }
 
-.website-days{
+.website-title{
   font-weight:900;
 }
 
 .website-price{
-  font-size:22px;
+  font-size:24px;
   font-weight:900;
   color:#7c3aed;
   margin-top:5px;
@@ -384,37 +387,37 @@ section{
 
 /* TOTAL */
 
-.total-box{
+.total-card{
+  margin:25px 0;
+  padding:25px;
+  border-radius:18px;
   background:linear-gradient(135deg,#eef4ff,#f8fbff);
   border:2px solid #dbeafe;
-  border-radius:18px;
-  padding:23px;
-  margin:25px 0;
 }
 
 .total-label{
-  color:#6b7280;
   font-size:13px;
+  color:#6b7280;
 }
 
 .total{
   color:#2563eb;
-  font-size:38px;
+  font-size:40px;
   font-weight:900;
   margin:4px 0 12px;
 }
 
-.selected-summary{
+.selected-items{
   display:flex;
   flex-wrap:wrap;
   gap:7px;
 }
 
-.summary-tag{
-  padding:6px 9px;
-  border-radius:20px;
-  background:#fff;
+.tag{
+  background:white;
   border:1px solid #dbeafe;
+  border-radius:20px;
+  padding:6px 10px;
   font-size:11px;
   font-weight:bold;
 }
@@ -447,8 +450,8 @@ textarea{
 
 .upload{
   border:2px dashed #cbd5e1;
-  padding:22px;
   border-radius:14px;
+  padding:20px;
   text-align:center;
 }
 
@@ -469,15 +472,15 @@ textarea{
   border-radius:12px;
 }
 
-.whatsapp-btn{
+.whatsapp-button{
   width:100%;
-  padding:17px;
+  border:0;
   background:#25D366;
-  color:#fff;
-  border:none;
+  color:white;
+  padding:17px;
   border-radius:12px;
   font-size:16px;
-  font-weight:800;
+  font-weight:900;
   cursor:pointer;
 }
 
@@ -486,7 +489,7 @@ textarea{
   color:#6b7280;
   font-size:12px;
   line-height:1.7;
-  margin-top:13px;
+  margin-top:12px;
 }
 
 footer{
@@ -500,7 +503,7 @@ footer{
 @media(max-width:700px){
 
   .hero h1{
-    font-size:30px;
+    font-size:29px;
   }
 
   section{
@@ -523,17 +526,14 @@ footer{
     grid-template-columns:1fr;
   }
 
-  .small-networks{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .builder{
+  .order-box{
     padding:20px;
   }
 
 }
 </style>
 </head>
+
 
 <body>
 
@@ -558,7 +558,7 @@ footer{
 
   <p>
     Telegram, WhatsApp සහ ALapiedu.com හරහා
-    ඔබගේ දැන්වීම විශාල ප්‍රේක්ෂක පිරිසක් වෙත ගෙන යන්න.
+    ඔබගේ දැන්වීම විශාල සිසුන් පිරිසක් වෙත ගෙන යන්න.
   </p>
 
   <a href="#order" class="hero-btn">
@@ -568,7 +568,7 @@ footer{
 </section>
 
 
-<!-- NETWORKS -->
+<!-- NETWORK -->
 
 <section class="network-section">
 
@@ -577,7 +577,7 @@ footer{
     <h2>🌐 අපගේ දැන්වීම් ජාලය</h2>
 
     <p>
-      පහත නාලිකා මත click කර අදාල channel එකට පිවිසෙන්න.
+      අපගේ channels වෙත පිවිසීමට card එක click කරන්න.
     </p>
 
   </div>
@@ -585,27 +585,23 @@ footer{
 
   <div class="main-networks">
 
+
     <a
       href="https://t.me/AL_api"
       target="_blank"
-      class="main-network telegram-card"
+      class="network-card telegram"
     >
 
       <img
-        class="logo-image"
+        class="network-logo"
         src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
-        alt="Telegram"
       >
 
       <h3>AL API Telegram</h3>
 
-      <div class="live-count" id="count-al-api">
-        63,000+
+      <div class="member-count">
+        64,000+
       </div>
-
-      <span class="live">
-        ● MEMBERS
-      </span>
 
     </a>
 
@@ -613,35 +609,33 @@ footer{
     <a
       href="https://whatsapp.com/channel/0029VaandNw0bIdfgGKT6Q1D"
       target="_blank"
-      class="main-network whatsapp-card"
+      class="network-card whatsapp"
     >
 
       <img
-        class="logo-image"
+        class="network-logo"
         src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-        alt="WhatsApp"
       >
 
       <h3>WhatsApp Channel</h3>
 
-      <div class="live-count">
-        17,000+
+      <div class="member-count">
+        18,000+
       </div>
-
-      <span class="live">
-        ● SUBSCRIBERS
-      </span>
 
     </a>
 
   </div>
 
 
-  <div class="small-networks">
+  <div class="network-small">
 
-    <a href="https://t.me/mathsbio_api_Team"
-       target="_blank"
-       class="small-network">
+
+    <a
+      href="https://t.me/mathsbio_api_Team"
+      target="_blank"
+      class="small-card"
+    >
 
       <div class="small-left">
 
@@ -656,19 +650,18 @@ footer{
 
       </div>
 
-      <span
-        class="small-count"
-        id="count-mathsbio"
-      >
+      <span class="small-count">
         14,000+
       </span>
 
     </a>
 
 
-    <a href="https://t.me/chemistry_api_Team"
-       target="_blank"
-       class="small-network">
+    <a
+      href="https://t.me/chemistry_api_Team"
+      target="_blank"
+      class="small-card"
+    >
 
       <div class="small-left">
 
@@ -683,19 +676,18 @@ footer{
 
       </div>
 
-      <span
-        class="small-count"
-        id="count-chemistry"
-      >
+      <span class="small-count">
         7,000+
       </span>
 
     </a>
 
 
-    <a href="https://t.me/physics_api_Team"
-       target="_blank"
-       class="small-network">
+    <a
+      href="https://t.me/physics_api_Team"
+      target="_blank"
+      class="small-card"
+    >
 
       <div class="small-left">
 
@@ -710,19 +702,18 @@ footer{
 
       </div>
 
-      <span
-        class="small-count"
-        id="count-physics"
-      >
+      <span class="small-count">
         7,000+
       </span>
 
     </a>
 
 
-    <a href="https://t.me/ict_api_Team"
-       target="_blank"
-       class="small-network">
+    <a
+      href="https://t.me/ict_api_Team"
+      target="_blank"
+      class="small-card"
+    >
 
       <div class="small-left">
 
@@ -737,10 +728,7 @@ footer{
 
       </div>
 
-      <span
-        class="small-count"
-        id="count-ict"
-      >
+      <span class="small-count">
         5,000+
       </span>
 
@@ -751,27 +739,25 @@ footer{
 </section>
 
 
-<!-- ORDER BUILDER -->
+<!-- ORDER -->
 
-<section id="order" class="ad-section">
+<section id="order" class="order-section">
 
   <div class="title">
 
-    <h2>🛍️ ඔබගේ දැන්වීම පළ කරගන්න</h2>
+    <h2>🛍️ දැන්වීම පළ කරගන්න</h2>
 
     <p>
-      දැන්වීම පළ කිරීමට අවශ්‍ය ස්ථාන තෝරන්න
+      පහත පියවර අනුව ඔබට අවශ්‍ය සේවාව තෝරන්න.
     </p>
 
   </div>
 
 
-  <div class="builder">
+  <div class="order-box">
 
 
-    <!-- STEP 1 -->
-
-    <div class="step-title">
+    <div class="step">
       1️⃣ දැන්වීම පළ කිරීමට අවශ්‍ය ස්ථාන
     </div>
 
@@ -782,26 +768,22 @@ footer{
       <!-- TELEGRAM -->
 
       <div
-        class="platform telegram"
-        id="platformTelegram"
-        onclick="togglePlatform('telegram')"
+        id="telegramPlatform"
+        class="platform"
+        onclick="toggleTelegram()"
       >
 
-        <div class="platform-icon">
-          🔵
-        </div>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+        >
 
-        <div class="platform-name">
+        <h3>
           Telegram
-        </div>
+        </h3>
 
-        <div class="platform-price">
-          පැකේජය අනුව
-        </div>
-
-        <div class="check">
-          තෝරන්න
-        </div>
+        <p>
+          අපගේ සියලුම Telegram groups
+        </p>
 
       </div>
 
@@ -809,26 +791,22 @@ footer{
       <!-- WHATSAPP -->
 
       <div
+        id="whatsappPlatform"
         class="platform whatsapp"
-        id="platformWhatsapp"
-        onclick="togglePlatform('whatsapp')"
+        onclick="toggleWhatsapp()"
       >
 
-        <div class="platform-icon">
-          🟢
-        </div>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        >
 
-        <div class="platform-name">
+        <h3>
           WhatsApp Channel
-        </div>
+        </h3>
 
-        <div class="platform-price">
-          + රු. 2,000
-        </div>
-
-        <div class="check">
-          තෝරන්න
-        </div>
+        <p>
+          WhatsApp පමණක්
+        </p>
 
       </div>
 
@@ -836,26 +814,22 @@ footer{
       <!-- WEBSITE -->
 
       <div
+        id="websitePlatform"
         class="platform website"
-        id="platformWebsite"
-        onclick="togglePlatform('website')"
+        onclick="toggleWebsite()"
       >
 
-        <div class="platform-icon">
+        <div style="font-size:40px;margin-bottom:8px;">
           🌐
         </div>
 
-        <div class="platform-name">
+        <h3>
           ALapiedu.com
-        </div>
+        </h3>
 
-        <div class="platform-price">
-          රු. 2,000 සිට
-        </div>
-
-        <div class="check">
-          තෝරන්න
-        </div>
+        <p>
+          වෙබ් අඩවියේ දැන්වීම
+        </p>
 
       </div>
 
@@ -869,8 +843,12 @@ footer{
       class="package-area"
     >
 
-      <div class="step-title">
-        🔵 2️⃣ Telegram පැකේජය
+      <div class="step">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+          style="width:25px;vertical-align:middle;"
+        >
+        Telegram පැකේජය තෝරන්න
       </div>
 
 
@@ -879,22 +857,20 @@ footer{
 
         <div
           class="package"
-          data-price="1500"
-          data-name="Telegram - දින 3ක් Non Repost"
-          onclick="selectTelegram(this)"
+          onclick="selectTelegramPackage(this,1500,'දින 3 - Non Repost')"
         >
 
-          <div class="package-name">
-            දින 3ක් - Non Repost
+          <div class="package-title">
+            දින 3️⃣ - Non Repost
           </div>
 
           <div class="package-price">
             රු. 1,500
           </div>
 
-          <div class="package-description">
+          <div class="package-details">
 
-            ✅ ඉහත සියලුම සමූහයන්හි පළ වේ<br>
+            ✅ සියලුම Telegram සමූහයන්හි පළ වේ<br>
 
             ✅ දින 3ක් දැන්වීම pin කරනු ලැබේ
 
@@ -905,24 +881,24 @@ footer{
 
         <div
           class="package"
-          data-price="2500"
-          data-name="Telegram - දින 3ක් Repost"
-          onclick="selectTelegram(this)"
+          onclick="selectTelegramPackage(this,2500,'දින 3 - Repost')"
         >
 
-          <div class="package-name">
-            දින 3ක් - Repost
+          <div class="package-title">
+            දින 3️⃣ - Repost
           </div>
 
           <div class="package-price">
             රු. 2,500
           </div>
 
-          <div class="package-description">
+          <div class="package-details">
 
             ✅ සියලුම සමූහයන්හි පළ වේ<br>
 
-            ⭐️ 3 × 5 = වාර 15ක් පළ වේ
+            ⭐️ දින 3 ම දිනපතා පළ වේ<br>
+
+            ⭐️ 3 × 5 = වාර 15ක්
 
           </div>
 
@@ -931,22 +907,20 @@ footer{
 
         <div
           class="package"
-          data-price="2000"
-          data-name="Telegram - දින 7ක් Non Repost"
-          onclick="selectTelegram(this)"
+          onclick="selectTelegramPackage(this,2000,'දින 7 - Non Repost')"
         >
 
-          <div class="package-name">
-            දින 7ක් - Non Repost
+          <div class="package-title">
+            දින 7️⃣ - Non Repost
           </div>
 
           <div class="package-price">
             රු. 2,000
           </div>
 
-          <div class="package-description">
+          <div class="package-details">
 
-            ✅ ඉහත සියලුම සමූහයන්හි පළ වේ<br>
+            ✅ සියලුම Telegram සමූහයන්හි පළ වේ<br>
 
             ✅ දින 7ක් දැන්වීම pin කරනු ලැබේ
 
@@ -957,24 +931,24 @@ footer{
 
         <div
           class="package"
-          data-price="4000"
-          data-name="Telegram - දින 7ක් Repost"
-          onclick="selectTelegram(this)"
+          onclick="selectTelegramPackage(this,4000,'දින 7 - Repost')"
         >
 
-          <div class="package-name">
-            දින 7ක් - Repost
+          <div class="package-title">
+            දින 7️⃣ - Repost
           </div>
 
           <div class="package-price">
             රු. 4,000
           </div>
 
-          <div class="package-description">
+          <div class="package-details">
 
             ✅ සියලුම සමූහයන්හි පළ වේ<br>
 
-            ⭐️ 7 × 5 = වාර 35ක් පළ වේ<br>
+            ⭐️ දින 7 ම දිනපතා පළ වේ<br>
+
+            ⭐️ 7 × 5 = වාර 35ක්<br>
 
             ⭐️ Post customize කළ හැක
 
@@ -987,70 +961,82 @@ footer{
     </div>
 
 
-    <!-- WEBSITE -->
+    <!-- WEBSITE PACKAGES -->
 
     <div
       id="websiteArea"
-      class="website-area"
+      class="package-area"
     >
 
-      <div class="step-title">
-        🌐 3️⃣ ALapiedu.com වෙබ් අඩවියේ කාලය
+      <div class="step">
+        🌐 ALapiedu.com පැකේජය තෝරන්න
       </div>
 
 
-      <div class="website-grid">
+      <div class="package-grid">
 
 
         <div
-          class="website-option"
-          data-price="2000"
-          data-name="Website - දින 3ක්"
-          onclick="selectWebsite(this)"
+          class="package"
+          onclick="selectWebsitePackage(this,2000,'Website - දින 3')"
         >
 
-          <div class="website-days">
-            දින 3ක්
+          <div class="package-title">
+            දින 3️⃣
           </div>
 
-          <div class="website-price">
+          <div class="package-price">
             රු. 2,000
           </div>
 
+          <div class="package-details">
+
+            ✅ ALapiedu.com වෙබ් අඩවියේ පළ වේ
+
+          </div>
+
         </div>
 
 
         <div
-          class="website-option"
-          data-price="4000"
-          data-name="Website - දින 7ක්"
-          onclick="selectWebsite(this)"
+          class="package"
+          onclick="selectWebsitePackage(this,4000,'Website - දින 7')"
         >
 
-          <div class="website-days">
-            දින 7ක්
+          <div class="package-title">
+            දින 7️⃣
           </div>
 
-          <div class="website-price">
+          <div class="package-price">
             රු. 4,000
           </div>
 
+          <div class="package-details">
+
+            ✅ ALapiedu.com වෙබ් අඩවියේ පළ වේ
+
+          </div>
+
         </div>
 
 
         <div
-          class="website-option"
-          data-price="6000"
-          data-name="Website - දින 10ක්"
-          onclick="selectWebsite(this)"
+          class="package"
+          onclick="selectWebsitePackage(this,6000,'Website - දින 10')"
         >
 
-          <div class="website-days">
-            දින 10ක්
+          <div class="package-title">
+            දින 10️⃣
           </div>
 
-          <div class="website-price">
+          <div class="package-price">
             රු. 6,000
+          </div>
+
+          <div class="package-details">
+
+            ✅ ALapiedu.com වෙබ් අඩවියේ පළ වේ
+
           </div>
 
         </div>
@@ -1062,24 +1048,23 @@ footer{
 
     <!-- TOTAL -->
 
-    <div class="total-box">
+    <div class="total-card">
 
       <div class="total-label">
-        💰 ඔබ තෝරාගත් සේවාවන් සඳහා මුළු ගාස්තුව
+        💰 ඔබගේ තෝරාගැනීමේ මුළු ගාස්තුව
       </div>
 
       <div class="total">
         රු. <span id="total">0</span>
       </div>
 
-
       <div
-        class="selected-summary"
-        id="selectedSummary"
+        id="selectedItems"
+        class="selected-items"
       >
 
-        <span class="summary-tag">
-          තවම කිසිවක් තෝරා නැත
+        <span class="tag">
+          සේවාවක් තෝරන්න
         </span>
 
       </div>
@@ -1107,7 +1092,7 @@ footer{
     <div class="form-group">
 
       <label>
-        📱 ඔබගේ WhatsApp අංකය *
+        📱 WhatsApp අංකය *
       </label>
 
       <input
@@ -1137,7 +1122,7 @@ footer{
     <div class="form-group">
 
       <label>
-        🔗 දැන්වීමේ Link එක
+        🔗 Advertisement Link
       </label>
 
       <input
@@ -1152,7 +1137,7 @@ footer{
     <div class="form-group">
 
       <label>
-        🖼️ දැන්වීමේ Image එක *
+        🖼️ Advertisement Image *
       </label>
 
       <div class="upload">
@@ -1165,7 +1150,7 @@ footer{
         >
 
         <p style="font-size:13px;color:#6b7280;margin-top:8px;">
-          දැන්වීමේ Image එක තෝරන්න
+          ඔබගේ දැන්වීමේ Image එක Upload කරන්න
         </p>
 
       </div>
@@ -1174,22 +1159,18 @@ footer{
 
 
     <div
-      id="imagePreviewBox"
+      id="previewBox"
       class="preview"
     >
 
-      <p style="font-weight:bold;margin-bottom:8px;">
-        Image Preview
-      </p>
-
-      <img id="imagePreview">
+      <img id="previewImage">
 
     </div>
 
 
     <button
-      class="whatsapp-btn"
-      onclick="sendWhatsAppOrder()"
+      class="whatsapp-button"
+      onclick="sendOrder()"
     >
       📲 WhatsApp හරහා ඇණවුම යවන්න
     </button>
@@ -1198,8 +1179,7 @@ footer{
     <p class="note">
 
       ඇණවුම යැවීමෙන් පසු WhatsApp විවෘත වේ.<br>
-
-      දැන්වීමේ Image එක WhatsApp එකට attach කර යවන්න.
+      Image එක WhatsApp message එකට attach කර යවන්න.
 
     </p>
 
@@ -1209,107 +1189,101 @@ footer{
 
 
 <footer>
-
-  © 2026 AL API 🇱🇰 | ALapiedu.com
-
+  AL API 🇱🇰 | ALapiedu.com
 </footer>
 
 
 <script>
 
-let telegramSelected = false;
-
-let whatsappSelected = false;
-
-let websiteSelected = false;
+let telegram = false;
+let whatsapp = false;
+let website = false;
 
 let telegramPrice = 0;
-
 let telegramName = "";
 
 let websitePrice = 0;
-
 let websiteName = "";
 
 
-/* =========================
-   PLATFORM
-========================= */
+/* TELEGRAM */
 
-function togglePlatform(platform){
+function toggleTelegram(){
 
-  if(platform === "telegram"){
+  telegram = !telegram;
 
-    telegramSelected =
-      !telegramSelected;
+  document
+    .getElementById("telegramPlatform")
+    .classList.toggle(
+      "selected",
+      telegram
+    );
 
-    document
-      .getElementById("platformTelegram")
-      .classList.toggle(
-        "selected",
-        telegramSelected
-      );
+  document
+    .getElementById("telegramArea")
+    .classList.toggle(
+      "show",
+      telegram
+    );
 
-    document
-      .getElementById("telegramArea")
-      .classList.toggle(
-        "show",
-        telegramSelected
-      );
-
-  }
-
-
-  if(platform === "whatsapp"){
-
-    whatsappSelected =
-      !whatsappSelected;
-
-    document
-      .getElementById("platformWhatsapp")
-      .classList.toggle(
-        "selected",
-        whatsappSelected
-      );
-
-  }
-
-
-  if(platform === "website"){
-
-    websiteSelected =
-      !websiteSelected;
-
-    document
-      .getElementById("platformWebsite")
-      .classList.toggle(
-        "selected",
-        websiteSelected
-      );
-
-    document
-      .getElementById("websiteArea")
-      .classList.toggle(
-        "show",
-        websiteSelected
-      );
-
-  }
-
-
-  calculateTotal();
+  calculate();
 
 }
 
 
-/* =========================
-   TELEGRAM PACKAGE
-========================= */
+/* WHATSAPP */
 
-function selectTelegram(card){
+function toggleWhatsapp(){
+
+  whatsapp = !whatsapp;
 
   document
-    .querySelectorAll(".package")
+    .getElementById("whatsappPlatform")
+    .classList.toggle(
+      "selected",
+      whatsapp
+    );
+
+  calculate();
+
+}
+
+
+/* WEBSITE */
+
+function toggleWebsite(){
+
+  website = !website;
+
+  document
+    .getElementById("websitePlatform")
+    .classList.toggle(
+      "selected",
+      website
+    );
+
+  document
+    .getElementById("websiteArea")
+    .classList.toggle(
+      "show",
+      website
+    );
+
+  calculate();
+
+}
+
+
+/* TELEGRAM PACKAGE */
+
+function selectTelegramPackage(
+  element,
+  price,
+  name
+){
+
+  document
+    .querySelectorAll("#telegramArea .package")
     .forEach(function(item){
 
       item.classList.remove(
@@ -1319,36 +1293,29 @@ function selectTelegram(card){
     });
 
 
-  card.classList.add(
+  element.classList.add(
     "selected"
   );
 
 
-  telegramPrice =
-    Number(
-      card.dataset.price
-    );
+  telegramPrice = price;
+  telegramName = name;
 
-
-  telegramName =
-    card.dataset.name;
-
-
-  calculateTotal();
+  calculate();
 
 }
 
 
-/* =========================
-   WEBSITE PACKAGE
-========================= */
+/* WEBSITE PACKAGE */
 
-function selectWebsite(card){
+function selectWebsitePackage(
+  element,
+  price,
+  name
+){
 
   document
-    .querySelectorAll(
-      ".website-option"
-    )
+    .querySelectorAll("#websiteArea .package")
     .forEach(function(item){
 
       item.classList.remove(
@@ -1358,45 +1325,41 @@ function selectWebsite(card){
     });
 
 
-  card.classList.add(
+  element.classList.add(
     "selected"
   );
 
 
-  websitePrice =
-    Number(
-      card.dataset.price
-    );
+  websitePrice = price;
+  websiteName = name;
 
-
-  websiteName =
-    card.dataset.name;
-
-
-  calculateTotal();
+  calculate();
 
 }
 
 
-/* =========================
-   TOTAL
-========================= */
+/* TOTAL */
 
-function calculateTotal(){
+function calculate(){
 
   let total = 0;
 
-  let summary = [];
+  let items = [];
 
 
-  if(telegramSelected){
+  /*
+    Telegram package
+  */
+
+  if(telegram){
 
     total += telegramPrice;
 
     if(telegramName){
 
-      summary.push(
-        "🔵 " + telegramName
+      items.push(
+        "🔵 Telegram - " +
+        telegramName
       );
 
     }
@@ -1404,25 +1367,52 @@ function calculateTotal(){
   }
 
 
-  if(whatsappSelected){
+  /*
+    WhatsApp
 
-    total += 2000;
+    IMPORTANT:
+    WhatsApp ONLY = Rs.3000
+    With Telegram/Website = Rs.2000
+  */
 
-    summary.push(
-      "🟢 WhatsApp Channel - Rs. 2,000"
+  if(whatsapp){
+
+    let whatsappPrice = 2000;
+
+    if(
+      !telegram &&
+      !website
+    ){
+
+      whatsappPrice = 3000;
+
+    }
+
+
+    total += whatsappPrice;
+
+
+    items.push(
+      "🟢 WhatsApp - Rs. " +
+      whatsappPrice.toLocaleString()
     );
 
   }
 
 
-  if(websiteSelected){
+  /*
+    Website
+  */
+
+  if(website){
 
     total += websitePrice;
 
     if(websiteName){
 
-      summary.push(
-        "🌐 " + websiteName
+      items.push(
+        "🌐 " +
+        websiteName
       );
 
     }
@@ -1436,29 +1426,28 @@ function calculateTotal(){
     total.toLocaleString();
 
 
-  const summaryBox =
+  const box =
     document.getElementById(
-      "selectedSummary"
+      "selectedItems"
     );
 
 
-  if(summary.length === 0){
+  if(items.length === 0){
 
-    summaryBox.innerHTML =
-
-      `<span class="summary-tag">
-        තවම කිසිවක් තෝරා නැත
+    box.innerHTML =
+      `<span class="tag">
+        සේවාවක් තෝරන්න
       </span>`;
 
   }
 
   else{
 
-    summaryBox.innerHTML =
-      summary.map(function(item){
+    box.innerHTML =
+      items.map(function(item){
 
         return `
-          <span class="summary-tag">
+          <span class="tag">
             ${item}
           </span>
         `;
@@ -1470,9 +1459,7 @@ function calculateTotal(){
 }
 
 
-/* =========================
-   IMAGE PREVIEW
-========================= */
+/* IMAGE */
 
 function previewImage(event){
 
@@ -1481,16 +1468,12 @@ function previewImage(event){
 
 
   if(!file){
-
     return;
-
   }
 
 
   if(
-    !file.type.startsWith(
-      "image/"
-    )
+    !file.type.startsWith("image/")
   ){
 
     alert(
@@ -1512,13 +1495,13 @@ function previewImage(event){
     function(e){
 
       document.getElementById(
-        "imagePreview"
+        "previewImage"
       ).src =
         e.target.result;
 
 
       document.getElementById(
-        "imagePreviewBox"
+        "previewBox"
       ).style.display =
         "block";
 
@@ -1530,11 +1513,9 @@ function previewImage(event){
 }
 
 
-/* =========================
-   WHATSAPP ORDER
-========================= */
+/* SEND WHATSAPP */
 
-function sendWhatsAppOrder(){
+function sendOrder(){
 
   const name =
     document.getElementById(
@@ -1573,13 +1554,13 @@ function sendWhatsAppOrder(){
 
 
   if(
-    !telegramSelected &&
-    !whatsappSelected &&
-    !websiteSelected
+    !telegram &&
+    !whatsapp &&
+    !website
   ){
 
     alert(
-      "කරුණාකර දැන්වීම පළ කිරීමට අවශ්‍ය ස්ථානයක් තෝරන්න."
+      "කරුණාකර දැන්වීම පළ කිරීමට අවශ්‍ය ස්ථානය තෝරන්න."
     );
 
     return;
@@ -1588,12 +1569,12 @@ function sendWhatsAppOrder(){
 
 
   if(
-    telegramSelected &&
+    telegram &&
     telegramPrice === 0
   ){
 
     alert(
-      "කරුණාකර Telegram පැකේජයක් තෝරන්න."
+      "කරුණාකර Telegram package එකක් තෝරන්න."
     );
 
     return;
@@ -1602,12 +1583,12 @@ function sendWhatsAppOrder(){
 
 
   if(
-    websiteSelected &&
+    website &&
     websitePrice === 0
   ){
 
     alert(
-      "කරුණාකර Website කාලය තෝරන්න."
+      "කරුණාකර Website package එකක් තෝරන්න."
     );
 
     return;
@@ -1623,7 +1604,7 @@ function sendWhatsAppOrder(){
   ){
 
     alert(
-      "කරුණාකර නම, WhatsApp අංකය, Caption එක සහ Image එක ලබා දෙන්න."
+      "කරුණාකර අවශ්‍ය සියලුම තොරතුරු පුරවන්න."
     );
 
     return;
@@ -1631,31 +1612,44 @@ function sendWhatsAppOrder(){
   }
 
 
-  let platforms = [];
+  let services = [];
 
 
-  if(telegramSelected){
+  if(telegram){
 
-    platforms.push(
-      telegramName
+    services.push(
+      "🔵 Telegram: " +
+      telegramName +
+      " - Rs. " +
+      telegramPrice.toLocaleString()
     );
 
   }
 
 
-  if(whatsappSelected){
+  if(whatsapp){
 
-    platforms.push(
-      "WhatsApp Channel - Rs. 2,000"
+    let wp = 2000;
+
+    if(!telegram && !website){
+      wp = 3000;
+    }
+
+    services.push(
+      "🟢 WhatsApp: Rs. " +
+      wp.toLocaleString()
     );
 
   }
 
 
-  if(websiteSelected){
+  if(website){
 
-    platforms.push(
-      websiteName
+    services.push(
+      "🌐 Website: " +
+      websiteName +
+      " - Rs. " +
+      websitePrice.toLocaleString()
     );
 
   }
@@ -1666,7 +1660,7 @@ function sendWhatsAppOrder(){
 `🛍️ AL API 🇱🇰
 නව දැන්වීම් ඇණවුම
 
-━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━
 
 👤 නම:
 ${name}
@@ -1674,28 +1668,28 @@ ${name}
 📱 WhatsApp:
 ${phone}
 
-📢 පළ කිරීමට අවශ්‍ය ස්ථාන:
-${platforms.join("\n")}
+📢 තෝරාගත් සේවාවන්:
+
+${services.join("\n")}
 
 💰 මුළු ගාස්තුව:
-රු. ${total}
+Rs. ${total}
 
-📝 Advertisement Caption:
+📝 Caption:
 ${caption}
 
-🔗 Advertisement Link:
-${link || "ලබා දී නැත"}
+🔗 Link:
+${link || "නැත"}
 
 🖼️ Advertisement Image:
-WhatsApp හරහා attach කරමි.
+Image එක attach කරමි.
 
-━━━━━━━━━━━━━━━━
-
+━━━━━━━━━━━━━━
 AL API 🇱🇰
 Advertising Network`;
 
 
-  const whatsappURL =
+  const url =
     "https://wa.me/94782419390?text=" +
     encodeURIComponent(
       message
@@ -1703,127 +1697,11 @@ Advertising Network`;
 
 
   window.open(
-    whatsappURL,
+    url,
     "_blank"
   );
 
 }
-
-
-/* =========================
-   LIVE TELEGRAM API
-========================= */
-
-const LIVE_API =
-  "/api/counts";
-
-
-async function loadLiveCounts(){
-
-  try{
-
-    const response =
-      await fetch(
-        LIVE_API
-      );
-
-
-    if(!response.ok){
-
-      throw new Error(
-        "API Error"
-      );
-
-    }
-
-
-    const data =
-      await response.json();
-
-
-    if(data.al_api){
-
-      document.getElementById(
-        "count-al-api"
-      ).textContent =
-        Number(
-          data.al_api
-        ).toLocaleString()
-        + "+";
-
-    }
-
-
-    if(data.mathsbio){
-
-      document.getElementById(
-        "count-mathsbio"
-      ).textContent =
-        Number(
-          data.mathsbio
-        ).toLocaleString()
-        + "+";
-
-    }
-
-
-    if(data.chemistry){
-
-      document.getElementById(
-        "count-chemistry"
-      ).textContent =
-        Number(
-          data.chemistry
-        ).toLocaleString()
-        + "+";
-
-    }
-
-
-    if(data.physics){
-
-      document.getElementById(
-        "count-physics"
-      ).textContent =
-        Number(
-          data.physics
-        ).toLocaleString()
-        + "+";
-
-    }
-
-
-    if(data.ict){
-
-      document.getElementById(
-        "count-ict"
-      ).textContent =
-        Number(
-          data.ict
-        ).toLocaleString()
-        + "+";
-
-    }
-
-  }
-
-  catch(error){
-
-    console.log(
-      "Live count unavailable"
-    );
-
-  }
-
-}
-
-
-loadLiveCounts();
-
-setInterval(
-  loadLiveCounts,
-  60000
-);
 
 </script>
 
