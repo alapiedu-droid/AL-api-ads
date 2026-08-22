@@ -7,6 +7,10 @@
 
 <title>AL අපි 🇱🇰 Advertising | Buy Ads</title>
 
+<!-- PDF LIBRARIES -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+
 <style>
 
 *{
@@ -170,7 +174,6 @@ header{
     font-size:17px;
 }
 
-
 /* =========================
    HERO
 ========================= */
@@ -236,7 +239,6 @@ header{
     0 8px 22px rgba(37,99,235,.2);
 }
 
-
 /* =========================
    SECTION
 ========================= */
@@ -263,7 +265,6 @@ section{
     color:#6b7280;
     font-size:14px;
 }
-
 
 /* =========================
    MAIN NETWORKS
@@ -336,7 +337,6 @@ section{
     color:#16a34a;
 }
 
-
 /* =========================
    SMALL GROUPS
 ========================= */
@@ -357,8 +357,6 @@ section{
     justify-content:space-between;
     align-items:center;
 
-    min-width:0;
-
     padding:11px 13px;
 
     background:#f8fafc;
@@ -370,6 +368,8 @@ section{
     text-decoration:none;
 
     color:#111827;
+
+    min-width:0;
 }
 
 .small-left{
@@ -397,25 +397,20 @@ section{
 }
 
 .small-count{
-    font-size:11px;
-
+    font-size:12px;
     color:#229ED9;
-
-    font-weight:900;
-
-    background:#eaf7ff;
-
-    border:1px solid #ccecff;
-
-    border-radius:7px;
-
-    padding:4px 6px;
+    font-weight:bold;
 
     white-space:nowrap;
 
     flex-shrink:0;
-}
 
+    background:#eef8ff;
+
+    padding:4px 7px;
+
+    border-radius:7px;
+}
 
 /* =========================
    ORDER
@@ -447,7 +442,6 @@ section{
     font-weight:900;
     margin-bottom:17px;
 }
-
 
 /* =========================
    PLATFORM SELECT
@@ -515,7 +509,6 @@ section{
     margin-top:5px;
 }
 
-
 /* =========================
    PACKAGES
 ========================= */
@@ -560,6 +553,9 @@ section{
 .package.selected{
     border-color:#2563eb;
     background:#f4f8ff;
+
+    box-shadow:
+    0 8px 22px rgba(37,99,235,.10);
 }
 
 .package.selected:after{
@@ -610,13 +606,12 @@ section{
     margin-top:8px;
 }
 
-
 /* =========================
-   TOTAL CARD
+   TOTAL
 ========================= */
 
 .total-card{
-    margin:25px 0;
+    margin:25px 0 14px;
 
     padding:25px;
 
@@ -631,7 +626,8 @@ section{
 
     border:2px solid #dbeafe;
 
-    box-shadow:0 8px 25px rgba(37,99,235,.08);
+    box-shadow:
+    0 8px 25px rgba(37,99,235,.07);
 }
 
 .total-label{
@@ -648,64 +644,6 @@ section{
     font-weight:900;
 
     margin:4px 0 12px;
-}
-
-.discount-box{
-    display:none;
-
-    margin:10px 0 15px;
-
-    padding:12px 15px;
-
-    background:#f0fdf4;
-
-    border:1px solid #bbf7d0;
-
-    border-radius:12px;
-}
-
-.discount-box.show{
-    display:block;
-}
-
-.original-total{
-    color:#dc2626;
-
-    text-decoration:line-through;
-
-    font-size:20px;
-
-    font-weight:800;
-
-    margin-right:8px;
-}
-
-.discount-label{
-    color:#15803d;
-
-    font-size:12px;
-
-    font-weight:900;
-
-    margin-bottom:3px;
-}
-
-.discount-price{
-    color:#15803d;
-
-    font-size:30px;
-
-    font-weight:900;
-}
-
-.discount-save{
-    color:#166534;
-
-    font-size:11px;
-
-    font-weight:bold;
-
-    margin-top:3px;
 }
 
 .selected-items{
@@ -730,16 +668,347 @@ section{
     font-weight:bold;
 }
 
-
 /* =========================
-   QUOTATION BUTTON
+   DISCOUNT SUMMARY
 ========================= */
 
-.quotation-area{
-    margin:20px 0 28px;
+.discount-summary{
+    display:none;
+
+    margin-top:15px;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+}
+
+.discount-summary.show{
+    display:block;
+}
+
+.original-price{
+    color:#6b7280;
+
+    font-size:14px;
+
+    font-weight:bold;
+}
+
+.original-price span{
+    color:#dc2626;
+
+    text-decoration:
+    line-through;
+
+    text-decoration-thickness:2px;
+}
+
+.discount-line{
+    margin-top:7px;
+
+    color:#dc2626;
+
+    font-size:13px;
+
+    font-weight:900;
+}
+
+.discount-price{
+    margin-top:5px;
+
+    color:#16a34a;
+
+    font-size:27px;
+
+    font-weight:900;
+}
+
+/* =========================
+   QUOTATION PREVIEW
+========================= */
+
+.quotation-preview-wrap{
+    margin-top:22px;
+}
+
+.quotation-preview-title{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-bottom:10px;
+}
+
+.quotation-preview-title h3{
+    font-size:17px;
+    font-weight:900;
+}
+
+.preview-badge{
+    background:#eef2ff;
+    color:#4f46e5;
+
+    padding:5px 9px;
+
+    border-radius:20px;
+
+    font-size:10px;
+
+    font-weight:900;
+}
+
+.quotation-preview{
+    background:#fff;
+
+    border:1px solid #dbe3ef;
+
+    border-radius:16px;
+
+    padding:22px;
+
+    box-shadow:
+    0 8px 28px rgba(15,23,42,.08);
+
+    overflow:hidden;
+}
+
+.q-header{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:flex-start;
+
+    gap:15px;
+
+    padding-bottom:16px;
+
+    border-bottom:2px solid #eef2f7;
+}
+
+.q-brand{
+    font-size:18px;
+
+    font-weight:900;
+
+    color:#2563eb;
+}
+
+.q-brand-sub{
+    color:#6b7280;
+
+    font-size:10px;
+
+    margin-top:4px;
+}
+
+.q-title{
+    text-align:right;
+
+    font-size:18px;
+
+    font-weight:900;
+
+    color:#111827;
+}
+
+.q-date{
+    color:#6b7280;
+
+    font-size:9px;
+
+    margin-top:4px;
+}
+
+.q-customer{
+    margin-top:17px;
+
+    padding:13px;
+
+    background:#f8fafc;
+
+    border-radius:11px;
+}
+
+.q-customer strong{
+    display:block;
+
+    font-size:12px;
+
+    margin-bottom:6px;
+}
+
+.q-customer div{
+    font-size:11px;
+
+    color:#4b5563;
+
+    line-height:1.7;
+}
+
+.q-services{
+    margin-top:17px;
+}
+
+.q-services-title{
+    font-size:12px;
+
+    font-weight:900;
+
+    margin-bottom:8px;
+}
+
+.q-service{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:9px 0;
+
+    border-bottom:1px solid #eef2f7;
+
+    font-size:11px;
+}
+
+.q-service-price{
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+.q-total-box{
+    margin-top:16px;
+
+    padding:15px;
+
+    border-radius:13px;
+
+    background:#f8fafc;
+}
+
+.q-total-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:11px;
+
+    margin-bottom:7px;
+}
+
+.q-old-total{
+    color:#dc2626;
+
+    text-decoration:line-through;
+
+    text-decoration-thickness:2px;
+
+    font-weight:900;
+}
+
+.q-discount{
+    color:#dc2626;
+
+    font-weight:900;
+}
+
+.q-final-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:10px;
+
+    padding-top:10px;
+
+    border-top:2px solid #e5e7eb;
+}
+
+.q-final-label{
+    font-size:13px;
+
+    font-weight:900;
+}
+
+.q-final-price{
+    color:#16a34a;
+
+    font-size:22px;
+
+    font-weight:900;
+}
+
+.q-caption{
+    margin-top:15px;
+
+    padding-top:13px;
+
+    border-top:1px solid #eef2f7;
+}
+
+.q-caption-title{
+    font-size:11px;
+
+    font-weight:900;
+
+    margin-bottom:5px;
+}
+
+.q-caption-text{
+    font-size:10px;
+
+    color:#4b5563;
+
+    line-height:1.6;
+
+    white-space:pre-wrap;
+
+    word-break:break-word;
+}
+
+.q-link{
+    margin-top:10px;
+
+    font-size:10px;
+
+    color:#2563eb;
+
+    word-break:break-all;
+}
+
+.q-footer{
+    margin-top:17px;
+
+    padding-top:12px;
+
+    border-top:1px solid #eef2f7;
 
     text-align:center;
+
+    color:#9ca3af;
+
+    font-size:9px;
 }
+
+/* =========================
+   DOWNLOAD BUTTON
+========================= */
 
 .quotation-button{
     width:100%;
@@ -755,9 +1024,9 @@ section{
 
     color:white;
 
-    padding:15px 18px;
+    padding:16px;
 
-    border-radius:13px;
+    border-radius:12px;
 
     font-size:15px;
 
@@ -765,8 +1034,10 @@ section{
 
     cursor:pointer;
 
+    margin:0 0 12px;
+
     box-shadow:
-    0 8px 22px rgba(17,24,39,.16);
+    0 8px 20px rgba(17,24,39,.16);
 
     transition:.2s;
 }
@@ -782,14 +1053,10 @@ section{
     );
 }
 
-.quotation-note{
-    color:#6b7280;
-
-    font-size:11px;
-
-    margin-top:8px;
+.quotation-button:disabled{
+    opacity:.65;
+    cursor:wait;
 }
-
 
 /* =========================
    FORM
@@ -820,6 +1087,14 @@ textarea{
     font-size:15px;
 
     outline:none;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#2563eb;
+
+    box-shadow:
+    0 0 0 3px rgba(37,99,235,.08);
 }
 
 textarea{
@@ -887,7 +1162,6 @@ textarea{
     margin-top:12px;
 }
 
-
 /* =========================
    FOOTER
 ========================= */
@@ -903,7 +1177,6 @@ footer{
 
     font-size:13px;
 }
-
 
 /* =========================
    MOBILE
@@ -952,71 +1225,28 @@ footer{
         grid-template-columns:1fr 1fr;
     }
 
-    .small-card{
-        padding:9px 8px;
-    }
-
-    .small-name{
-        font-size:10px;
-    }
-
-    .small-count{
-        font-size:9px;
-        padding:3px 4px;
-    }
-
     .order-box{
         padding:20px;
     }
 
-}
-
-
-/* =========================
-   PRINT / A4 QUOTATION
-========================= */
-
-@media print{
-
-    @page{
-        size:A4;
-        margin:0;
+    .quotation-preview{
+        padding:16px;
     }
 
-    body{
-        background:white;
+    .q-header{
+        flex-direction:column;
     }
 
-    body *{
-        visibility:hidden;
+    .q-title{
+        text-align:left;
     }
 
-    #quotationPrint,
-    #quotationPrint *{
-        visibility:visible;
-    }
-
-    #quotationPrint{
-        position:absolute;
-
-        left:0;
-        top:0;
-
-        width:210mm;
-        min-height:297mm;
-
-        display:block !important;
-
-        background:white;
-    }
 }
 
 </style>
 </head>
 
-
 <body>
-
 
 <!-- =========================
      HEADER
@@ -1048,7 +1278,6 @@ Advertise • Reach • Grow
 
 </a>
 
-
 <a href="#order" class="buy-button">
 
 <span class="cart">🛒</span>
@@ -1059,7 +1288,6 @@ Buy Ads
 
 </header>
 
-
 <!-- =========================
      HERO
 ========================= -->
@@ -1068,9 +1296,9 @@ Buy Ads
 
 <h1>
 
-ඔබේ දැන්වීම
-<span>විශාල පිරිසක්</span>
-වෙත ගෙන යන්න 🚀
+<strong>ඔබේ දැන්වීම</strong>
+<span><strong>විශාල පිරිසක්</strong></span>
+<strong>වෙත ගෙන යන්න</strong> 🚀
 
 </h1>
 
@@ -1091,7 +1319,6 @@ ALapiedu.com හරහා
 
 </section>
 
-
 <!-- =========================
      NETWORK
 ========================= -->
@@ -1110,9 +1337,7 @@ ALapiedu.com හරහා
 
 </div>
 
-
 <div class="main-networks">
-
 
 <a
 href="https://t.me/AL_api"
@@ -1134,7 +1359,6 @@ AL අපි 🇱🇰
 </div>
 
 </a>
-
 
 <a
 href="https://whatsapp.com/channel/0029VaandNw0bIdfgGKT6Q1D"
@@ -1159,9 +1383,9 @@ WhatsApp Channel
 
 </div>
 
+<!-- SMALL GROUPS -->
 
 <div class="network-small">
-
 
 <a
 href="https://t.me/mathsbio_api_Team"
@@ -1188,7 +1412,6 @@ Maths Bio අපි
 
 </a>
 
-
 <a
 href="https://t.me/chemistry_api_Team"
 target="_blank"
@@ -1213,7 +1436,6 @@ Chemistry අපි
 </span>
 
 </a>
-
 
 <a
 href="https://t.me/physics_api_Team"
@@ -1240,7 +1462,6 @@ Physics අපි
 
 </a>
 
-
 <a
 href="https://t.me/ict_api_Team"
 target="_blank"
@@ -1266,11 +1487,9 @@ ICT අපි
 
 </a>
 
-
 </div>
 
 </section>
-
 
 <!-- =========================
      ORDER
@@ -1290,9 +1509,7 @@ ICT අපි
 
 </div>
 
-
 <div class="order-box">
-
 
 <div class="step">
 
@@ -1300,9 +1517,9 @@ ICT අපි
 
 </div>
 
-
 <div class="platform-grid">
 
+<!-- TELEGRAM -->
 
 <div
 id="telegramPlatform"
@@ -1324,6 +1541,7 @@ Telegram
 
 </div>
 
+<!-- WHATSAPP -->
 
 <div
 id="whatsappPlatform"
@@ -1345,6 +1563,7 @@ WhatsApp පමණක්
 
 </div>
 
+<!-- WEBSITE -->
 
 <div
 id="websitePlatform"
@@ -1371,11 +1590,11 @@ ALapiedu.com
 
 </div>
 
-
 </div>
 
-
-<!-- TELEGRAM PACKAGES -->
+<!-- =========================
+     TELEGRAM PACKAGES
+========================= -->
 
 <div
 id="telegramArea"
@@ -1396,9 +1615,7 @@ Telegram පැකේජය තෝරන්න
 
 </div>
 
-
 <div class="package-grid">
-
 
 <div
 class="package"
@@ -1427,7 +1644,6 @@ this,
 </div>
 
 </div>
-
 
 <div
 class="package"
@@ -1459,7 +1675,6 @@ this,
 
 </div>
 
-
 <div
 class="package"
 onclick="
@@ -1487,7 +1702,6 @@ this,
 </div>
 
 </div>
-
 
 <div
 class="package"
@@ -1520,13 +1734,13 @@ this,
 
 </div>
 
-
 </div>
 
 </div>
 
-
-<!-- WEBSITE PACKAGES -->
+<!-- =========================
+     WEBSITE PACKAGES
+========================= -->
 
 <div
 id="websiteArea"
@@ -1539,9 +1753,7 @@ class="package-area"
 
 </div>
 
-
 <div class="package-grid">
-
 
 <div
 class="package"
@@ -1570,7 +1782,6 @@ this,
 
 </div>
 
-
 <div
 class="package"
 onclick="
@@ -1597,7 +1808,6 @@ this,
 </div>
 
 </div>
-
 
 <div
 class="package"
@@ -1626,11 +1836,9 @@ this,
 
 </div>
 
-
 </div>
 
 </div>
-
 
 <!-- =========================
      TOTAL
@@ -1646,43 +1854,6 @@ this,
 රු. <span id="total">0</span>
 </div>
 
-
-<div
-id="discountBox"
-class="discount-box"
->
-
-<div class="discount-label">
-🎉 විශේෂ පැකේජ් වට්ටම
-</div>
-
-<div>
-
-<span
-id="originalTotal"
-class="original-total"
->
-රු. 0
-</span>
-
-<span
-id="discountPrice"
-class="discount-price"
->
-රු. 0
-</span>
-
-</div>
-
-<div
-id="discountSave"
-class="discount-save"
->
-</div>
-
-</div>
-
-
 <div id="selectedItems" class="selected-items">
 
 <span class="tag">
@@ -1691,30 +1862,239 @@ class="discount-save"
 
 </div>
 
+<div
+id="discountSummary"
+class="discount-summary"
+>
+
+<div class="original-price">
+Original Total:
+<span id="originalTotal">
+රු. 0
+</span>
 </div>
 
+<div class="discount-line">
+🎁 Discount:
+<span id="discountAmount">
+රු. 0
+</span>
+</div>
+
+<div class="discount-price">
+Discount Price:
+රු. <span id="discountTotal">0</span>
+</div>
+
+</div>
+
+</div>
 
 <!-- =========================
-     QUOTATION BUTTON
+     QUOTATION PREVIEW
 ========================= -->
 
-<div class="quotation-area">
+<div class="quotation-preview-wrap">
+
+<div class="quotation-preview-title">
+
+<h3>
+📄 Quotation Preview
+</h3>
+
+<span class="preview-badge">
+A4 PDF
+</span>
+
+</div>
+
+<div
+id="quotationPreview"
+class="quotation-preview"
+>
+
+<div class="q-header">
+
+<div>
+
+<div class="q-brand">
+AL අපි 🇱🇰 Advertising
+</div>
+
+<div class="q-brand-sub">
+Advertise • Reach • Grow
+</div>
+
+</div>
+
+<div>
+
+<div class="q-title">
+QUOTATION
+</div>
+
+<div
+id="qDate"
+class="q-date"
+>
+Date: --
+</div>
+
+</div>
+
+</div>
+
+<div class="q-customer">
+
+<strong>
+CUSTOMER DETAILS
+</strong>
+
+<div>
+Name:
+<span id="qName">
+Not provided
+</span>
+</div>
+
+<div>
+WhatsApp:
+<span id="qPhone">
+Not provided
+</span>
+</div>
+
+</div>
+
+<div class="q-services">
+
+<div class="q-services-title">
+SELECTED SERVICES
+</div>
+
+<div id="qServices">
+
+<div class="q-service">
+
+<span>
+No service selected
+</span>
+
+<span class="q-service-price">
+Rs. 0
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="q-total-box">
+
+<div class="q-total-row">
+
+<span>
+Original Total
+</span>
+
+<span
+id="qOriginal"
+class="q-old-total"
+>
+Rs. 0
+</span>
+
+</div>
+
+<div
+id="qDiscountRow"
+class="q-total-row"
+style="display:none;"
+>
+
+<span>
+Discount
+</span>
+
+<span
+id="qDiscount"
+class="q-discount"
+>
+- Rs. 0
+</span>
+
+</div>
+
+<div class="q-final-row">
+
+<span class="q-final-label">
+FINAL TOTAL
+</span>
+
+<span
+id="qFinal"
+class="q-final-price"
+>
+Rs. 0
+</span>
+
+</div>
+
+</div>
+
+<div
+id="qCaptionBox"
+class="q-caption"
+style="display:none;"
+>
+
+<div class="q-caption-title">
+Advertisement Caption
+</div>
+
+<div
+id="qCaption"
+class="q-caption-text"
+>
+</div>
+
+</div>
+
+<div
+id="qLinkBox"
+class="q-link"
+style="display:none;"
+>
+
+🔗 <span id="qLink"></span>
+
+</div>
+
+<div class="q-footer">
+
+AL අපි 🇱🇰 Advertising |
+ALapiedu.com
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================
+     DOWNLOAD QUOTATION
+========================= -->
 
 <button
+id="quotationButton"
 class="quotation-button"
 onclick="downloadQuotation()"
 >
 
-📄 Quotation බලන්න / Save as PDF
+📄 Download Quotation PDF
 
 </button>
-
-<p class="quotation-note">
-Quotation එක A4 size එකට print හෝ PDF ලෙස save කළ හැක.
-</p>
-
-</div>
-
 
 <!-- =========================
      CUSTOMER
@@ -1730,10 +2110,10 @@ Quotation එක A4 size එකට print හෝ PDF ලෙස save කළ හැ
 id="customerName"
 type="text"
 placeholder="ඔබගේ නම"
+oninput="updateQuotationPreview()"
 >
 
 </div>
-
 
 <div class="form-group">
 
@@ -1745,10 +2125,10 @@ placeholder="ඔබගේ නම"
 id="customerPhone"
 type="tel"
 placeholder="07XXXXXXXX"
+oninput="updateQuotationPreview()"
 >
 
 </div>
-
 
 <div class="form-group">
 
@@ -1760,10 +2140,10 @@ placeholder="07XXXXXXXX"
 id="caption"
 rows="7"
 placeholder="ඔබගේ දැන්වීමේ caption එක..."
+oninput="updateQuotationPreview()"
 ></textarea>
 
 </div>
-
 
 <div class="form-group">
 
@@ -1775,10 +2155,10 @@ placeholder="ඔබගේ දැන්වීමේ caption එක..."
 id="adLink"
 type="url"
 placeholder="https://..."
+oninput="updateQuotationPreview()"
 >
 
 </div>
-
 
 <div class="form-group">
 
@@ -1809,7 +2189,6 @@ margin-top:8px;
 
 </div>
 
-
 <div
 id="previewBox"
 class="preview"
@@ -1818,7 +2197,6 @@ class="preview"
 <img id="previewImage">
 
 </div>
-
 
 <button
 class="whatsapp-button"
@@ -1829,7 +2207,6 @@ onclick="sendOrder()"
 
 </button>
 
-
 <p class="note">
 
 ඇණවුම යැවීමෙන් පසු WhatsApp විවෘත වේ.<br>
@@ -1837,11 +2214,9 @@ Image එක WhatsApp message එකට attach කර යවන්න.
 
 </p>
 
-
 </div>
 
 </section>
-
 
 <footer>
 
@@ -1850,381 +2225,7 @@ ALapiedu.com
 
 </footer>
 
-
-<!-- =========================
-     HIDDEN A4 QUOTATION
-========================= -->
-
-<div
-id="quotationPrint"
-style="
-display:none;
-width:210mm;
-min-height:297mm;
-padding:18mm;
-background:white;
-color:#111827;
-"
->
-
-<div
-style="
-border:1px solid #e5e7eb;
-border-radius:18px;
-padding:12mm;
-min-height:260mm;
-"
->
-
-<div
-style="
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-border-bottom:2px solid #2563eb;
-padding-bottom:7mm;
-margin-bottom:9mm;
-"
->
-
-<div>
-
-<div
-style="
-font-size:25px;
-font-weight:900;
-"
->
-AL අපි 🇱🇰
-</div>
-
-<div
-style="
-font-size:18px;
-font-weight:900;
-color:#2563eb;
-margin-top:3px;
-"
->
-Advertising
-</div>
-
-<div
-style="
-font-size:11px;
-color:#6b7280;
-margin-top:5px;
-"
->
-Advertise • Reach • Grow
-</div>
-
-</div>
-
-
-<div style="text-align:right;">
-
-<div
-style="
-font-size:25px;
-font-weight:900;
-"
->
-QUOTATION
-</div>
-
-<div
-id="quotationDate"
-style="
-font-size:11px;
-color:#6b7280;
-margin-top:5px;
-"
->
-</div>
-
-</div>
-
-</div>
-
-
-<div
-style="
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:8mm;
-margin-bottom:9mm;
-"
->
-
-<div
-style="
-background:#f8fafc;
-border-radius:10px;
-padding:5mm;
-"
->
-
-<div
-style="
-font-size:10px;
-color:#6b7280;
-font-weight:bold;
-"
->
-CUSTOMER
-</div>
-
-<div
-id="quoteName"
-style="
-font-size:15px;
-font-weight:900;
-margin-top:4px;
-"
->
--
-</div>
-
-</div>
-
-
-<div
-style="
-background:#f8fafc;
-border-radius:10px;
-padding:5mm;
-"
->
-
-<div
-style="
-font-size:10px;
-color:#6b7280;
-font-weight:bold;
-"
->
-WHATSAPP
-</div>
-
-<div
-id="quotePhone"
-style="
-font-size:15px;
-font-weight:900;
-margin-top:4px;
-"
->
--
-</div>
-
-</div>
-
-</div>
-
-
-<div
-style="
-font-size:16px;
-font-weight:900;
-margin-bottom:5mm;
-"
->
-Selected Services
-</div>
-
-
-<div
-id="quoteServices"
-style="
-border:1px solid #e5e7eb;
-border-radius:12px;
-overflow:hidden;
-margin-bottom:8mm;
-"
->
-</div>
-
-
-<div
-style="
-margin-left:auto;
-width:80mm;
-"
->
-
-<div
-style="
-display:flex;
-justify-content:space-between;
-padding:3mm 0;
-font-size:13px;
-"
->
-
-<span>
-Original Total
-</span>
-
-<strong
-id="quoteOriginal"
->
-Rs. 0
-</strong>
-
-</div>
-
-
-<div
-id="quoteDiscountRow"
-style="
-display:none;
-justify-content:space-between;
-padding:3mm 0;
-font-size:13px;
-color:#15803d;
-"
->
-
-<span>
-Discount
-</span>
-
-<strong
-id="quoteDiscount"
->
--Rs. 0
-</strong>
-
-</div>
-
-
-<div
-style="
-margin-top:2mm;
-padding:5mm;
-border-radius:12px;
-background:#f0fdf4;
-border:1px solid #bbf7d0;
-display:flex;
-justify-content:space-between;
-align-items:center;
-"
->
-
-<span
-style="
-font-size:13px;
-font-weight:900;
-color:#166534;
-"
->
-FINAL TOTAL
-</span>
-
-<strong
-id="quoteFinal"
-style="
-font-size:23px;
-font-weight:900;
-color:#15803d;
-"
->
-Rs. 0
-</strong>
-
-</div>
-
-</div>
-
-
-<div
-style="
-margin-top:15mm;
-padding-top:6mm;
-border-top:1px solid #e5e7eb;
-"
->
-
-<div
-style="
-font-size:11px;
-font-weight:900;
-margin-bottom:3mm;
-"
->
-Advertisement Details
-</div>
-
-<div
-style="
-font-size:11px;
-line-height:1.8;
-color:#4b5563;
-"
->
-
-<div>
-<strong>Caption:</strong>
-<span id="quoteCaption">-</span>
-</div>
-
-<div>
-<strong>Link:</strong>
-<span id="quoteLink">-</span>
-</div>
-
-</div>
-
-</div>
-
-
-<div
-style="
-margin-top:25mm;
-text-align:center;
-"
->
-
-<div
-style="
-font-size:15px;
-font-weight:900;
-"
->
-AL අපි 🇱🇰 Advertising
-</div>
-
-<div
-style="
-font-size:11px;
-color:#6b7280;
-margin-top:4px;
-"
->
-ALapiedu.com
-</div>
-
-<div
-style="
-font-size:10px;
-color:#9ca3af;
-margin-top:8px;
-"
->
-Thank you for choosing AL අපි Advertising.
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-
 <script>
-
 
 let telegram = false;
 let whatsapp = false;
@@ -2248,7 +2249,6 @@ document.getElementById(
 "whatsappDescription"
 );
 
-
 if(whatsapp){
 
 text.innerText =
@@ -2271,6 +2271,176 @@ text.innerText =
 "WhatsApp පමණක්";
 
 }
+
+}
+
+
+/* =========================
+   DISCOUNT
+========================= */
+
+function getPricing(){
+
+let originalTotal = 0;
+
+let discount = 0;
+
+let services = [];
+
+
+/* TELEGRAM */
+
+if(telegram){
+
+originalTotal += telegramPrice;
+
+if(telegramName){
+
+services.push({
+name:
+"🔵 Telegram - " +
+telegramName,
+
+price:
+telegramPrice
+});
+
+}
+
+}
+
+
+/* WHATSAPP */
+
+if(whatsapp){
+
+let whatsappPrice = 2000;
+
+if(
+!telegram &&
+!website
+){
+
+whatsappPrice = 3000;
+
+}
+
+originalTotal += whatsappPrice;
+
+services.push({
+name:
+"🟢 WhatsApp Channel",
+
+price:
+whatsappPrice
+});
+
+}
+
+
+/* WEBSITE */
+
+if(website){
+
+originalTotal += websitePrice;
+
+if(websiteName){
+
+services.push({
+name:
+"🌐 " +
+websiteName,
+
+price:
+websitePrice
+});
+
+}
+
+}
+
+
+/*
+================================
+SPECIAL TELEGRAM 4000 PACKAGE
+================================
+
+4000 Telegram
++
+2000 WhatsApp
++
+Website
+
+3 days  = 8000 → 7500
+7 days  = 10000 → 9000
+10 days = 12000 → 10000
+*/
+
+if(
+telegram &&
+telegramPrice === 4000 &&
+whatsapp &&
+website
+){
+
+if(websitePrice === 2000){
+
+discount = 500;
+
+}
+
+else if(websitePrice === 4000){
+
+discount = 1000;
+
+}
+
+else if(websitePrice === 6000){
+
+discount = 2000;
+
+}
+
+}
+
+
+/*
+================================
+OTHER TELEGRAM PACKAGES
+================================
+
+Other Telegram package
++
+WhatsApp
++
+Website
+
+= Rs.500 discount
+*/
+
+else if(
+telegram &&
+telegramPrice > 0 &&
+telegramPrice !== 4000 &&
+whatsapp &&
+website
+){
+
+discount = 500;
+
+}
+
+
+const finalTotal =
+originalTotal - discount;
+
+
+return {
+originalTotal,
+discount,
+finalTotal,
+services
+};
 
 }
 
@@ -2426,216 +2596,21 @@ calculate();
 
 
 /* =========================
-   DISCOUNT CALCULATION
-========================= */
-
-function getDiscount(){
-
-/*
-   SPECIAL DISCOUNT 1
-   Telegram 4000 + WhatsApp 2000 + Website
-
-   Website 3 days:
-   8000 -> 7500
-
-   Website 7 days:
-   10000 -> 9000
-
-   Website 10 days:
-   12000 -> 10000
-*/
-
-if(
-telegram &&
-whatsapp &&
-website &&
-telegramPrice === 4000 &&
-websitePrice === 2000
-){
-
-return 500;
-
-}
-
-if(
-telegram &&
-whatsapp &&
-website &&
-telegramPrice === 4000 &&
-websitePrice === 4000
-){
-
-return 1000;
-
-}
-
-if(
-telegram &&
-whatsapp &&
-website &&
-telegramPrice === 4000 &&
-websitePrice === 6000
-){
-
-return 2000;
-
-}
-
-
-/*
-   SPECIAL DISCOUNT 2
-
-   Other Telegram packages
-   + WhatsApp
-   + Website
-
-   Rs.500 discount
-*/
-
-if(
-telegram &&
-whatsapp &&
-website &&
-telegramPrice > 0 &&
-telegramPrice !== 4000 &&
-websitePrice > 0
-){
-
-return 500;
-
-}
-
-
-return 0;
-
-}
-
-
-/* =========================
    CALCULATE
 ========================= */
 
 function calculate(){
 
-let total = 0;
-
-let items = [];
-
-
-/* TELEGRAM */
-
-if(telegram){
-
-total += telegramPrice;
-
-if(telegramName){
-
-items.push(
-"🔵 Telegram - " +
-telegramName
-);
-
-}
-
-}
+const pricing =
+getPricing();
 
 
-/* WHATSAPP */
-
-if(whatsapp){
-
-let whatsappPrice = 2000;
-
-if(
-!telegram &&
-!website
-){
-
-whatsappPrice = 3000;
-
-}
-
-total += whatsappPrice;
-
-items.push(
-"🟢 WhatsApp - Rs. " +
-whatsappPrice.toLocaleString()
-);
-
-}
-
-
-/* WEBSITE */
-
-if(website){
-
-total += websitePrice;
-
-if(websiteName){
-
-items.push(
-"🌐 " +
-websiteName
-);
-
-}
-
-}
-
-
-/* DISCOUNT */
-
-const discount =
-getDiscount();
-
-const finalTotal =
-total - discount;
-
-
-/* NORMAL TOTAL */
+/* TOTAL */
 
 document
 .getElementById("total")
 .innerText =
-finalTotal.toLocaleString();
-
-
-/* DISCOUNT CARD */
-
-const discountBox =
-document.getElementById(
-"discountBox"
-);
-
-if(discount > 0){
-
-discountBox.classList.add("show");
-
-document
-.getElementById("originalTotal")
-.innerText =
-"රු. " +
-total.toLocaleString();
-
-document
-.getElementById("discountPrice")
-.innerText =
-"රු. " +
-finalTotal.toLocaleString();
-
-document
-.getElementById("discountSave")
-.innerText =
-"🎉 ඔබ ඉතිරි කරන්නේ රු. " +
-discount.toLocaleString();
-
-}
-
-else{
-
-discountBox.classList.remove("show");
-
-}
+pricing.finalTotal.toLocaleString();
 
 
 /* TAGS */
@@ -2646,7 +2621,7 @@ document.getElementById(
 );
 
 
-if(items.length === 0){
+if(pricing.services.length === 0){
 
 box.innerHTML = `
 <span class="tag">
@@ -2659,17 +2634,287 @@ box.innerHTML = `
 else{
 
 box.innerHTML =
-items.map(
+pricing.services.map(
 function(item){
 
 return `
 <span class="tag">
-${item}
+${item.name} -
+Rs. ${item.price.toLocaleString()}
 </span>
 `;
 
 }
 ).join("");
+
+}
+
+
+/* DISCOUNT CARD */
+
+const discountBox =
+document.getElementById(
+"discountSummary"
+);
+
+
+if(pricing.discount > 0){
+
+discountBox.classList.add(
+"show"
+);
+
+document
+.getElementById("originalTotal")
+.innerText =
+"රු. " +
+pricing.originalTotal.toLocaleString();
+
+document
+.getElementById("discountAmount")
+.innerText =
+"රු. " +
+pricing.discount.toLocaleString();
+
+document
+.getElementById("discountTotal")
+.innerText =
+pricing.finalTotal.toLocaleString();
+
+}
+
+else{
+
+discountBox.classList.remove(
+"show"
+);
+
+}
+
+
+/* QUOTATION */
+
+updateQuotationPreview();
+
+}
+
+
+/* =========================
+   QUOTATION PREVIEW
+========================= */
+
+function updateQuotationPreview(){
+
+const pricing =
+getPricing();
+
+
+/* DATE */
+
+const today =
+new Date();
+
+const date =
+today.toLocaleDateString(
+"en-GB"
+);
+
+document
+.getElementById("qDate")
+.innerText =
+"Date: " + date;
+
+
+/* CUSTOMER */
+
+const name =
+document
+.getElementById("customerName")
+.value
+.trim();
+
+const phone =
+document
+.getElementById("customerPhone")
+.value
+.trim();
+
+document
+.getElementById("qName")
+.innerText =
+name ||
+"Not provided";
+
+document
+.getElementById("qPhone")
+.innerText =
+phone ||
+"Not provided";
+
+
+/* SERVICES */
+
+const qServices =
+document
+.getElementById("qServices");
+
+
+if(
+pricing.services.length === 0
+){
+
+qServices.innerHTML = `
+
+<div class="q-service">
+
+<span>
+No service selected
+</span>
+
+<span class="q-service-price">
+Rs. 0
+</span>
+
+</div>
+
+`;
+
+}
+
+else{
+
+qServices.innerHTML =
+pricing.services.map(
+function(service){
+
+return `
+
+<div class="q-service">
+
+<span>
+${service.name}
+</span>
+
+<span class="q-service-price">
+Rs. ${service.price.toLocaleString()}
+</span>
+
+</div>
+
+`;
+
+}
+).join("");
+
+}
+
+
+/* ORIGINAL TOTAL */
+
+document
+.getElementById("qOriginal")
+.innerText =
+"Rs. " +
+pricing.originalTotal.toLocaleString();
+
+
+/* DISCOUNT */
+
+const qDiscountRow =
+document
+.getElementById("qDiscountRow");
+
+
+if(pricing.discount > 0){
+
+qDiscountRow.style.display =
+"flex";
+
+document
+.getElementById("qDiscount")
+.innerText =
+"- Rs. " +
+pricing.discount.toLocaleString();
+
+}
+
+else{
+
+qDiscountRow.style.display =
+"none";
+
+}
+
+
+/* FINAL */
+
+document
+.getElementById("qFinal")
+.innerText =
+"Rs. " +
+pricing.finalTotal.toLocaleString();
+
+
+/* CAPTION */
+
+const caption =
+document
+.getElementById("caption")
+.value
+.trim();
+
+const qCaptionBox =
+document
+.getElementById("qCaptionBox");
+
+if(caption){
+
+qCaptionBox.style.display =
+"block";
+
+document
+.getElementById("qCaption")
+.innerText =
+caption;
+
+}
+
+else{
+
+qCaptionBox.style.display =
+"none";
+
+}
+
+
+/* LINK */
+
+const link =
+document
+.getElementById("adLink")
+.value
+.trim();
+
+const qLinkBox =
+document
+.getElementById("qLinkBox");
+
+if(link){
+
+qLinkBox.style.display =
+"block";
+
+document
+.getElementById("qLink")
+innerText =
+link;
+
+}
+
+else{
+
+qLinkBox.style.display =
+"none";
 
 }
 
@@ -2710,16 +2955,12 @@ reader.onload =
 function(e){
 
 document
-.getElementById(
-"previewImage"
-)
+.getElementById("previewImage")
 .src =
 e.target.result;
 
 document
-.getElementById(
-"previewBox"
-)
+.getElementById("previewBox")
 .style.display =
 "block";
 
@@ -2731,10 +2972,28 @@ reader.readAsDataURL(file);
 
 
 /* =========================
-   QUOTATION
+   DOWNLOAD A4 QUOTATION
 ========================= */
 
-function downloadQuotation(){
+async function downloadQuotation(){
+
+const name =
+document
+.getElementById("customerName")
+.value
+.trim();
+
+const phone =
+document
+.getElementById("customerPhone")
+.value
+.trim();
+
+const pricing =
+getPricing();
+
+
+/* VALIDATION */
 
 if(
 !telegram &&
@@ -2743,7 +3002,7 @@ if(
 ){
 
 alert(
-"Quotation එක සෑදීමට පෙර සේවාවක් තෝරන්න."
+"කරුණාකර quotation එකට service එකක් තෝරන්න."
 );
 
 return;
@@ -2779,7 +3038,281 @@ return;
 }
 
 
-/* CUSTOMER */
+if(!name){
+
+alert(
+"කරුණාකර ඔබගේ නම ඇතුළත් කරන්න."
+);
+
+document
+.getElementById("customerName")
+.focus();
+
+return;
+
+}
+
+
+const button =
+document
+.getElementById("quotationButton");
+
+
+button.disabled = true;
+
+button.innerText =
+"⏳ PDF සකස් කරමින්...";
+
+
+try{
+
+/*
+   Preview එක clean A4 ratio එකකට
+   temporarily render කරනවා.
+*/
+
+const preview =
+document
+.getElementById("quotationPreview");
+
+
+const oldWidth =
+preview.style.width;
+
+const oldBorderRadius =
+preview.style.borderRadius;
+
+const oldBoxShadow =
+preview.style.boxShadow;
+
+
+preview.style.width =
+"794px";
+
+preview.style.borderRadius =
+"0";
+
+preview.style.boxShadow =
+"none";
+
+
+/*
+   Browser එකට render වෙන්න
+   පොඩි delay එකක්.
+*/
+
+await new Promise(
+function(resolve){
+
+setTimeout(
+resolve,
+150
+);
+
+});
+
+
+const canvas =
+await html2canvas(
+preview,
+{
+    scale:2,
+
+    useCORS:true,
+
+    backgroundColor:"#ffffff",
+
+    logging:false
+}
+);
+
+
+/*
+   Restore preview
+*/
+
+preview.style.width =
+oldWidth;
+
+preview.style.borderRadius =
+oldBorderRadius;
+
+preview.style.boxShadow =
+oldBoxShadow;
+
+
+/*
+   jsPDF
+*/
+
+const {
+    jsPDF
+} =
+window.jspdf;
+
+
+const pdf =
+new jsPDF(
+{
+    orientation:"portrait",
+    unit:"mm",
+    format:"a4"
+}
+);
+
+
+const pageWidth =
+210;
+
+const pageHeight =
+297;
+
+
+const margin =
+12;
+
+
+const usableWidth =
+pageWidth -
+(margin * 2);
+
+
+const imageHeight =
+(canvas.height /
+canvas.width) *
+usableWidth;
+
+
+/*
+   Long quotation එකක් වුණොත්
+   pages automatically handle කරනවා.
+*/
+
+let heightLeft =
+imageHeight;
+
+let position =
+margin;
+
+
+pdf.addImage(
+canvas.toDataURL(
+"image/jpeg",
+0.96
+),
+"JPEG",
+margin,
+position,
+usableWidth,
+imageHeight
+);
+
+
+heightLeft -=
+(pageHeight -
+margin * 2);
+
+
+while(
+heightLeft > 0
+){
+
+position =
+-(imageHeight -
+heightLeft +
+margin);
+
+
+pdf.addPage();
+
+
+pdf.addImage(
+canvas.toDataURL(
+"image/jpeg",
+0.96
+),
+"JPEG",
+margin,
+position,
+usableWidth,
+imageHeight
+);
+
+
+heightLeft -=
+(pageHeight -
+margin * 2);
+
+}
+
+
+/*
+   Filename
+*/
+
+let safeName =
+name
+.replace(
+/[^a-zA-Z0-9]/g,
+"_"
+)
+.substring(
+0,
+30
+);
+
+
+if(!safeName){
+
+safeName =
+"Customer";
+
+}
+
+
+const date =
+new Date()
+.toISOString()
+.slice(
+0,
+10
+);
+
+
+pdf.save(
+"AL_API_Quotation_" +
+safeName +
+"_" +
+date +
+".pdf"
+);
+
+
+}
+catch(error){
+
+console.error(error);
+
+alert(
+"PDF එක සකස් කිරීමේදී ගැටලුවක් ඇති වුණා. නැවත උත්සාහ කරන්න."
+);
+
+}
+
+
+button.disabled = false;
+
+button.innerText =
+"📄 Download Quotation PDF";
+
+}
+
+
+/* =========================
+   SEND ORDER
+========================= */
+
+function sendOrder(){
 
 const name =
 document
@@ -2805,282 +3338,14 @@ document
 .value
 .trim();
 
-
-/* DATE */
-
-const now =
-new Date();
-
-const date =
-now.toLocaleDateString(
-"en-GB",
-{
-day:"2-digit",
-month:"2-digit",
-year:"numeric"
-}
-);
-
-
-document
-.getElementById("quotationDate")
-.innerText =
-"Date: " + date;
-
-
-document
-.getElementById("quoteName")
-.innerText =
-name || "Not provided";
-
-
-document
-.getElementById("quotePhone")
-.innerText =
-phone || "Not provided";
-
-
-document
-.getElementById("quoteCaption")
-.innerText =
-caption || "Not provided";
-
-
-document
-.getElementById("quoteLink")
-.innerText =
-link || "Not provided";
-
-
-/* SERVICES */
-
-let services = [];
-
-
-if(telegram){
-
-services.push({
-name:
-"Telegram - " +
-telegramName,
-price:
-telegramPrice
-});
-
-}
-
-
-if(whatsapp){
-
-let wp = 2000;
-
-if(
-!telegram &&
-!website
-){
-
-wp = 3000;
-
-}
-
-services.push({
-name:
-"WhatsApp Channel",
-price:
-wp
-});
-
-}
-
-
-if(website){
-
-services.push({
-name:
-"ALapiedu.com - " +
-websiteName,
-price:
-websitePrice
-});
-
-}
-
-
-const servicesBox =
-document.getElementById(
-"quoteServices"
-);
-
-
-servicesBox.innerHTML =
-services.map(
-function(service){
-
-return `
-<div
-style="
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:5mm;
-border-bottom:1px solid #e5e7eb;
-font-size:12px;
-"
->
-
-<span>
-${service.name}
-</span>
-
-<strong>
-Rs. ${service.price.toLocaleString()}
-</strong>
-
-</div>
-`;
-
-}
-).join("");
-
-
-/* TOTALS */
-
-let originalTotal = 0;
-
-services.forEach(
-function(service){
-
-originalTotal +=
-service.price;
-
-}
-);
-
-
-const discount =
-getDiscount();
-
-const finalTotal =
-originalTotal - discount;
-
-
-document
-.getElementById("quoteOriginal")
-.innerText =
-"Rs. " +
-originalTotal.toLocaleString();
-
-
-document
-.getElementById("quoteFinal")
-.innerText =
-"Rs. " +
-finalTotal.toLocaleString();
-
-
-const discountRow =
-document.getElementById(
-"quoteDiscountRow"
-);
-
-
-if(discount > 0){
-
-discountRow.style.display =
-"flex";
-
-document
-.getElementById("quoteDiscount")
-.innerText =
-"- Rs. " +
-discount.toLocaleString();
-
-}
-
-else{
-
-discountRow.style.display =
-"none";
-
-}
-
-
-/* PRINT / SAVE PDF */
-
-document
-.getElementById("quotationPrint")
-.style.display =
-"block";
-
-
-setTimeout(
-function(){
-
-window.print();
-
-},
-150
-);
-
-}
-
-
-/* =========================
-   SEND ORDER
-========================= */
-
-function sendOrder(){
-
-const name =
-document
-.getElementById(
-"customerName"
-)
-.value
-.trim();
-
-
-const phone =
-document
-.getElementById(
-"customerPhone"
-)
-.value
-.trim();
-
-
-const caption =
-document
-.getElementById(
-"caption"
-)
-.value
-.trim();
-
-
-const link =
-document
-.getElementById(
-"adLink"
-)
-.value
-.trim();
-
-
 const image =
 document
-.getElementById(
-"adImage"
-)
+.getElementById("adImage")
 .files[0];
 
 
-const total =
-document
-.getElementById(
-"total"
-)
-.innerText;
+const pricing =
+getPricing();
 
 
 if(
@@ -3196,31 +3461,22 @@ websitePrice.toLocaleString()
 }
 
 
-/* DISCOUNT */
-
-const originalTotal =
-services.reduce(
-function(sum,service){
-
-/*
-   The actual total is calculated
-   separately below.
-*/
-
-return sum;
-
-},
-0
-);
-
-
-const discount =
-getDiscount();
-
-
 /* MESSAGE */
 
-let message =
+let discountText = "";
+
+if(pricing.discount > 0){
+
+discountText =
+"\n🎁 Discount: Rs. " +
+pricing.discount.toLocaleString() +
+"\n💚 Discount Price: Rs. " +
+pricing.finalTotal.toLocaleString();
+
+}
+
+
+const message =
 
 `🛍️ AL අපි 🇱🇰 Advertising
 
@@ -3238,28 +3494,9 @@ ${phone}
 
 ${services.join("\n")}
 
-💰 මුළු ගාස්තුව:
-Rs. ${total}`;
-
-
-if(discount > 0){
-
-message +=
-
-`
-
-🎉 විශේෂ වට්ටම:
-Rs. ${discount.toLocaleString()}
-
-💚 Discount Price:
-Rs. ${total}`;
-
-}
-
-
-message +=
-
-`
+💰 Original Total:
+Rs. ${pricing.originalTotal.toLocaleString()}
+${discountText}
 
 📝 Caption:
 ${caption}
@@ -3288,8 +3525,16 @@ url,
 
 }
 
-</script>
 
+/* =========================
+   INITIAL PREVIEW
+========================= */
+
+updateWhatsappDescription();
+
+updateQuotationPreview();
+
+</script>
 
 </body>
 </html>
