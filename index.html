@@ -383,21 +383,21 @@
 
 <script>
 
+<script>
 function calculatePrice() {
+    const packageSelect = document.getElementById("package");
+    const whatsapp = document.getElementById("whatsappChannel");
+    const total = document.getElementById("total");
 
-  let price = Number(
-    document.getElementById("package").value
-  );
+    let price = parseInt(packageSelect.value);
 
-  if (
-    document.getElementById("whatsappChannel").checked
-  ) {
-    price += 2000;
-  }
+    if (whatsapp.checked) {
+        price = price + 2000;
+    }
 
-  document.getElementById("total").innerText =
-    price.toLocaleString();
+    total.textContent = price.toLocaleString();
 }
+</script>
 
 
 function previewImage(event) {
