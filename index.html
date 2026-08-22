@@ -1,1069 +1,1431 @@
 <!DOCTYPE html>
 <html lang="si">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AL API 🇱🇰 | දැන්වීම් පළ කිරීම</title>
+<title>AL API 🇱🇰 | Advertisement</title>
 
 <style>
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,"Noto Sans Sinhala",sans-serif;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,"Noto Sans Sinhala",sans-serif;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  background:#f5f7fb;
-  color:#111827;
+    background:#f5f7fb;
+    color:#111827;
 }
 
+
+/* =========================
+   HEADER
+========================= */
+
 header{
-  background:#ffffff;
-  padding:18px 6%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #e5e7eb;
-  position:sticky;
-  top:0;
-  z-index:1000;
+    background:#ffffff;
+    padding:17px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #e5e7eb;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .logo{
-  font-size:22px;
-  font-weight:800;
+    font-size:22px;
+    font-weight:900;
 }
 
 .logo span{
-  color:#2563eb;
+    color:#2563eb;
 }
 
-.nav-btn{
-  background:#2563eb;
-  color:white;
-  padding:11px 18px;
-  border-radius:10px;
-  text-decoration:none;
-  font-size:14px;
-  font-weight:bold;
+.header-btn{
+    background:#2563eb;
+    color:white;
+    padding:11px 18px;
+    border-radius:10px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:bold;
 }
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-  padding:80px 20px;
-  text-align:center;
-  background:linear-gradient(135deg,#eef4ff,#ffffff);
+    padding:75px 20px;
+    text-align:center;
+    background:linear-gradient(135deg,#eef4ff,#ffffff);
 }
 
 .hero h1{
-  font-size:42px;
-  line-height:1.3;
-  margin-bottom:18px;
+    font-size:42px;
+    line-height:1.3;
+    margin-bottom:18px;
 }
 
 .hero h1 span{
-  color:#2563eb;
+    color:#2563eb;
 }
 
 .hero p{
-  max-width:700px;
-  margin:auto;
-  color:#6b7280;
-  font-size:17px;
-  line-height:1.8;
+    max-width:700px;
+    margin:auto;
+    color:#6b7280;
+    font-size:17px;
+    line-height:1.8;
 }
 
-.buy-btn{
-  display:inline-block;
-  margin-top:30px;
-  background:#2563eb;
-  color:#fff;
-  padding:15px 30px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:bold;
+.hero-btn{
+    display:inline-block;
+    margin-top:28px;
+    background:#2563eb;
+    color:white;
+    padding:15px 30px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
 }
+
+
+/* =========================
+   GENERAL SECTION
+========================= */
 
 section{
-  padding:65px 6%;
+    padding:55px 6%;
 }
 
 .title{
-  text-align:center;
-  margin-bottom:38px;
+    text-align:center;
+    margin-bottom:32px;
 }
 
 .title h2{
-  font-size:30px;
-  margin-bottom:10px;
+    font-size:29px;
+    margin-bottom:9px;
 }
 
 .title p{
-  color:#6b7280;
-  line-height:1.7;
+    color:#6b7280;
+    line-height:1.7;
 }
 
 
-/* NETWORK */
+/* =========================
+   NETWORK
+========================= */
 
-.network{
-  background:#fff;
+.network-section{
+    background:white;
 }
 
-.network-box{
-  max-width:1000px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
+.main-networks{
+    max-width:900px;
+    margin:0 auto 22px auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
 }
 
-.network-item{
-  background:#f8fafc;
-  padding:22px;
-  border-radius:15px;
-  border:1px solid #e5e7eb;
+.main-network{
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.04);
 }
 
-.network-item strong{
-  display:block;
-  margin-bottom:7px;
+.main-network.telegram{
+    border-top:4px solid #229ED9;
 }
 
-.members{
-  color:#2563eb;
-  font-weight:bold;
+.main-network.whatsapp{
+    border-top:4px solid #25D366;
+}
+
+.network-logo{
+    font-size:30px;
+    margin-bottom:6px;
+}
+
+.main-network h3{
+    font-size:17px;
+    margin-bottom:6px;
+}
+
+.main-members{
+    font-size:25px;
+    font-weight:900;
+    color:#2563eb;
+}
+
+.whatsapp .main-members{
+    color:#16a34a;
 }
 
 
-/* PACKAGES */
+/* small networks */
+
+.small-networks{
+    max-width:900px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.small-network{
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:11px;
+    padding:11px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.small-left{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.small-logo{
+    font-size:20px;
+}
+
+.small-name{
+    font-size:13px;
+    font-weight:bold;
+}
+
+.small-members{
+    font-size:12px;
+    color:#2563eb;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+
+/* =========================
+   PACKAGES
+========================= */
+
+.packages-section{
+    background:#f5f7fb;
+}
 
 .package-grid{
-  max-width:1050px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
+    max-width:1050px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
 }
 
 .package-card{
-  position:relative;
-  background:#fff;
-  border:2px solid #e5e7eb;
-  border-radius:20px;
-  padding:27px;
-  cursor:pointer;
-  transition:.2s ease;
+    position:relative;
+    background:#ffffff;
+    border:2px solid #e5e7eb;
+    border-radius:19px;
+    padding:24px;
+    cursor:pointer;
+    transition:.2s ease;
 }
 
 .package-card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 30px rgba(0,0,0,.08);
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
 }
 
 .package-card.selected{
-  border-color:#2563eb;
-  background:#f5f9ff;
-  box-shadow:0 10px 30px rgba(37,99,235,.12);
+    border-color:#2563eb;
+    background:#f5f9ff;
+    box-shadow:0 10px 30px rgba(37,99,235,.13);
 }
 
 .package-card.selected::after{
-  content:"✓ තෝරා ඇත";
-  position:absolute;
-  top:14px;
-  right:14px;
-  background:#2563eb;
-  color:#fff;
-  padding:6px 10px;
-  border-radius:20px;
-  font-size:11px;
-  font-weight:bold;
+    content:"✓ තෝරා ඇත";
+    position:absolute;
+    top:13px;
+    right:13px;
+    background:#2563eb;
+    color:white;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:bold;
 }
 
 .popular{
-  position:absolute;
-  top:-12px;
-  left:20px;
-  background:#f59e0b;
-  color:#fff;
-  padding:6px 12px;
-  border-radius:20px;
-  font-size:11px;
-  font-weight:bold;
+    position:absolute;
+    top:-11px;
+    left:18px;
+    background:#f59e0b;
+    color:white;
+    padding:5px 11px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:bold;
+}
+
+.only-badge{
+    position:absolute;
+    top:-11px;
+    left:18px;
+    background:#25D366;
+    color:white;
+    padding:5px 11px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:bold;
 }
 
 .package-icon{
-  font-size:30px;
-  margin-bottom:12px;
+    font-size:28px;
+    margin-bottom:10px;
 }
 
 .package-name{
-  font-size:19px;
-  font-weight:800;
-  margin-bottom:8px;
+    font-size:19px;
+    font-weight:900;
+    margin-bottom:4px;
 }
 
 .package-price{
-  font-size:30px;
-  color:#2563eb;
-  font-weight:900;
-  margin:12px 0;
+    font-size:29px;
+    color:#2563eb;
+    font-weight:900;
+    margin:12px 0 14px;
 }
 
-.package-description{
-  color:#6b7280;
-  font-size:14px;
-  line-height:1.7;
+.package-details{
+    list-style:none;
+    color:#4b5563;
+    font-size:13px;
+    line-height:1.75;
+}
+
+.package-details li{
+    margin-bottom:5px;
 }
 
 .package-select{
-  margin-top:18px;
-  width:100%;
-  padding:11px;
-  border:1px solid #d1d5db;
-  border-radius:10px;
-  background:#fff;
-  font-weight:bold;
-  color:#374151;
+    margin-top:17px;
+    width:100%;
+    padding:10px;
+    border:1px solid #d1d5db;
+    border-radius:9px;
+    text-align:center;
+    font-size:13px;
+    font-weight:bold;
+    color:#374151;
+    background:white;
+}
+
+.package-card.selected .package-select{
+    background:#2563eb;
+    color:white;
+    border-color:#2563eb;
 }
 
 
-/* TEACHER */
+/* =========================
+   TEACHER
+========================= */
 
 .teacher{
-  max-width:900px;
-  margin:auto;
-  background:#fff7ed;
-  border:1px solid #fed7aa;
-  padding:28px;
-  border-radius:17px;
-  text-align:center;
+    max-width:900px;
+    margin:auto;
+    background:#fff7ed;
+    border:1px solid #fed7aa;
+    padding:25px;
+    border-radius:16px;
+    text-align:center;
 }
 
 .teacher h3{
-  color:#ea580c;
-  margin-bottom:10px;
+    color:#ea580c;
+    margin-bottom:9px;
 }
 
 .teacher p{
-  color:#4b5563;
-  line-height:1.7;
+    color:#4b5563;
+    line-height:1.7;
 }
 
 
-/* ORDER */
+/* =========================
+   ORDER
+========================= */
 
 .order-section{
-  background:#f5f7fb;
+    background:#f5f7fb;
 }
 
 .form-box{
-  max-width:720px;
-  margin:auto;
-  background:#fff;
-  padding:32px;
-  border-radius:22px;
-  border:1px solid #e5e7eb;
-  box-shadow:0 10px 35px rgba(0,0,0,.06);
+    max-width:720px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:21px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 10px 35px rgba(0,0,0,.06);
 }
 
 .form-group{
-  margin-bottom:21px;
+    margin-bottom:20px;
 }
 
 .form-group label{
-  display:block;
-  font-weight:bold;
-  margin-bottom:8px;
+    display:block;
+    font-weight:bold;
+    margin-bottom:8px;
 }
 
 input,
 textarea{
-  width:100%;
-  padding:14px;
-  border:1px solid #d1d5db;
-  border-radius:11px;
-  font-size:15px;
-  outline:none;
-  background:#fff;
+    width:100%;
+    padding:14px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+    background:white;
 }
 
 textarea{
-  resize:vertical;
+    resize:vertical;
 }
 
 
-/* WHATSAPP ADDON */
+/* =========================
+   WHATSAPP ADDON
+========================= */
 
 .addon-box{
-  border:2px solid #e5e7eb;
-  padding:17px;
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  gap:13px;
-  cursor:pointer;
-  margin-bottom:25px;
-  transition:.2s;
+    border:2px solid #e5e7eb;
+    padding:16px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+    margin-bottom:24px;
+    transition:.2s;
 }
 
 .addon-box.active{
-  border-color:#25D366;
-  background:#f0fff6;
+    border-color:#25D366;
+    background:#f0fff6;
 }
 
 .addon-box input{
-  width:20px;
-  height:20px;
-  accent-color:#25D366;
+    width:20px;
+    height:20px;
+    accent-color:#25D366;
 }
 
 .addon-title{
-  font-weight:bold;
+    font-weight:bold;
 }
 
 .addon-price{
-  color:#16a34a;
-  font-weight:bold;
-  font-size:14px;
+    color:#16a34a;
+    font-size:13px;
+    margin-top:3px;
+    font-weight:bold;
 }
 
 
-/* TOTAL */
+/* =========================
+   TOTAL
+========================= */
 
 .total-box{
-  background:#eef4ff;
-  border:1px solid #dbeafe;
-  padding:20px;
-  border-radius:15px;
-  margin-bottom:28px;
+    background:#eef4ff;
+    border:1px solid #dbeafe;
+    padding:19px;
+    border-radius:14px;
+    margin-bottom:27px;
 }
 
 .total-label{
-  color:#6b7280;
-  font-size:14px;
+    color:#6b7280;
+    font-size:13px;
 }
 
 .total-price{
-  color:#2563eb;
-  font-size:34px;
-  font-weight:900;
-  margin-top:5px;
+    color:#2563eb;
+    font-size:34px;
+    font-weight:900;
+    margin-top:4px;
 }
 
 
-/* UPLOAD */
+/* =========================
+   IMAGE UPLOAD
+========================= */
 
 .upload-box{
-  border:2px dashed #cbd5e1;
-  border-radius:15px;
-  padding:24px;
-  text-align:center;
+    border:2px dashed #cbd5e1;
+    border-radius:14px;
+    padding:23px;
+    text-align:center;
 }
 
 .upload-box input{
-  border:none;
-  padding:0;
+    border:none;
+    padding:0;
 }
 
 .upload-text{
-  color:#6b7280;
-  font-size:13px;
-  margin-top:10px;
+    color:#6b7280;
+    font-size:13px;
+    margin-top:9px;
 }
 
 .preview-box{
-  display:none;
-  text-align:center;
-  margin:20px 0;
+    display:none;
+    text-align:center;
+    margin:18px 0 23px;
 }
 
 .preview-box img{
-  max-width:100%;
-  max-height:300px;
-  border-radius:14px;
-  border:1px solid #e5e7eb;
+    max-width:100%;
+    max-height:300px;
+    border-radius:13px;
+    border:1px solid #e5e7eb;
 }
 
 
-/* WHATSAPP BUTTON */
+/* =========================
+   WHATSAPP BUTTON
+========================= */
 
 .whatsapp-btn{
-  width:100%;
-  padding:17px;
-  background:#25D366;
-  color:#fff;
-  border:none;
-  border-radius:13px;
-  font-size:16px;
-  font-weight:800;
-  cursor:pointer;
+    width:100%;
+    padding:17px;
+    background:#25D366;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
 }
 
 .whatsapp-btn:hover{
-  background:#20bd5a;
+    background:#20bd5a;
 }
 
 .note{
-  text-align:center;
-  color:#6b7280;
-  font-size:12px;
-  line-height:1.7;
-  margin-top:15px;
+    text-align:center;
+    color:#6b7280;
+    font-size:12px;
+    line-height:1.7;
+    margin-top:14px;
 }
 
 
-/* CTA */
+/* =========================
+   CTA
+========================= */
 
 .cta{
-  background:#111827;
-  color:#fff;
-  text-align:center;
-  padding:65px 20px;
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:60px 20px;
 }
 
 .cta p{
-  color:#d1d5db;
-  margin-top:10px;
+    color:#d1d5db;
+    margin-top:9px;
 }
 
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-  background:#080c14;
-  color:#9ca3af;
-  text-align:center;
-  padding:25px;
-  font-size:13px;
+    background:#080c14;
+    color:#9ca3af;
+    text-align:center;
+    padding:23px;
+    font-size:13px;
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:700px){
 
-  .hero h1{
-    font-size:30px;
-  }
+    .hero h1{
+        font-size:30px;
+    }
 
-  section{
-    padding:50px 18px;
-  }
+    section{
+        padding:45px 16px;
+    }
 
-  .package-grid{
-    grid-template-columns:1fr;
-  }
+    .main-networks{
+        grid-template-columns:1fr;
+    }
 
-  .form-box{
-    padding:22px;
-  }
+    .small-networks{
+        grid-template-columns:1fr 1fr;
+    }
 
-  .logo{
-    font-size:19px;
-  }
+    .package-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-box{
+        padding:21px;
+    }
+
+    .logo{
+        font-size:19px;
+    }
+
+    .header-btn{
+        padding:9px 12px;
+        font-size:12px;
+    }
+
+    .small-network{
+        padding:10px;
+        display:block;
+    }
+
+    .small-members{
+        display:block;
+        margin-top:4px;
+        margin-left:28px;
+    }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
-  <div class="logo">
-    AL API <span>🇱🇰</span>
-  </div>
+    <div class="logo">
+        AL API <span>🇱🇰</span>
+    </div>
 
-  <a
-    href="#order"
-    class="nav-btn"
-  >
-    දැන්වීමක් දමන්න
-  </a>
+    <a
+        href="#order"
+        class="header-btn"
+    >
+        දැන්වීමක් දමන්න
+    </a>
 
 </header>
 
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
-  <h1>
-    <span>AL API</span> සමඟ ඔබේ දැන්වීම ප්‍රචාරය කරන්න 🚀
-  </h1>
+    <h1>
+        <span>AL API</span> සමඟ ඔබේ දැන්වීම ප්‍රචාරය කරන්න 🚀
+    </h1>
 
-  <p>
-    ශ්‍රී ලංකාවේ විශාල අධ්‍යාපනික ප්‍රේක්ෂක පිරිසක්
-    වෙත ඔබගේ දැන්වීම පහසුවෙන් ගෙන යන්න.
-  </p>
+    <p>
+        ශ්‍රී ලංකාවේ විශාල අධ්‍යාපනික ප්‍රේක්ෂක පිරිසක්
+        වෙත ඔබගේ දැන්වීම පහසුවෙන් ගෙන යන්න.
+    </p>
 
-  <a
-    href="#order"
-    class="buy-btn"
-  >
-    📢 දැන්වීමක් පළ කරන්න
-  </a>
+    <a
+        href="#packages"
+        class="hero-btn"
+    >
+        📢 දැන්වීම් පැකේජ බලන්න
+    </a>
 
 </section>
 
 
 
-<!-- NETWORK -->
+<!-- =========================
+     NETWORK
+========================= -->
 
-<section class="network">
+<section class="network-section">
 
-  <div class="title">
+    <div class="title">
 
-    <h2>
-      🌐 අපගේ දැන්වීම් ජාලය
-    </h2>
+        <h2>
+            🌐 අපගේ දැන්වීම් ජාලය
+        </h2>
 
-    <p>
-      Telegram සහ WhatsApp හරහා විශාල සිසුන් පිරිසක් වෙත
-      ඔබගේ දැන්වීම ගෙන යන්න.
-    </p>
-
-  </div>
-
-
-  <div class="network-box">
-
-    <div class="network-item">
-      <strong>🎖 AL API</strong>
-      <span class="members">
-        සාමාජිකයන් 64,000+
-      </span>
-    </div>
-
-    <div class="network-item">
-      <strong>🎖 Maths Bio API</strong>
-      <span class="members">
-        සාමාජිකයන් 14,000+
-      </span>
-    </div>
-
-    <div class="network-item">
-      <strong>🎖 Chemistry API</strong>
-      <span class="members">
-        සාමාජිකයන් 7,000+
-      </span>
-    </div>
-
-    <div class="network-item">
-      <strong>🎖 Physics API</strong>
-      <span class="members">
-        සාමාජිකයන් 7,000+
-      </span>
-    </div>
-
-    <div class="network-item">
-      <strong>🎖 ICT API</strong>
-      <span class="members">
-        සාමාජිකයන් 5,000+
-      </span>
-    </div>
-
-    <div class="network-item">
-      <strong>🟢 WhatsApp නාලිකාව</strong>
-      <span class="members">
-        සාමාජිකයන් 18,000+
-      </span>
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- PACKAGES -->
-
-<section>
-
-  <div class="title">
-
-    <h2>
-      🛍️ ඔබට ගැළපෙන පැකේජය තෝරන්න
-    </h2>
-
-    <p>
-      ඔබට අවශ්‍ය පැකේජය මත click කරන්න.
-    </p>
-
-  </div>
-
-
-  <div class="package-grid">
-
-
-    <!-- 3 DAYS NON REPOST -->
-
-    <div
-      class="package-card selected"
-      data-price="1500"
-      data-package="දින 3ක් - Non Repost"
-      onclick="selectPackage(this)"
-    >
-
-      <div class="package-icon">
-        📌
-      </div>
-
-      <div class="package-name">
-        දින 3ක්
-      </div>
-
-      <div class="package-name">
-        Non Repost
-      </div>
-
-      <div class="package-price">
-        රු. 1,500
-      </div>
-
-      <div class="package-description">
-        ඔබගේ දැන්වීම අපගේ සියලුම සමූහයන්හි
-        දින 3ක් පමණක් pin කරනු ලැබේ.
-      </div>
-
-      <div class="package-select">
-        පැකේජය තෝරන්න
-      </div>
-
-    </div>
-
-
-
-    <!-- 3 DAYS REPOST -->
-
-    <div
-      class="package-card"
-      data-price="2500"
-      data-package="දින 3ක් - Repost"
-      onclick="selectPackage(this)"
-    >
-
-      <div class="package-icon">
-        🔄
-      </div>
-
-      <div class="package-name">
-        දින 3ක්
-      </div>
-
-      <div class="package-name">
-        Repost
-      </div>
-
-      <div class="package-price">
-        රු. 2,500
-      </div>
-
-      <div class="package-description">
-        දින 3ම අපගේ සමූහයන් 5ක දිනපතා
-        දැන්වීම පළ වේ.
-        <br>
-        <strong>3 × 5 = වාර 15ක්</strong>
-      </div>
-
-      <div class="package-select">
-        පැකේජය තෝරන්න
-      </div>
-
-    </div>
-
-
-
-    <!-- 7 DAYS NON REPOST -->
-
-    <div
-      class="package-card"
-      data-price="2000"
-      data-package="දින 7ක් - Non Repost"
-      onclick="selectPackage(this)"
-    >
-
-      <div class="package-icon">
-        📅
-      </div>
-
-      <div class="package-name">
-        දින 7ක්
-      </div>
-
-      <div class="package-name">
-        Non Repost
-      </div>
-
-      <div class="package-price">
-        රු. 2,000
-      </div>
-
-      <div class="package-description">
-        ඔබගේ දැන්වීම අපගේ සියලුම සමූහයන්හි
-        දින 7ක් පමණක් pin කරනු ලැබේ.
-      </div>
-
-      <div class="package-select">
-        පැකේජය තෝරන්න
-      </div>
-
-    </div>
-
-
-
-    <!-- 7 DAYS REPOST -->
-
-    <div
-      class="package-card"
-      data-price="4000"
-      data-package="දින 7ක් - Repost"
-      onclick="selectPackage(this)"
-    >
-
-      <div class="popular">
-        ⭐ ජනප්‍රියම
-      </div>
-
-      <div class="package-icon">
-        🚀
-      </div>
-
-      <div class="package-name">
-        දින 7ක්
-      </div>
-
-      <div class="package-name">
-        Repost
-      </div>
-
-      <div class="package-price">
-        රු. 4,000
-      </div>
-
-      <div class="package-description">
-        දින 7ම අපගේ සමූහයන් 5ක දිනපතා
-        දැන්වීම පළ වේ.
-        <br>
-        <strong>7 × 5 = වාර 35ක්</strong>
-        <br>
-        අවශ්‍ය පරිදි post එක customize කළ හැක.
-      </div>
-
-      <div class="package-select">
-        පැකේජය තෝරන්න
-      </div>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- TEACHERS -->
-
-<section>
-
-  <div class="teacher">
-
-    <h3>
-      🌟 ගුරුවරුන් සඳහා විශේෂයි 🌟
-    </h3>
-
-    <p>
-      ඔබගේ පන්ති, පාඨමාලා, අධ්‍යාපනික සේවා සහ
-      අනෙකුත් අධ්‍යාපනික දැන්වීම් අපගේ සිසුන් වෙත
-      ප්‍රචාරය කර ගන්න.
-    </p>
-
-  </div>
-
-</section>
-
-
-
-<!-- ORDER FORM -->
-
-<section
-  id="order"
-  class="order-section"
->
-
-  <div class="title">
-
-    <h2>
-      🛍️ දැන්වීමක් පළ කරගන්න
-    </h2>
-
-    <p>
-      පැකේජය තෝරා ඔබගේ දැන්වීම් විස්තර ලබා දෙන්න.
-    </p>
-
-  </div>
-
-
-  <div class="form-box">
-
-
-    <!-- SELECTED PACKAGE -->
-
-    <div class="form-group">
-
-      <label>
-        📦 තෝරාගත් පැකේජය
-      </label>
-
-      <input
-        id="selectedPackage"
-        type="text"
-        value="දින 3ක් - Non Repost"
-        readonly
-      >
-
-    </div>
-
-
-
-    <!-- WHATSAPP ADDON -->
-
-    <label
-      class="addon-box"
-      id="addonBox"
-    >
-
-      <input
-        type="checkbox"
-        id="whatsappChannel"
-        onchange="calculatePrice()"
-      >
-
-      <div>
-
-        <div class="addon-title">
-          🟢 WhatsApp නාලිකාවේද පළ කරන්න
-        </div>
-
-        <div class="addon-price">
-          අමතර ගාස්තුව +රු. 2,000
-        </div>
-
-      </div>
-
-    </label>
-
-
-
-    <!-- TOTAL -->
-
-    <div class="total-box">
-
-      <div class="total-label">
-        💰 මුළු දැන්වීම් ගාස්තුව
-      </div>
-
-      <div class="total-price">
-
-        රු.
-        <span id="total">
-          1,500
-        </span>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- NAME -->
-
-    <div class="form-group">
-
-      <label>
-        👤 ඔබගේ නම *
-      </label>
-
-      <input
-        id="customerName"
-        type="text"
-        placeholder="ඔබගේ නම ඇතුළත් කරන්න"
-      >
-
-    </div>
-
-
-
-    <!-- PHONE -->
-
-    <div class="form-group">
-
-      <label>
-        📱 ඔබගේ WhatsApp අංකය *
-      </label>
-
-      <input
-        id="customerPhone"
-        type="tel"
-        placeholder="07XXXXXXXX"
-      >
-
-    </div>
-
-
-
-    <!-- CAPTION -->
-
-    <div class="form-group">
-
-      <label>
-        📝 දැන්වීමේ Caption එක *
-      </label>
-
-      <textarea
-        id="caption"
-        rows="7"
-        placeholder="ඔබගේ දැන්වීමේ caption එක මෙහි ඇතුළත් කරන්න..."
-      ></textarea>
-
-    </div>
-
-
-
-    <!-- LINK -->
-
-    <div class="form-group">
-
-      <label>
-        🔗 දැන්වීමේ Link එක
-      </label>
-
-      <input
-        id="adLink"
-        type="url"
-        placeholder="https://..."
-      >
-
-    </div>
-
-
-
-    <!-- IMAGE -->
-
-    <div class="form-group">
-
-      <label>
-        🖼️ දැන්වීමේ Image එක *
-      </label>
-
-      <div class="upload-box">
-
-        <input
-          id="adImage"
-          type="file"
-          accept="image/*"
-          onchange="previewImage(event)"
-        >
-
-        <p class="upload-text">
-          ඔබගේ දැන්වීමේ Image එක තෝරන්න
+        <p>
+            Telegram සහ WhatsApp හරහා විශාල සිසුන් පිරිසක් වෙත ඔබගේ දැන්වීම ගෙන යන්න.
         </p>
 
-      </div>
+    </div>
+
+
+    <!-- MAIN TWO -->
+
+    <div class="main-networks">
+
+        <div class="main-network telegram">
+
+            <div class="network-logo">
+                ✈️
+            </div>
+
+            <h3>
+                AL API Telegram
+            </h3>
+
+            <div class="main-members">
+                64,000+
+            </div>
+
+            <small>
+                සාමාජිකයන්
+            </small>
+
+        </div>
+
+
+        <div class="main-network whatsapp">
+
+            <div class="network-logo">
+                🟢
+            </div>
+
+            <h3>
+                AL API WhatsApp Channel
+            </h3>
+
+            <div class="main-members">
+                18,000+
+            </div>
+
+            <small>
+                සාමාජිකයන්
+            </small>
+
+        </div>
 
     </div>
 
 
 
-    <!-- IMAGE PREVIEW -->
+    <!-- SMALL CHANNELS -->
 
-    <div
-      id="imagePreviewBox"
-      class="preview-box"
-    >
+    <div class="small-networks">
 
-      <p style="font-weight:bold;margin-bottom:10px;">
-        🖼️ Image Preview
-      </p>
+        <div class="small-network">
 
-      <img
-        id="imagePreview"
-        alt="දැන්වීමේ රූපය"
-      >
+            <div class="small-left">
+
+                <span class="small-logo">
+                    ✈️
+                </span>
+
+                <span class="small-name">
+                    Maths Bio API
+                </span>
+
+            </div>
+
+            <span class="small-members">
+                14,000+
+            </span>
+
+        </div>
+
+
+        <div class="small-network">
+
+            <div class="small-left">
+
+                <span class="small-logo">
+                    ✈️
+                </span>
+
+                <span class="small-name">
+                    Chemistry API
+                </span>
+
+            </div>
+
+            <span class="small-members">
+                7,000+
+            </span>
+
+        </div>
+
+
+        <div class="small-network">
+
+            <div class="small-left">
+
+                <span class="small-logo">
+                    ✈️
+                </span>
+
+                <span class="small-name">
+                    Physics API
+                </span>
+
+            </div>
+
+            <span class="small-members">
+                7,000+
+            </span>
+
+        </div>
+
+
+        <div class="small-network">
+
+            <div class="small-left">
+
+                <span class="small-logo">
+                    ✈️
+                </span>
+
+                <span class="small-name">
+                    ICT API
+                </span>
+
+            </div>
+
+            <span class="small-members">
+                5,000+
+            </span>
+
+        </div>
 
     </div>
-
-
-
-    <!-- WHATSAPP BUTTON -->
-
-    <button
-      class="whatsapp-btn"
-      onclick="sendWhatsAppOrder()"
-    >
-
-      📲 WhatsApp හරහා ඇණවුම යවන්න
-
-    </button>
-
-
-    <p class="note">
-
-      ඇණවුම යැවීමෙන් පසු WhatsApp විවෘත වේ.
-      <br>
-      කරුණාකර දැන්වීමේ Image එකත් WhatsApp හරහා
-      attach කර එවන්න.
-
-    </p>
-
-  </div>
 
 </section>
 
 
 
-<!-- CTA -->
+<!-- =========================
+     PACKAGES
+========================= -->
+
+<section
+    id="packages"
+    class="packages-section"
+>
+
+    <div class="title">
+
+        <h2>
+            🛍️ දැන්වීම් පැකේජ
+        </h2>
+
+        <p>
+            ඔබට අවශ්‍ය පැකේජය තෝරන්න
+        </p>
+
+    </div>
+
+
+    <div class="package-grid">
+
+
+
+        <!-- 3 DAYS -->
+
+        <div
+            class="package-card selected"
+            data-price="1500"
+            data-package="දින 3ක් - Non Repost"
+            onclick="selectPackage(this)"
+        >
+
+            <div class="package-icon">
+                📌
+            </div>
+
+            <div class="package-name">
+                දින 3ක්
+            </div>
+
+            <div class="package-name">
+                Non Repost
+            </div>
+
+            <div class="package-price">
+                රු. 1,500
+            </div>
+
+            <ul class="package-details">
+
+                <li>
+                    ✅ ඉහත සියලුම සමූහයන්හි පළ වේ
+                </li>
+
+                <li>
+                    ✅ දින 3ක් ඔබගේ දැන්වීම pin කරනු ලැබේ
+                </li>
+
+            </ul>
+
+            <div class="package-select">
+                පැකේජය තෝරන්න
+            </div>
+
+        </div>
+
+
+
+        <!-- 3 DAYS REPOST -->
+
+        <div
+            class="package-card"
+            data-price="2500"
+            data-package="දින 3ක් - Repost"
+            onclick="selectPackage(this)"
+        >
+
+            <div class="package-icon">
+                🔄
+            </div>
+
+            <div class="package-name">
+                දින 3ක්
+            </div>
+
+            <div class="package-name">
+                Repost
+            </div>
+
+            <div class="package-price">
+                රු. 2,500
+            </div>
+
+            <ul class="package-details">
+
+                <li>
+                    ✅ ඉහත සියලුම සමූහයන්හි පළ වේ
+                </li>
+
+                <li>
+                    ✅ දින 3ක් ඔබගේ දැන්වීම pin කරනු ලැබේ
+                </li>
+
+                <li>
+                    ⭐️ දින 3ම අපගේ සමූහයන් 5ම දිනපතා දැන්වීම පළ වේ.
+                </li>
+
+                <li>
+                    ⭐️ 3 × 5 = වාර 15ක් ඔබගේ දැන්වීම පළ වේ
+                </li>
+
+            </ul>
+
+            <div class="package-select">
+                පැකේජය තෝරන්න
+            </div>
+
+        </div>
+
+
+
+        <!-- 7 DAYS -->
+
+        <div
+            class="package-card"
+            data-price="2000"
+            data-package="දින 7ක් - Non Repost"
+            onclick="selectPackage(this)"
+        >
+
+            <div class="package-icon">
+                📅
+            </div>
+
+            <div class="package-name">
+                දින 7ක්
+            </div>
+
+            <div class="package-name">
+                Non Repost
+            </div>
+
+            <div class="package-price">
+                රු. 2,000
+            </div>
+
+            <ul class="package-details">
+
+                <li>
+                    ✅ ඉහත සියලුම සමූහයන්හි පළ වේ
+                </li>
+
+                <li>
+                    ✅ දින 7ක් ඔබගේ දැන්වීම pin කරනු ලැබේ
+                </li>
+
+            </ul>
+
+            <div class="package-select">
+                පැකේජය තෝරන්න
+            </div>
+
+        </div>
+
+
+
+        <!-- 7 DAYS REPOST -->
+
+        <div
+            class="package-card"
+            data-price="4000"
+            data-package="දින 7ක් - Repost"
+            onclick="selectPackage(this)"
+        >
+
+            <div class="popular">
+                ⭐ ජනප්‍රියම
+            </div>
+
+            <div class="package-icon">
+                🚀
+            </div>
+
+            <div class="package-name">
+                දින 7ක්
+            </div>
+
+            <div class="package-name">
+                Repost
+            </div>
+
+            <div class="package-price">
+                රු. 4,000
+            </div>
+
+            <ul class="package-details">
+
+                <li>
+                    ✅ ඉහත සියලුම සමූහයන්හි පළ වේ
+                </li>
+
+                <li>
+                    ✅ දින 7ක් ඔබගේ දැන්වීම pin කරනු ලැබේ
+                </li>
+
+                <li>
+                    ⭐️ දින 7ම අපගේ සමූහයන් 5ම දිනපතා දැන්වීම පළ වේ.
+                </li>
+
+                <li>
+                    ⭐️ 7 × 5 = වාර 35ක් ඔබගේ දැන්වීම පළ වේ
+                </li>
+
+                <li>
+                    ⭐️ ඔබට අවශ්‍ය පරිදි post customize කර ගත හැක
+                </li>
+
+            </ul>
+
+            <div class="package-select">
+                පැකේජය තෝරන්න
+            </div>
+
+        </div>
+
+
+
+        <!-- WHATSAPP ONLY -->
+
+        <div
+            class="package-card"
+            data-price="3000"
+            data-package="WhatsApp නාලිකාවේ පමණක්"
+            onclick="selectPackage(this)"
+        >
+
+            <div class="only-badge">
+                🟢 WhatsApp පමණක්
+            </div>
+
+            <div class="package-icon">
+                🟢
+            </div>
+
+            <div class="package-name">
+                WhatsApp නාලිකාවේ
+            </div>
+
+            <div class="package-name">
+                පමණක්
+            </div>
+
+            <div class="package-price">
+                රු. 3,000
+            </div>
+
+            <ul class="package-details">
+
+                <li>
+                    ✅ ඔබගේ දැන්වීම එක් වතාවක් පමණක් පළ වේ
+                </li>
+
+                <li>
+                    ✅ පළ කළ post එක ඉවත් නොකර පවතිනු ඇත
+                </li>
+
+                <li>
+                    🟢 WhatsApp නාලිකාවේ පමණක් පළ වේ
+                </li>
+
+            </ul>
+
+            <div class="package-select">
+                පැකේජය තෝරන්න
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     TEACHERS
+========================= -->
+
+<section>
+
+    <div class="teacher">
+
+        <h3>
+            🌟 ගුරුවරුන් සඳහා විශේෂයි 🌟
+        </h3>
+
+        <p>
+            ඔබගේ පන්ති, පාඨමාලා, අධ්‍යාපනික සේවා සහ
+            අනෙකුත් අධ්‍යාපනික දැන්වීම් අපගේ සිසුන් වෙත
+            ප්‍රචාරය කර ගන්න.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ORDER
+========================= -->
+
+<section
+    id="order"
+    class="order-section"
+>
+
+    <div class="title">
+
+        <h2>
+            🛍️ දැන්වීමක් පළ කරගන්න
+        </h2>
+
+        <p>
+            පැකේජය තෝරා ඔබගේ දැන්වීම් විස්තර ලබා දෙන්න.
+        </p>
+
+    </div>
+
+
+    <div class="form-box">
+
+
+        <!-- SELECTED PACKAGE -->
+
+        <div class="form-group">
+
+            <label>
+                📦 තෝරාගත් පැකේජය
+            </label>
+
+            <input
+                id="selectedPackage"
+                type="text"
+                value="දින 3ක් - Non Repost"
+                readonly
+            >
+
+        </div>
+
+
+
+        <!-- ADD WHATSAPP -->
+
+        <label
+            class="addon-box"
+            id="addonBox"
+        >
+
+            <input
+                type="checkbox"
+                id="whatsappChannel"
+                onchange="calculatePrice()"
+            >
+
+            <div>
+
+                <div class="addon-title">
+                    🟢 WhatsApp නාලිකාවේද පළ කරන්න
+                </div>
+
+                <div class="addon-price">
+                    අමතර ගාස්තුව +රු. 2,000
+                </div>
+
+            </div>
+
+        </label>
+
+
+
+        <!-- TOTAL -->
+
+        <div class="total-box">
+
+            <div class="total-label">
+                💰 මුළු දැන්වීම් ගාස්තුව
+            </div>
+
+            <div class="total-price">
+
+                රු.
+                <span id="total">
+                    1,500
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- NAME -->
+
+        <div class="form-group">
+
+            <label>
+                👤 ඔබගේ නම *
+            </label>
+
+            <input
+                id="customerName"
+                type="text"
+                placeholder="ඔබගේ නම ඇතුළත් කරන්න"
+            >
+
+        </div>
+
+
+
+        <!-- PHONE -->
+
+        <div class="form-group">
+
+            <label>
+                📱 ඔබගේ WhatsApp අංකය *
+            </label>
+
+            <input
+                id="customerPhone"
+                type="tel"
+                placeholder="07XXXXXXXX"
+            >
+
+        </div>
+
+
+
+        <!-- CAPTION -->
+
+        <div class="form-group">
+
+            <label>
+                📝 දැන්වීමේ Caption එක *
+            </label>
+
+            <textarea
+                id="caption"
+                rows="7"
+                placeholder="ඔබගේ දැන්වීමේ caption එක මෙහි ඇතුළත් කරන්න..."
+            ></textarea>
+
+        </div>
+
+
+
+        <!-- LINK -->
+
+        <div class="form-group">
+
+            <label>
+                🔗 දැන්වීමේ Link එක
+            </label>
+
+            <input
+                id="adLink"
+                type="url"
+                placeholder="https://..."
+            >
+
+        </div>
+
+
+
+        <!-- IMAGE -->
+
+        <div class="form-group">
+
+            <label>
+                🖼️ දැන්වීමේ Image එක *
+            </label>
+
+            <div class="upload-box">
+
+                <input
+                    id="adImage"
+                    type="file"
+                    accept="image/*"
+                    onchange="previewImage(event)"
+                >
+
+                <p class="upload-text">
+                    ඔබගේ දැන්වීමේ Image එක තෝරන්න
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PREVIEW -->
+
+        <div
+            id="imagePreviewBox"
+            class="preview-box"
+        >
+
+            <p style="font-weight:bold;margin-bottom:10px;">
+                🖼️ Image Preview
+            </p>
+
+            <img
+                id="imagePreview"
+                alt="දැන්වීමේ Image"
+            >
+
+        </div>
+
+
+
+        <!-- WHATSAPP -->
+
+        <button
+            class="whatsapp-btn"
+            onclick="sendWhatsAppOrder()"
+        >
+
+            📲 WhatsApp හරහා ඇණවුම යවන්න
+
+        </button>
+
+
+        <p class="note">
+
+            ඇණවුම යැවීමෙන් පසු WhatsApp විවෘත වේ.
+            <br>
+            දැන්වීමේ Image එක WhatsApp හරහා attach කර එවන්න.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CTA
+========================= -->
 
 <section class="cta">
 
-  <h2>
-    ඔබගේ දැන්වීම අදම ප්‍රචාරය කරන්න 🚀
-  </h2>
+    <h2>
+        ඔබගේ දැන්වීම අදම ප්‍රචාරය කරන්න 🚀
+    </h2>
 
-  <p>
-    AL API 🇱🇰 සමඟ ශ්‍රී ලංකාවේ සිසුන් වෙත ළඟා වන්න.
-  </p>
+    <p>
+        AL API 🇱🇰 සමඟ ශ්‍රී ලංකාවේ සිසුන් වෙත ළඟා වන්න.
+    </p>
 
-  <a
-    href="#order"
-    class="buy-btn"
-  >
-    📢 දැන්වීමක් පළ කරන්න
-  </a>
+    <a
+        href="#packages"
+        class="hero-btn"
+    >
+        📢 පැකේජ තෝරන්න
+    </a>
 
 </section>
 
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-  © 2026 AL API 🇱🇰 | ALapiedu.com
+    © 2026 AL API 🇱🇰 | ALapiedu.com
 
 </footer>
 
@@ -1072,261 +1434,279 @@ footer{
 <script>
 
 
-/* ==========================
-   තෝරාගත් පැකේජය
-========================== */
+/* =========================
+   PACKAGE VARIABLES
+========================= */
 
 let selectedPrice = 1500;
 
 let selectedPackageName =
-  "දින 3ක් - Non Repost";
+    "දින 3ක් - Non Repost";
 
+
+/* =========================
+   SELECT PACKAGE
+========================= */
 
 function selectPackage(card){
 
-  /* සියලු cards වල selected ඉවත් කිරීම */
-
-  const cards =
-    document.querySelectorAll(
-      ".package-card"
-    );
-
-  cards.forEach(function(item){
-
-    item.classList.remove(
-      "selected"
-    );
-
-  });
+    const cards =
+        document.querySelectorAll(
+            ".package-card"
+        );
 
 
-  /* තෝරාගත් card එක */
+    cards.forEach(function(item){
 
-  card.classList.add(
-    "selected"
-  );
+        item.classList.remove(
+            "selected"
+        );
+
+    });
 
 
-  /* මිල ලබා ගැනීම */
-
-  selectedPrice =
-    Number(
-      card.getAttribute(
-        "data-price"
-      )
+    card.classList.add(
+        "selected"
     );
 
 
-  /* Package නම */
-
-  selectedPackageName =
-    card.getAttribute(
-      "data-package"
-    );
-
-
-  /* Form එකේ පෙන්වීම */
-
-  document.getElementById(
-    "selectedPackage"
-  ).value =
-    selectedPackageName;
+    selectedPrice =
+        Number(
+            card.getAttribute(
+                "data-price"
+            )
+        );
 
 
-  /* Total update */
+    selectedPackageName =
+        card.getAttribute(
+            "data-package"
+        );
 
-  calculatePrice();
+
+    document.getElementById(
+        "selectedPackage"
+    ).value =
+        selectedPackageName;
 
 
-  /* Order section එකට scroll */
+    calculatePrice();
 
-  document.getElementById(
-    "order"
-  ).scrollIntoView({
-    behavior:"smooth"
-  });
+
+    document.getElementById(
+        "order"
+    ).scrollIntoView({
+        behavior:"smooth"
+    });
 
 }
 
 
-/* ==========================
-   TOTAL
-========================== */
+/* =========================
+   CALCULATE PRICE
+========================= */
 
 function calculatePrice(){
 
-  const whatsapp =
-    document.getElementById(
-      "whatsappChannel"
-    );
+    const whatsapp =
+        document.getElementById(
+            "whatsappChannel"
+        );
 
-  const total =
-    document.getElementById(
-      "total"
-    );
+    const total =
+        document.getElementById(
+            "total"
+        );
 
-  const addonBox =
-    document.getElementById(
-      "addonBox"
-    );
-
-
-  let price =
-    selectedPrice;
+    const addonBox =
+        document.getElementById(
+            "addonBox"
+        );
 
 
-  if(
-    whatsapp.checked
-  ){
-
-    price += 2000;
-
-    addonBox.classList.add(
-      "active"
-    );
-
-  }else{
-
-    addonBox.classList.remove(
-      "active"
-    );
-
-  }
+    let price =
+        selectedPrice;
 
 
-  total.textContent =
-    price.toLocaleString();
+    /*
+      WhatsApp add-on එක
+      "WhatsApp පමණක්" package එක
+      නොවන විට පමණක් +2000
+    */
+
+    if(
+        whatsapp.checked &&
+        selectedPrice !== 3000
+    ){
+
+        price += 2000;
+
+        addonBox.classList.add(
+            "active"
+        );
+
+    }
+    else{
+
+        addonBox.classList.remove(
+            "active"
+        );
+
+    }
+
+
+    total.textContent =
+        price.toLocaleString();
 
 }
 
 
-/* ==========================
+/* =========================
    IMAGE PREVIEW
-========================== */
+========================= */
 
 function previewImage(event){
 
-  const file =
-    event.target.files[0];
+    const file =
+        event.target.files[0];
 
 
-  if(!file){
+    if(!file){
 
-    return;
+        return;
 
-  }
+    }
 
 
-  if(
-    !file.type.startsWith(
-      "image/"
-    )
-  ){
+    if(
+        !file.type.startsWith(
+            "image/"
+        )
+    ){
 
-    alert(
-      "කරුණාකර Image එකක් තෝරන්න."
+        alert(
+            "කරුණාකර Image එකක් තෝරන්න."
+        );
+
+        event.target.value = "";
+
+        return;
+
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(e){
+
+            document.getElementById(
+                "imagePreview"
+            ).src =
+                e.target.result;
+
+
+            document.getElementById(
+                "imagePreviewBox"
+            ).style.display =
+                "block";
+
+        };
+
+
+    reader.readAsDataURL(
+        file
     );
-
-    event.target.value = "";
-
-    return;
-
-  }
-
-
-  const reader =
-    new FileReader();
-
-
-  reader.onload =
-    function(e){
-
-      document.getElementById(
-        "imagePreview"
-      ).src =
-        e.target.result;
-
-
-      document.getElementById(
-        "imagePreviewBox"
-      ).style.display =
-        "block";
-
-    };
-
-
-  reader.readAsDataURL(
-    file
-  );
 
 }
 
 
-/* ==========================
-   WHATSAPP ORDER
-========================== */
+/* =========================
+   SEND WHATSAPP ORDER
+========================= */
 
 function sendWhatsAppOrder(){
 
-  const name =
-    document.getElementById(
-      "customerName"
-    ).value.trim();
+    const name =
+        document.getElementById(
+            "customerName"
+        ).value.trim();
 
 
-  const phone =
-    document.getElementById(
-      "customerPhone"
-    ).value.trim();
+    const phone =
+        document.getElementById(
+            "customerPhone"
+        ).value.trim();
 
 
-  const caption =
-    document.getElementById(
-      "caption"
-    ).value.trim();
+    const caption =
+        document.getElementById(
+            "caption"
+        ).value.trim();
 
 
-  const link =
-    document.getElementById(
-      "adLink"
-    ).value.trim();
+    const link =
+        document.getElementById(
+            "adLink"
+        ).value.trim();
 
 
-  const image =
-    document.getElementById(
-      "adImage"
-    ).files[0];
+    const image =
+        document.getElementById(
+            "adImage"
+        ).files[0];
 
 
-  const whatsapp =
-    document.getElementById(
-      "whatsappChannel"
-    ).checked;
+    const whatsapp =
+        document.getElementById(
+            "whatsappChannel"
+        ).checked;
 
 
-  const total =
-    document.getElementById(
-      "total"
-    ).innerText;
+    const total =
+        document.getElementById(
+            "total"
+        ).innerText;
 
 
-  if(
-    !name ||
-    !phone ||
-    !caption ||
-    !image
-  ){
+    if(
+        !name ||
+        !phone ||
+        !caption ||
+        !image
+    ){
 
-    alert(
-      "කරුණාකර නම, WhatsApp අංකය, Caption එක සහ Image එක ලබා දෙන්න."
-    );
+        alert(
+            "කරුණාකර නම, WhatsApp අංකය, Caption එක සහ Image එක ලබා දෙන්න."
+        );
 
-    return;
+        return;
 
-  }
+    }
 
 
-  const message =
+    let whatsappOption =
+        whatsapp
+        ? "ඔව් (+රු. 2,000)"
+        : "නැහැ";
+
+
+    /*
+      WhatsApp Only package එක නම්
+      add-on එකක් ලෙස පෙන්වන්නේ නැහැ
+    */
+
+    if(selectedPrice === 3000){
+
+        whatsappOption =
+            "WhatsApp නාලිකාවේ පමණක්";
+
+    }
+
+
+    const message =
 
 `🛍️ AL API 🇱🇰 - නව දැන්වීම් ඇණවුම
 
@@ -1341,8 +1721,8 @@ ${phone}
 📦 පැකේජය:
 ${selectedPackageName}
 
-💬 WhatsApp නාලිකාව:
-${whatsapp ? "ඔව් (+රු. 2,000)" : "නැහැ"}
+🟢 WhatsApp නාලිකාව:
+${whatsappOption}
 
 💰 මුළු මුදල:
 රු. ${total}
@@ -1359,29 +1739,31 @@ WhatsApp හරහා Image එක attach කරමි.
 ━━━━━━━━━━━━━━
 
 AL API 🇱🇰
-අධ්‍යාපනික දැන්වීම් ජාලය`;
+Advertising Network`;
 
 
-  const encodedMessage =
-    encodeURIComponent(
-      message
+    const encodedMessage =
+        encodeURIComponent(
+            message
+        );
+
+
+    const whatsappURL =
+        "https://wa.me/94782419390?text=" +
+        encodedMessage;
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
     );
-
-
-  const whatsappURL =
-    "https://wa.me/94782419390?text=" +
-    encodedMessage;
-
-
-  window.open(
-    whatsappURL,
-    "_blank"
-  );
 
 }
 
 
-/* ආරම්භයේ total එක */
+/* =========================
+   INITIAL TOTAL
+========================= */
 
 calculatePrice();
 
