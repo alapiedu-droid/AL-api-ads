@@ -306,54 +306,219 @@
 <footer>
   © 2026 AL API 🇱🇰 | ALapiedu.com
 </footer>
-<section id="order" style="background:#f5f7fb; padding:60px 6%;">
+<section id="order" style="background:#f5f7fb; padding:65px 6%;">
   <div class="title">
     <h2>🛍️ Buy Advertisement</h2>
-    <p>Choose your package and submit your advertisement details.</p>
+    <p>Submit your advertisement details and contact us via WhatsApp.</p>
   </div>
 
-  <div style="max-width:650px; margin:auto; background:white; padding:30px; border-radius:18px; border:1px solid #e5e7eb;">
+  <div style="max-width:700px;margin:auto;background:#fff;padding:30px;border-radius:20px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);">
 
-    <label>Advertising Package</label>
-    <select id="package" onchange="calculatePrice()" style="width:100%; padding:14px; margin:10px 0 20px;">
+    <label><strong>Select Package</strong></label>
+
+    <select id="package" onchange="calculatePrice()" style="width:100%;padding:14px;margin:10px 0 22px;border:1px solid #d1d5db;border-radius:10px;font-size:15px;">
       <option value="1500">3 Days - Non Repost — Rs. 1,500</option>
       <option value="2500">3 Days - Repost — Rs. 2,500</option>
       <option value="2000">7 Days - Non Repost — Rs. 2,000</option>
       <option value="4000">7 Days - Repost — Rs. 4,000</option>
     </select>
 
-    <label>
-      <input type="checkbox" id="whatsapp" onchange="calculatePrice()">
-      Add WhatsApp Channel — +Rs. 2,000
+    <label style="display:block;margin-bottom:20px;">
+      <input type="checkbox" id="whatsappChannel" onchange="calculatePrice()">
+      <strong>Add WhatsApp Channel</strong>
+      <span style="color:#2563eb;">(+Rs. 2,000)</span>
     </label>
 
-    <h3 style="margin-top:25px;">Total: Rs. <span id="total">1500</span></h3>
+    <div style="background:#eef4ff;padding:18px;border-radius:12px;margin-bottom:25px;">
+      <div style="font-size:14px;color:#6b7280;">Total Advertising Fee</div>
+      <div style="font-size:30px;font-weight:800;color:#2563eb;">
+        Rs. <span id="total">1,500</span>
+      </div>
+    </div>
 
-    <br>
+    <label><strong>Your Name *</strong></label>
+    <input id="customerName" type="text" placeholder="Enter your name"
+      style="width:100%;padding:14px;margin:10px 0 20px;border:1px solid #d1d5db;border-radius:10px;">
 
-    <label>Your Name</label>
-    <input id="name" type="text" placeholder="Enter your name"
-      style="width:100%; padding:14px; margin:10px 0 20px;">
+    <label><strong>Your WhatsApp Number *</strong></label>
+    <input id="customerPhone" type="tel" placeholder="07XXXXXXXX"
+      style="width:100%;padding:14px;margin:10px 0 20px;border:1px solid #d1d5db;border-radius:10px;">
 
-    <label>WhatsApp Number</label>
-    <input id="phone" type="tel" placeholder="07XXXXXXXX"
-      style="width:100%; padding:14px; margin:10px 0 20px;">
+    <label><strong>Advertisement Caption *</strong></label>
+    <textarea id="caption" rows="6" placeholder="Enter your advertisement caption..."
+      style="width:100%;padding:14px;margin:10px 0 20px;border:1px solid #d1d5db;border-radius:10px;resize:vertical;"></textarea>
 
-    <label>Advertisement Caption</label>
-    <textarea id="caption" rows="5" placeholder="Enter your advertisement..."
-      style="width:100%; padding:14px; margin:10px 0 20px;"></textarea>
+    <label><strong>Advertisement Link</strong></label>
+    <input id="adLink" type="url" placeholder="https://..."
+      style="width:100%;padding:14px;margin:10px 0 20px;border:1px solid #d1d5db;border-radius:10px;">
 
-    <label>Advertisement Link</label>
-    <input id="link" type="url" placeholder="https://..."
-      style="width:100%; padding:14px; margin:10px 0 20px;">
+    <label><strong>Advertisement Image *</strong></label>
 
-    <button onclick="submitOrder()"
-      style="width:100%; padding:15px; background:#2563eb; color:white; border:0; border-radius:10px; font-weight:bold; font-size:16px;">
-      🚀 SUBMIT ORDER
+    <div style="border:2px dashed #cbd5e1;border-radius:14px;padding:22px;text-align:center;margin-top:10px;margin-bottom:15px;">
+      <input id="adImage" type="file" accept="image/*" onchange="previewImage(event)">
+      <p style="font-size:13px;color:#6b7280;margin-top:10px;">
+        Upload your advertisement image
+      </p>
+    </div>
+
+    <div id="imagePreviewBox" style="display:none;text-align:center;margin-bottom:25px;">
+      <p style="font-size:13px;font-weight:bold;margin-bottom:10px;">Image Preview</p>
+
+      <img id="imagePreview"
+        style="max-width:100%;max-height:300px;border-radius:12px;border:1px solid #e5e7eb;">
+    </div>
+
+    <button onclick="sendWhatsAppOrder()"
+      style="width:100%;padding:16px;background:#25D366;color:white;border:0;border-radius:12px;font-weight:800;font-size:16px;cursor:pointer;">
+      📲 SEND ORDER VIA WHATSAPP
     </button>
+
+    <p style="text-align:center;color:#6b7280;font-size:12px;margin-top:15px;">
+      After submitting, your WhatsApp will open with the order details.
+      Please attach the selected advertisement image before sending.
+    </p>
 
   </div>
 </section>
+
+<script>
+
+function calculatePrice() {
+
+  let price = Number(
+    document.getElementById("package").value
+  );
+
+  if (
+    document.getElementById("whatsappChannel").checked
+  ) {
+    price += 2000;
+  }
+
+  document.getElementById("total").innerText =
+    price.toLocaleString();
+}
+
+
+function previewImage(event) {
+
+  const file = event.target.files[0];
+
+  if (!file) {
+    return;
+  }
+
+  if (!file.type.startsWith("image/")) {
+    alert("Please select an image file.");
+    event.target.value = "";
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+
+    document.getElementById("imagePreview").src =
+      e.target.result;
+
+    document.getElementById("imagePreviewBox").style.display =
+      "block";
+  };
+
+  reader.readAsDataURL(file);
+}
+
+
+function sendWhatsAppOrder() {
+
+  const name =
+    document.getElementById("customerName").value.trim();
+
+  const phone =
+    document.getElementById("customerPhone").value.trim();
+
+  const caption =
+    document.getElementById("caption").value.trim();
+
+  const link =
+    document.getElementById("adLink").value.trim();
+
+  const image =
+    document.getElementById("adImage").files[0];
+
+  const packageSelect =
+    document.getElementById("package");
+
+  const packageName =
+    packageSelect.options[
+      packageSelect.selectedIndex
+    ].text;
+
+  const whatsappChannel =
+    document.getElementById("whatsappChannel").checked;
+
+  const total =
+    document.getElementById("total").innerText;
+
+
+  if (!name || !phone || !caption || !image) {
+
+    alert(
+      "Please enter your name, WhatsApp number, caption and upload your advertisement image."
+    );
+
+    return;
+  }
+
+
+  let message =
+`🛍️ AL API - NEW ADVERTISEMENT ORDER
+
+👤 Customer Name:
+${name}
+
+📱 Customer WhatsApp:
+${phone}
+
+📦 Package:
+${packageName}
+
+💬 WhatsApp Channel:
+${whatsappChannel ? "Yes (+Rs. 2,000)" : "No"}
+
+💰 Total:
+Rs. ${total}
+
+📝 Advertisement Caption:
+${caption}
+
+🔗 Advertisement Link:
+${link || "Not provided"}
+
+🖼️ Advertisement Image:
+I will attach the image to this WhatsApp message.
+
+━━━━━━━━━━━━━━
+AL API 🇱🇰
+Advertising Network`;
+
+
+  const encodedMessage =
+    encodeURIComponent(message);
+
+
+  const whatsappURL =
+    "https://wa.me/94782419390?text=" +
+    encodedMessage;
+
+
+  window.open(
+    whatsappURL,
+    "_blank"
+  );
+}
+
+</script>
 
 <script>
 function calculatePrice() {
