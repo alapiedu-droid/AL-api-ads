@@ -222,7 +222,7 @@
     our educational Telegram, WhatsApp and social media channels.
   </p>
 
-  <a href="#packages" class="buy-btn">🚀 BUY ADS</a>
+<a href="#order" class="buy-btn">🚀 BUY ADS</a>
 </section>
 
 <section>
@@ -306,6 +306,91 @@
 <footer>
   © 2026 AL API 🇱🇰 | ALapiedu.com
 </footer>
+<section id="order" style="background:#f5f7fb; padding:60px 6%;">
+  <div class="title">
+    <h2>🛍️ Buy Advertisement</h2>
+    <p>Choose your package and submit your advertisement details.</p>
+  </div>
 
+  <div style="max-width:650px; margin:auto; background:white; padding:30px; border-radius:18px; border:1px solid #e5e7eb;">
+
+    <label>Advertising Package</label>
+    <select id="package" onchange="calculatePrice()" style="width:100%; padding:14px; margin:10px 0 20px;">
+      <option value="1500">3 Days - Non Repost — Rs. 1,500</option>
+      <option value="2500">3 Days - Repost — Rs. 2,500</option>
+      <option value="2000">7 Days - Non Repost — Rs. 2,000</option>
+      <option value="4000">7 Days - Repost — Rs. 4,000</option>
+    </select>
+
+    <label>
+      <input type="checkbox" id="whatsapp" onchange="calculatePrice()">
+      Add WhatsApp Channel — +Rs. 2,000
+    </label>
+
+    <h3 style="margin-top:25px;">Total: Rs. <span id="total">1500</span></h3>
+
+    <br>
+
+    <label>Your Name</label>
+    <input id="name" type="text" placeholder="Enter your name"
+      style="width:100%; padding:14px; margin:10px 0 20px;">
+
+    <label>WhatsApp Number</label>
+    <input id="phone" type="tel" placeholder="07XXXXXXXX"
+      style="width:100%; padding:14px; margin:10px 0 20px;">
+
+    <label>Advertisement Caption</label>
+    <textarea id="caption" rows="5" placeholder="Enter your advertisement..."
+      style="width:100%; padding:14px; margin:10px 0 20px;"></textarea>
+
+    <label>Advertisement Link</label>
+    <input id="link" type="url" placeholder="https://..."
+      style="width:100%; padding:14px; margin:10px 0 20px;">
+
+    <button onclick="submitOrder()"
+      style="width:100%; padding:15px; background:#2563eb; color:white; border:0; border-radius:10px; font-weight:bold; font-size:16px;">
+      🚀 SUBMIT ORDER
+    </button>
+
+  </div>
+</section>
+
+<script>
+function calculatePrice() {
+  let price = Number(document.getElementById("package").value);
+
+  if (document.getElementById("whatsapp").checked) {
+    price += 2000;
+  }
+
+  document.getElementById("total").innerText =
+    price.toLocaleString();
+}
+
+function submitOrder() {
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const caption = document.getElementById("caption").value;
+  const link = document.getElementById("link").value;
+  const packageName =
+    document.getElementById("package").selectedOptions[0].text;
+  const whatsapp =
+    document.getElementById("whatsapp").checked ? "Yes" : "No";
+  const total = document.getElementById("total").innerText;
+
+  if (!name || !phone || !caption) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  alert(
+    "Order received!\\n\\n" +
+    "Package: " + packageName +
+    "\\nWhatsApp Channel: " + whatsapp +
+    "\\nTotal: Rs. " + total +
+    "\\n\\nWe will contact you shortly."
+  );
+}
+</script>
 </body>
 </html>
