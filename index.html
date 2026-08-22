@@ -87,6 +87,7 @@ header{
     font-weight:900;
 }
 
+
 /* 🇱🇰 FLAG ANIMATION */
 
 .waving-flag{
@@ -200,10 +201,12 @@ header{
     font-size:39px;
     line-height:1.25;
     margin-bottom:15px;
+    font-weight:900;
 }
 
 .hero h1 span{
     color:#2563eb;
+    font-weight:900;
 }
 
 .hero p{
@@ -371,28 +374,48 @@ section{
     text-decoration:none;
 
     color:#111827;
+
+    min-width:0;
 }
 
 .small-left{
     display:flex;
     align-items:center;
     gap:8px;
+
+    min-width:0;
 }
 
 .small-logo{
     width:25px;
     height:25px;
+
+    flex-shrink:0;
 }
 
 .small-name{
     font-size:12px;
     font-weight:bold;
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 .small-count{
-    font-size:12px;
+    font-size:11px;
     color:#229ED9;
-    font-weight:bold;
+    font-weight:900;
+
+    background:#eaf7ff;
+
+    border-radius:20px;
+
+    padding:4px 7px;
+
+    white-space:nowrap;
+
+    flex-shrink:0;
 }
 
 
@@ -539,6 +562,9 @@ section{
 .package.selected{
     border-color:#2563eb;
     background:#f4f8ff;
+
+    box-shadow:
+    0 8px 22px rgba(37,99,235,.12);
 }
 
 .package.selected:after{
@@ -591,15 +617,15 @@ section{
 
 
 /* =========================
-   TOTAL
+   TOTAL CARD
 ========================= */
 
 .total-card{
-    margin:25px 0;
+    margin:28px 0;
 
-    padding:25px;
+    padding:26px;
 
-    border-radius:18px;
+    border-radius:20px;
 
     background:
     linear-gradient(
@@ -608,44 +634,141 @@ section{
         #f8fbff
     );
 
-    border:2px solid #dbeafe;
+    border:2px solid #cfe0ff;
+
+    box-shadow:
+    0 10px 28px rgba(37,99,235,.10);
 }
 
 .total-label{
     font-size:13px;
-    color:#6b7280;
+    color:#64748b;
+
+    font-weight:700;
+
+    margin-bottom:4px;
 }
 
-.total{
+.total-normal{
     color:#2563eb;
 
-    font-size:40px;
+    font-size:42px;
 
     font-weight:900;
 
-    margin:4px 0 12px;
+    margin:2px 0 12px;
 }
+
+
+/* =========================
+   DISCOUNT TOTAL
+========================= */
+
+.discount-box{
+    display:none;
+
+    margin:4px 0 16px;
+
+    padding:15px 17px;
+
+    border-radius:15px;
+
+    background:linear-gradient(
+        135deg,
+        #fff7ed,
+        #fffbeb
+    );
+
+    border:2px solid #fed7aa;
+}
+
+.discount-box.show{
+    display:block;
+}
+
+.original-price{
+    font-size:18px;
+
+    color:#dc2626;
+
+    font-weight:800;
+
+    text-decoration:line-through;
+
+    text-decoration-thickness:2px;
+
+    margin-bottom:3px;
+}
+
+.discount-label{
+    display:inline-block;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    color:#15803d;
+
+    background:#dcfce7;
+
+    border-radius:20px;
+
+    padding:5px 9px;
+
+    margin-bottom:4px;
+}
+
+.discount-price{
+    font-size:38px;
+
+    line-height:1.1;
+
+    color:#16a34a;
+
+    font-weight:1000;
+
+    letter-spacing:-.5px;
+}
+
+.discount-saving{
+    font-size:11px;
+
+    color:#15803d;
+
+    font-weight:700;
+
+    margin-top:4px;
+}
+
+
+/* =========================
+   SELECTED ITEMS
+========================= */
 
 .selected-items{
     display:flex;
 
     flex-wrap:wrap;
 
-    gap:7px;
+    gap:8px;
 }
 
 .tag{
     background:white;
 
-    border:1px solid #dbeafe;
+    border:2px solid #dbeafe;
 
-    border-radius:20px;
+    border-radius:12px;
 
-    padding:6px 10px;
+    padding:8px 11px;
 
-    font-size:11px;
+    font-size:12px;
 
-    font-weight:bold;
+    font-weight:900;
+
+    color:#1e40af;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.04);
 }
 
 
@@ -788,6 +911,7 @@ footer{
 
     .hero h1{
         font-size:29px;
+        font-weight:900;
     }
 
     section{
@@ -808,10 +932,64 @@ footer{
 
     .network-small{
         grid-template-columns:1fr 1fr;
+        gap:8px;
+    }
+
+    .small-card{
+        padding:9px 8px;
+    }
+
+    .small-left{
+        gap:5px;
+    }
+
+    .small-logo{
+        width:21px;
+        height:21px;
+    }
+
+    .small-name{
+        font-size:10px;
+    }
+
+    .small-count{
+        font-size:9px;
+        padding:3px 5px;
     }
 
     .order-box{
         padding:20px;
+    }
+
+    .total-card{
+        padding:20px 16px;
+    }
+
+    .total-normal{
+        font-size:36px;
+    }
+
+    .discount-price{
+        font-size:34px;
+    }
+
+}
+
+
+/* EXTRA SMALL PHONES */
+
+@media(max-width:380px){
+
+    .network-small{
+        grid-template-columns:1fr;
+    }
+
+    .small-name{
+        font-size:11px;
+    }
+
+    .small-count{
+        font-size:10px;
     }
 
 }
@@ -1485,11 +1663,57 @@ this,
 💰 ඔබගේ තෝරාගැනීමේ මුළු ගාස්තුව
 </div>
 
-<div class="total">
+<!-- NORMAL TOTAL -->
+
+<div
+id="normalTotal"
+class="total-normal"
+>
+
 රු. <span id="total">0</span>
+
 </div>
 
-<div id="selectedItems" class="selected-items">
+
+<!-- DISCOUNT TOTAL -->
+
+<div
+id="discountBox"
+class="discount-box"
+>
+
+<div
+id="originalPrice"
+class="original-price"
+>
+රු. 0
+</div>
+
+<div class="discount-label">
+🔥 DISCOUNT PRICE
+</div>
+
+<div
+id="discountPrice"
+class="discount-price"
+>
+රු. 0
+</div>
+
+<div
+id="discountSaving"
+class="discount-saving"
+>
+ඔබ ඉතිරි කරන්නේ රු. 0
+</div>
+
+</div>
+
+
+<div
+id="selectedItems"
+class="selected-items"
+>
 
 <span class="tag">
 සේවාවක් තෝරන්න
@@ -1656,7 +1880,6 @@ let telegramName = "";
 
 let websitePrice = 0;
 let websiteName = "";
-
 
 
 /* =========================
@@ -1856,6 +2079,64 @@ calculate();
 
 
 /* =========================
+   DISCOUNT CALCULATION
+========================= */
+
+function getDiscountedTotal(normalTotal){
+
+/*
+   DISCOUNT ONLY WHEN:
+
+   Telegram = 7 Days Repost (Rs.4000)
+   +
+   WhatsApp
+   +
+   Website
+
+   3 Days Website:
+   8000 -> 7500
+
+   7 Days Website:
+   10000 -> 9000
+
+   10 Days Website:
+   12000 -> 10000
+*/
+
+if(
+telegram &&
+whatsapp &&
+website &&
+telegramPrice === 4000
+){
+
+if(websitePrice === 2000){
+
+return 7500;
+
+}
+
+if(websitePrice === 4000){
+
+return 9000;
+
+}
+
+if(websitePrice === 6000){
+
+return 10000;
+
+}
+
+}
+
+return normalTotal;
+
+}
+
+
+
+/* =========================
    CALCULATE
 ========================= */
 
@@ -1864,7 +2145,6 @@ function calculate(){
 let total = 0;
 
 let items = [];
-
 
 
 /* TELEGRAM */
@@ -1883,7 +2163,6 @@ telegramName
 }
 
 }
-
 
 
 /* WHATSAPP */
@@ -1919,7 +2198,6 @@ whatsappPrice.toLocaleString()
 }
 
 
-
 /* WEBSITE */
 
 if(website){
@@ -1938,8 +2216,20 @@ websiteName
 }
 
 
+/* =========================
+   APPLY DISCOUNT
+========================= */
 
-/* TOTAL */
+const finalTotal =
+getDiscountedTotal(total);
+
+const discountAmount =
+total - finalTotal;
+
+
+/* =========================
+   TOTAL DISPLAY
+========================= */
 
 document
 .getElementById("total")
@@ -1947,8 +2237,78 @@ document
 total.toLocaleString();
 
 
+/* =========================
+   DISCOUNT DISPLAY
+========================= */
 
-/* TAGS */
+const discountBox =
+document.getElementById(
+"discountBox"
+);
+
+
+const normalTotal =
+document.getElementById(
+"normalTotal"
+);
+
+
+if(
+discountAmount > 0
+){
+
+discountBox.classList.add(
+"show"
+);
+
+normalTotal.style.display =
+"none";
+
+
+document
+.getElementById(
+"originalPrice"
+)
+.innerText =
+"රු. " +
+total.toLocaleString();
+
+
+document
+.getElementById(
+"discountPrice"
+)
+.innerText =
+"රු. " +
+finalTotal.toLocaleString();
+
+
+document
+.getElementById(
+"discountSaving"
+)
+.innerText =
+"🎉 ඔබ ඉතිරි කරන්නේ රු. " +
+discountAmount.toLocaleString();
+
+}
+
+else{
+
+discountBox.classList.remove(
+"show"
+);
+
+normalTotal.style.display =
+"block";
+
+}
+
+
+
+/* =========================
+   SELECTED TAGS
+========================= */
 
 const box =
 document.getElementById(
@@ -2092,14 +2452,65 @@ document
 .files[0];
 
 
+/* =========================
+   CALCULATE FINAL TOTAL
+========================= */
+
+let normalTotal = 0;
+
+
+/* TELEGRAM */
+
+if(telegram){
+
+normalTotal += telegramPrice;
+
+}
+
+
+/* WHATSAPP */
+
+if(whatsapp){
+
+let wp = 2000;
+
+if(
+!telegram &&
+!website
+){
+
+wp = 3000;
+
+}
+
+normalTotal += wp;
+
+}
+
+
+/* WEBSITE */
+
+if(website){
+
+normalTotal += websitePrice;
+
+}
+
+
+const finalTotal =
+getDiscountedTotal(
+normalTotal
+);
+
+
 const total =
-document
-.getElementById(
-"total"
-)
-.innerText;
+finalTotal.toLocaleString();
 
 
+
+/* =========================
+   VALIDATION
+========================= */
 
 if(
 !telegram &&
@@ -2167,7 +2578,6 @@ return;
 let services = [];
 
 
-
 /* TELEGRAM */
 
 if(telegram){
@@ -2180,7 +2590,6 @@ telegramPrice.toLocaleString()
 );
 
 }
-
 
 
 /* WHATSAPP */
@@ -2206,7 +2615,6 @@ wp.toLocaleString()
 }
 
 
-
 /* WEBSITE */
 
 if(website){
@@ -2221,8 +2629,25 @@ websitePrice.toLocaleString()
 }
 
 
+/* DISCOUNT MESSAGE */
 
-/* MESSAGE */
+if(
+normalTotal !== finalTotal
+){
+
+services.push(
+"🔥 Discount: Rs. " +
+(
+normalTotal - finalTotal
+).toLocaleString()
+);
+
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
 
 const message =
 
@@ -2242,7 +2667,10 @@ ${phone}
 
 ${services.join("\n")}
 
-💰 මුළු ගාස්තුව:
+💰 මුල් මුළු ගාස්තුව:
+Rs. ${normalTotal.toLocaleString()}
+
+🔥 Discount සමඟ මුළු ගාස්තුව:
 Rs. ${total}
 
 📝 Caption:
@@ -2258,7 +2686,6 @@ Image එක attach කරමි.
 
 AL අපි 🇱🇰 Advertising
 ALapiedu.com`;
-
 
 
 const url =
