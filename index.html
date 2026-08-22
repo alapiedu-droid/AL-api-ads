@@ -2,570 +2,896 @@
 <html lang="si">
 
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>AL API 🇱🇰 | Advertisement</title>
+<title>AL අපි 🇱🇰 Advertising | Buy Ads</title>
 
 <style>
 
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,"Noto Sans Sinhala",sans-serif;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,"Noto Sans Sinhala",sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-background:#f5f7fb;
-color:#111827;
+    background:#f5f7fb;
+    color:#111827;
 }
+
+
+/* =========================
+   HEADER
+========================= */
 
 header{
-background:#fff;
-padding:16px 6%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid #e5e7eb;
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid #e5e7eb;
+
+    padding:13px 6%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-.logo{
-font-size:21px;
-font-weight:900;
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    text-decoration:none;
+    color:#111827;
 }
 
-.logo span{
-color:#2563eb;
+.brand-icon{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    color:white;
+    font-size:21px;
+
+    box-shadow:0 6px 16px rgba(37,99,235,.22);
 }
 
-.header-btn{
-background:#2563eb;
-color:white;
-padding:10px 17px;
-border-radius:10px;
-text-decoration:none;
-font-size:13px;
-font-weight:bold;
+.brand-text{
+    line-height:1.1;
 }
+
+.brand-title{
+    font-size:17px;
+    font-weight:900;
+}
+
+/* 🇱🇰 FLAG ANIMATION */
+
+.waving-flag{
+    display:inline-block;
+    transform-origin:left center;
+
+    animation:flagWave 1.8s ease-in-out infinite;
+}
+
+@keyframes flagWave{
+
+    0%{
+        transform:
+        perspective(300px)
+        rotateY(0deg)
+        skewY(0deg);
+    }
+
+    25%{
+        transform:
+        perspective(300px)
+        rotateY(-18deg)
+        skewY(3deg);
+    }
+
+    50%{
+        transform:
+        perspective(300px)
+        rotateY(12deg)
+        skewY(-3deg);
+    }
+
+    75%{
+        transform:
+        perspective(300px)
+        rotateY(-8deg)
+        skewY(2deg);
+    }
+
+    100%{
+        transform:
+        perspective(300px)
+        rotateY(0deg)
+        skewY(0deg);
+    }
+}
+
+.brand-subtitle{
+    font-size:10px;
+    color:#6b7280;
+    margin-top:4px;
+    letter-spacing:.3px;
+}
+
+.buy-button{
+    display:flex;
+    align-items:center;
+    gap:7px;
+
+    padding:11px 16px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:#111827;
+
+    font-size:13px;
+    font-weight:900;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+
+    transition:.2s;
+}
+
+.buy-button:hover{
+    transform:translateY(-2px);
+    background:#2563eb;
+}
+
+.cart{
+    font-size:17px;
+}
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-padding:65px 20px;
-text-align:center;
-background:linear-gradient(135deg,#eef4ff,#fff);
+    padding:70px 20px 65px;
+
+    text-align:center;
+
+    background:
+    radial-gradient(
+        circle at top right,
+        #dbeafe,
+        transparent 35%
+    ),
+    linear-gradient(
+        135deg,
+        #f8fbff,
+        #ffffff
+    );
 }
 
 .hero h1{
-font-size:38px;
-margin-bottom:14px;
+    font-size:39px;
+    line-height:1.25;
+    margin-bottom:15px;
 }
 
 .hero h1 span{
-color:#2563eb;
+    color:#2563eb;
 }
 
 .hero p{
-max-width:700px;
-margin:auto;
-color:#6b7280;
-line-height:1.8;
+    max-width:720px;
+    margin:auto;
+
+    color:#6b7280;
+
+    line-height:1.8;
+    font-size:15px;
 }
 
 .hero-btn{
-display:inline-block;
-margin-top:24px;
-background:#2563eb;
-color:white;
-padding:14px 25px;
-border-radius:11px;
-text-decoration:none;
-font-weight:bold;
+    display:inline-flex;
+
+    align-items:center;
+    gap:8px;
+
+    margin-top:25px;
+
+    padding:14px 24px;
+
+    background:#2563eb;
+    color:white;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:900;
+
+    box-shadow:
+    0 8px 22px rgba(37,99,235,.2);
 }
 
 
-/* NETWORK */
+/* =========================
+   SECTION
+========================= */
 
 section{
-padding:55px 6%;
+    padding:55px 6%;
 }
 
 .network-section{
-background:#fff;
+    background:#fff;
 }
 
 .title{
-text-align:center;
-margin-bottom:28px;
+    text-align:center;
+    margin-bottom:28px;
 }
 
 .title h2{
-font-size:28px;
-margin-bottom:8px;
+    font-size:28px;
+    margin-bottom:8px;
 }
 
 .title p{
-color:#6b7280;
+    color:#6b7280;
+    font-size:14px;
 }
 
+
+/* =========================
+   MAIN NETWORKS
+========================= */
+
 .main-networks{
-max-width:850px;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
+    max-width:850px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:14px;
 }
 
 .network-card{
-text-decoration:none;
-color:#111827;
-background:white;
-border:1px solid #e5e7eb;
-border-radius:17px;
-padding:20px;
-text-align:center;
-box-shadow:0 5px 20px rgba(0,0,0,.05);
+    text-decoration:none;
+
+    color:#111827;
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:18px;
+
+    padding:21px;
+
+    text-align:center;
+
+    box-shadow:
+    0 6px 24px rgba(0,0,0,.05);
+
+    transition:.2s;
+}
+
+.network-card:hover{
+    transform:translateY(-3px);
 }
 
 .network-card.telegram{
-border-top:4px solid #229ED9;
+    border-top:4px solid #229ED9;
 }
 
 .network-card.whatsapp{
-border-top:4px solid #25D366;
+    border-top:4px solid #25D366;
 }
 
 .network-logo{
-width:45px;
-height:45px;
-margin-bottom:7px;
+    width:44px;
+    height:44px;
 }
 
 .network-card h3{
-font-size:15px;
+    font-size:15px;
+    margin-top:8px;
 }
 
 .member-count{
-font-size:27px;
-font-weight:900;
-margin-top:5px;
+    font-size:28px;
+    font-weight:900;
+    margin-top:5px;
 }
 
 .telegram .member-count{
-color:#229ED9;
+    color:#229ED9;
 }
 
 .whatsapp .member-count{
-color:#16a34a;
+    color:#16a34a;
 }
 
+
+/* =========================
+   SMALL GROUPS
+========================= */
+
 .network-small{
-max-width:850px;
-margin:12px auto 0;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:9px;
+    max-width:850px;
+    margin:12px auto 0;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:9px;
 }
 
 .small-card{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:11px 13px;
-background:#f8fafc;
-border:1px solid #e5e7eb;
-border-radius:11px;
-text-decoration:none;
-color:#111827;
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    padding:11px 13px;
+
+    background:#f8fafc;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:11px;
+
+    text-decoration:none;
+
+    color:#111827;
 }
 
 .small-left{
-display:flex;
-align-items:center;
-gap:8px;
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
 .small-logo{
-width:25px;
-height:25px;
+    width:25px;
+    height:25px;
 }
 
 .small-name{
-font-size:12px;
-font-weight:bold;
+    font-size:12px;
+    font-weight:bold;
 }
 
 .small-count{
-font-size:12px;
-color:#229ED9;
-font-weight:bold;
+    font-size:12px;
+    color:#229ED9;
+    font-weight:bold;
 }
 
 
-/* ORDER */
+/* =========================
+   ORDER
+========================= */
 
 .order-section{
-background:#f5f7fb;
+    background:#f5f7fb;
 }
 
 .order-box{
-max-width:900px;
-margin:auto;
-background:#fff;
-padding:30px;
-border-radius:22px;
-border:1px solid #e5e7eb;
-box-shadow:0 10px 35px rgba(0,0,0,.06);
+    max-width:900px;
+
+    margin:auto;
+
+    background:#fff;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    border:1px solid #e5e7eb;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.06);
 }
 
 .step{
-font-size:20px;
-font-weight:900;
-margin-bottom:17px;
+    font-size:20px;
+    font-weight:900;
+    margin-bottom:17px;
 }
 
 
-/* PLATFORM */
+/* =========================
+   PLATFORM SELECT
+========================= */
 
 .platform-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:12px;
-margin-bottom:28px;
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:12px;
+
+    margin-bottom:28px;
 }
 
 .platform{
-border:2px solid #e5e7eb;
-border-radius:17px;
-padding:18px 12px;
-text-align:center;
-cursor:pointer;
-transition:.2s;
-background:white;
+    border:2px solid #e5e7eb;
+
+    border-radius:17px;
+
+    padding:18px 12px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    background:white;
 }
 
 .platform:hover{
-transform:translateY(-2px);
+    transform:translateY(-2px);
 }
 
 .platform.selected{
-background:#f5f9ff;
-border-color:#2563eb;
+    background:#f5f9ff;
+    border-color:#2563eb;
 }
 
 .platform.whatsapp.selected{
-border-color:#25D366;
-background:#f1fff6;
+    border-color:#25D366;
+    background:#f1fff6;
 }
 
 .platform.website.selected{
-border-color:#7c3aed;
-background:#faf5ff;
+    border-color:#7c3aed;
+    background:#faf5ff;
 }
 
 .platform img{
-width:42px;
-height:42px;
-margin-bottom:8px;
+    width:42px;
+    height:42px;
+    margin-bottom:8px;
 }
 
 .platform h3{
-font-size:15px;
+    font-size:15px;
 }
 
 .platform p{
-font-size:11px;
-color:#6b7280;
-margin-top:5px;
+    font-size:11px;
+    color:#6b7280;
+    margin-top:5px;
 }
 
 
-/* PACKAGE */
+/* =========================
+   PACKAGES
+========================= */
 
 .package-area{
-display:none;
-margin-bottom:28px;
+    display:none;
+    margin-bottom:28px;
 }
 
 .package-area.show{
-display:block;
+    display:block;
 }
 
 .package-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
 }
 
 .package{
-position:relative;
-border:2px solid #e5e7eb;
-border-radius:16px;
-padding:18px;
-cursor:pointer;
-background:white;
-transition:.2s;
+    position:relative;
+
+    border:2px solid #e5e7eb;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    cursor:pointer;
+
+    background:white;
+
+    transition:.2s;
 }
 
 .package:hover{
-transform:translateY(-2px);
+    transform:translateY(-2px);
 }
 
 .package.selected{
-border-color:#2563eb;
-background:#f4f8ff;
+    border-color:#2563eb;
+    background:#f4f8ff;
 }
 
 .package.selected:after{
-content:"✓";
-position:absolute;
-top:12px;
-right:13px;
-width:25px;
-height:25px;
-border-radius:50%;
-background:#2563eb;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:bold;
+    content:"✓";
+
+    position:absolute;
+
+    top:12px;
+    right:13px;
+
+    width:25px;
+    height:25px;
+
+    border-radius:50%;
+
+    background:#2563eb;
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:bold;
 }
 
 .package-title{
-font-size:16px;
-font-weight:900;
+    font-size:16px;
+    font-weight:900;
 }
 
 .package-price{
-color:#2563eb;
-font-size:25px;
-font-weight:900;
-margin-top:5px;
+    color:#2563eb;
+
+    font-size:25px;
+
+    font-weight:900;
+
+    margin-top:5px;
 }
 
 .package-details{
-color:#6b7280;
-font-size:11px;
-line-height:1.7;
-margin-top:8px;
+    color:#6b7280;
+
+    font-size:11px;
+
+    line-height:1.7;
+
+    margin-top:8px;
 }
 
 
-/* WEBSITE */
-
-.website-area{
-display:none;
-margin-bottom:28px;
-}
-
-.website-area.show{
-display:block;
-}
-
-
-/* TOTAL */
+/* =========================
+   TOTAL
+========================= */
 
 .total-card{
-margin:25px 0;
-padding:25px;
-border-radius:18px;
-background:linear-gradient(135deg,#eef4ff,#f8fbff);
-border:2px solid #dbeafe;
+    margin:25px 0;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #eef4ff,
+        #f8fbff
+    );
+
+    border:2px solid #dbeafe;
 }
 
 .total-label{
-font-size:13px;
-color:#6b7280;
+    font-size:13px;
+    color:#6b7280;
 }
 
 .total{
-color:#2563eb;
-font-size:40px;
-font-weight:900;
-margin:4px 0 12px;
+    color:#2563eb;
+
+    font-size:40px;
+
+    font-weight:900;
+
+    margin:4px 0 12px;
 }
 
 .selected-items{
-display:flex;
-flex-wrap:wrap;
-gap:7px;
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
 }
 
 .tag{
-background:white;
-border:1px solid #dbeafe;
-border-radius:20px;
-padding:6px 10px;
-font-size:11px;
-font-weight:bold;
+    background:white;
+
+    border:1px solid #dbeafe;
+
+    border-radius:20px;
+
+    padding:6px 10px;
+
+    font-size:11px;
+
+    font-weight:bold;
 }
 
 
-/* FORM */
+/* =========================
+   FORM
+========================= */
 
 .form-group{
-margin-bottom:20px;
+    margin-bottom:20px;
 }
 
 label{
-display:block;
-font-weight:bold;
-margin-bottom:8px;
+    display:block;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
 }
 
 input,
 textarea{
-width:100%;
-padding:14px;
-border:1px solid #d1d5db;
-border-radius:10px;
-font-size:15px;
-outline:none;
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    outline:none;
 }
 
 textarea{
-resize:vertical;
+    resize:vertical;
 }
 
 .upload{
-border:2px dashed #cbd5e1;
-border-radius:14px;
-padding:20px;
-text-align:center;
+    border:2px dashed #cbd5e1;
+
+    border-radius:14px;
+
+    padding:20px;
+
+    text-align:center;
 }
 
 .upload input{
-border:none;
-padding:0;
+    border:none;
+    padding:0;
 }
 
 .preview{
-display:none;
-text-align:center;
-margin:18px 0;
+    display:none;
+
+    text-align:center;
+
+    margin:18px 0;
 }
 
 .preview img{
-max-width:100%;
-max-height:300px;
-border-radius:12px;
+    max-width:100%;
+    max-height:300px;
+    border-radius:12px;
 }
 
 .whatsapp-button{
-width:100%;
-border:0;
-background:#25D366;
-color:white;
-padding:17px;
-border-radius:12px;
-font-size:16px;
-font-weight:900;
-cursor:pointer;
+    width:100%;
+
+    border:0;
+
+    background:#25D366;
+
+    color:white;
+
+    padding:17px;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    font-weight:900;
+
+    cursor:pointer;
 }
 
 .note{
-text-align:center;
-color:#6b7280;
-font-size:12px;
-line-height:1.7;
-margin-top:12px;
+    text-align:center;
+
+    color:#6b7280;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    margin-top:12px;
 }
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-background:#080c14;
-color:#9ca3af;
-text-align:center;
-padding:22px;
-font-size:13px;
+    background:#080c14;
+
+    color:#9ca3af;
+
+    text-align:center;
+
+    padding:22px;
+
+    font-size:13px;
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:700px){
 
-.hero h1{
-font-size:29px;
-}
+    .brand-title{
+        font-size:14px;
+    }
 
-section{
-padding:45px 15px;
-}
+    .brand-subtitle{
+        font-size:9px;
+    }
 
-.main-networks{
-grid-template-columns:1fr;
-}
+    .brand-icon{
+        width:38px;
+        height:38px;
+    }
 
-.platform-grid{
-grid-template-columns:1fr;
-}
+    .buy-button{
+        padding:10px 13px;
+    }
 
-.package-grid{
-grid-template-columns:1fr;
-}
+    .hero h1{
+        font-size:29px;
+    }
 
-.order-box{
-padding:20px;
-}
+    section{
+        padding:45px 15px;
+    }
+
+    .main-networks{
+        grid-template-columns:1fr;
+    }
+
+    .platform-grid{
+        grid-template-columns:1fr;
+    }
+
+    .package-grid{
+        grid-template-columns:1fr;
+    }
+
+    .network-small{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .order-box{
+        padding:20px;
+    }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
-<div class="logo">
-AL API 🇱🇰
+<a href="#" class="brand">
+
+<div class="brand-icon">
+📢
 </div>
 
-<a
-href="#order"
-class="header-btn"
->
-දැන්වීමක් දමන්න
+<div class="brand-text">
+
+<div class="brand-title">
+
+AL අපි
+<span class="waving-flag">🇱🇰</span>
+Advertising
+
+</div>
+
+<div class="brand-subtitle">
+Advertise • Reach • Grow
+</div>
+
+</div>
+
+</a>
+
+
+<a href="#order" class="buy-button">
+
+<span class="cart">🛒</span>
+
+Buy Ads
+
 </a>
 
 </header>
 
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
 <h1>
 
-<span>AL API</span>
-සමඟ ඔබේ දැන්වීම ප්‍රචාරය කරන්න 🚀
+ඔබේ දැන්වීම
+<span>විශාල පිරිසක්</span>
+වෙත ගෙන යන්න 🚀
 
 </h1>
 
 <p>
 
-Telegram, WhatsApp සහ
+AL අපි 🇱🇰 Telegram channels,
+WhatsApp Channel සහ
 ALapiedu.com හරහා
-ඔබගේ දැන්වීම විශාල
-සිසුන් පිරිසක් වෙත ගෙන යන්න.
+ඔබගේ දැන්වීම ප්‍රචාරය කරගන්න.
 
 </p>
 
-<a
-href="#order"
-class="hero-btn"
->
+<a href="#order" class="hero-btn">
 
-📢 දැන්වීමක් පළ කරගන්න
+🛒 දැන්වීමක් මිලදී ගන්න
 
 </a>
 
@@ -573,7 +899,9 @@ class="hero-btn"
 
 
 
-<!-- NETWORK -->
+<!-- =========================
+     NETWORK
+========================= -->
 
 <section class="network-section">
 
@@ -584,7 +912,7 @@ class="hero-btn"
 </h2>
 
 <p>
-අපගේ channels වෙත පිවිසීමට card එක click කරන්න.
+අදාළ channel එකට පිවිසීමට card එක click කරන්න.
 </p>
 
 </div>
@@ -607,7 +935,7 @@ src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
 >
 
 <h3>
-AL API Telegram
+AL අපි 🇱🇰
 </h3>
 
 <div class="member-count">
@@ -615,6 +943,7 @@ AL API Telegram
 </div>
 
 </a>
+
 
 
 <!-- WHATSAPP -->
@@ -644,10 +973,10 @@ WhatsApp Channel
 
 
 
+<!-- SMALL GROUPS -->
+
 <div class="network-small">
 
-
-<!-- MATHS BIO -->
 
 <a
 href="https://t.me/mathsbio_api_Team"
@@ -663,7 +992,7 @@ src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
 >
 
 <span class="small-name">
-Maths Bio API
+Maths Bio අපි
 </span>
 
 </div>
@@ -675,7 +1004,6 @@ Maths Bio API
 </a>
 
 
-<!-- CHEMISTRY -->
 
 <a
 href="https://t.me/chemistry_api_Team"
@@ -691,7 +1019,7 @@ src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
 >
 
 <span class="small-name">
-Chemistry API
+Chemistry අපි
 </span>
 
 </div>
@@ -703,7 +1031,6 @@ Chemistry API
 </a>
 
 
-<!-- PHYSICS -->
 
 <a
 href="https://t.me/physics_api_Team"
@@ -719,7 +1046,7 @@ src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
 >
 
 <span class="small-name">
-Physics API
+Physics අපි
 </span>
 
 </div>
@@ -731,7 +1058,6 @@ Physics API
 </a>
 
 
-<!-- ICT -->
 
 <a
 href="https://t.me/ict_api_Team"
@@ -747,7 +1073,7 @@ src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
 >
 
 <span class="small-name">
-ICT API
+ICT අපි
 </span>
 
 </div>
@@ -765,12 +1091,11 @@ ICT API
 
 
 
-<!-- ORDER -->
+<!-- =========================
+     ORDER
+========================= -->
 
-<section
-id="order"
-class="order-section"
->
+<section id="order" class="order-section">
 
 <div class="title">
 
@@ -779,7 +1104,7 @@ class="order-section"
 </h2>
 
 <p>
-පහත පියවර අනුව ඔබට අවශ්‍ය සේවාව තෝරන්න.
+ඔබට අවශ්‍ය platform එක තෝරාගෙන package එක select කරන්න.
 </p>
 
 </div>
@@ -788,8 +1113,6 @@ class="order-section"
 
 <div class="order-box">
 
-
-<!-- STEP 1 -->
 
 <div class="step">
 
@@ -882,7 +1205,9 @@ ALapiedu.com
 
 
 
-<!-- TELEGRAM PACKAGES -->
+<!-- =========================
+     TELEGRAM PACKAGES
+========================= -->
 
 <div
 id="telegramArea"
@@ -908,8 +1233,6 @@ Telegram පැකේජය තෝරන්න
 <div class="package-grid">
 
 
-<!-- 3 DAYS -->
-
 <div
 class="package"
 onclick="
@@ -932,7 +1255,6 @@ this,
 <div class="package-details">
 
 ✅ ඉහත සියලුම සමූහයන්හී පල වේ<br>
-
 ✅ දින 3ක් ඔබගේ දැන්වීම pin කරනු ලැබේ
 
 </div>
@@ -940,8 +1262,6 @@ this,
 </div>
 
 
-
-<!-- 3 DAYS REPOST -->
 
 <div
 class="package"
@@ -965,11 +1285,8 @@ this,
 <div class="package-details">
 
 ✅ ඉහත සියලුම සමූහයන්හී පල වේ<br>
-
 ✅ දින 3ක් ඔබගේ දැන්වීම pin කරනු ලැබේ<br>
-
-⭐️ දින 3 ම අපගේ සමූහයන් 5 ම දිනපතා දැන්වීම පලවේ<br>
-
+⭐️ දින 3 ම අපගේ සමූහයන් 5 ම දිනපතා පලවේ<br>
 ⭐️ 3 × 5 = වාර 15ක්
 
 </div>
@@ -977,8 +1294,6 @@ this,
 </div>
 
 
-
-<!-- 7 DAYS -->
 
 <div
 class="package"
@@ -1002,7 +1317,6 @@ this,
 <div class="package-details">
 
 ✅ ඉහත සියලුම සමූහයන්හී පල වේ<br>
-
 ✅ දින 7ක් ඔබගේ දැන්වීම pin කරනු ලැබේ
 
 </div>
@@ -1010,8 +1324,6 @@ this,
 </div>
 
 
-
-<!-- 7 DAYS REPOST -->
 
 <div
 class="package"
@@ -1035,13 +1347,9 @@ this,
 <div class="package-details">
 
 ✅ ඉහත සියලුම සමූහයන්හී පල වේ<br>
-
 ✅ දින 7ක් ඔබගේ දැන්වීම pin කරනු ලැබේ<br>
-
-⭐️ දින 7 ම අපගේ සමූහයන් 5 ම දිනපතා දැන්වීම පලවේ<br>
-
+⭐️ දින 7 ම අපගේ සමූහයන් 5 ම දිනපතා පලවේ<br>
 ⭐️ 7 × 5 = වාර 35ක්<br>
-
 ⭐️ ඔබට අවශ්‍ය පරිදි post customize කරගත හැක
 
 </div>
@@ -1055,7 +1363,9 @@ this,
 
 
 
-<!-- WEBSITE PACKAGES -->
+<!-- =========================
+     WEBSITE PACKAGES
+========================= -->
 
 <div
 id="websiteArea"
@@ -1072,8 +1382,6 @@ class="package-area"
 
 <div class="package-grid">
 
-
-<!-- 3 DAYS -->
 
 <div
 class="package"
@@ -1104,8 +1412,6 @@ this,
 
 
 
-<!-- 7 DAYS -->
-
 <div
 class="package"
 onclick="
@@ -1135,15 +1441,13 @@ this,
 
 
 
-<!-- 10 DAYS -->
-
 <div
 class="package"
 onclick="
 selectWebsitePackage(
 this,
 6000,
-'Website - දින 10'
+'Website - දින 1️⃣0️⃣'
 )
 "
 >
@@ -1171,31 +1475,21 @@ this,
 
 
 
-<!-- TOTAL -->
+<!-- =========================
+     TOTAL
+========================= -->
 
 <div class="total-card">
 
 <div class="total-label">
-
 💰 ඔබගේ තෝරාගැනීමේ මුළු ගාස්තුව
-
 </div>
-
 
 <div class="total">
-
-රු.
-<span id="total">
-0
-</span>
-
+රු. <span id="total">0</span>
 </div>
 
-
-<div
-id="selectedItems"
-class="selected-items"
->
+<div id="selectedItems" class="selected-items">
 
 <span class="tag">
 සේවාවක් තෝරන්න
@@ -1207,7 +1501,9 @@ class="selected-items"
 
 
 
-<!-- NAME -->
+<!-- =========================
+     CUSTOMER
+========================= -->
 
 <div class="form-group">
 
@@ -1225,8 +1521,6 @@ placeholder="ඔබගේ නම"
 
 
 
-<!-- PHONE -->
-
 <div class="form-group">
 
 <label>
@@ -1242,8 +1536,6 @@ placeholder="07XXXXXXXX"
 </div>
 
 
-
-<!-- CAPTION -->
 
 <div class="form-group">
 
@@ -1261,8 +1553,6 @@ placeholder="ඔබගේ දැන්වීමේ caption එක..."
 
 
 
-<!-- LINK -->
-
 <div class="form-group">
 
 <label>
@@ -1278,8 +1568,6 @@ placeholder="https://..."
 </div>
 
 
-
-<!-- IMAGE -->
 
 <div class="form-group">
 
@@ -1303,9 +1591,7 @@ color:#6b7280;
 margin-top:8px;
 "
 >
-
 ඔබගේ දැන්වීමේ Image එක Upload කරන්න
-
 </p>
 
 </div>
@@ -1314,22 +1600,16 @@ margin-top:8px;
 
 
 
-<!-- PREVIEW -->
-
 <div
 id="previewBox"
 class="preview"
 >
 
-<img
-id="previewImage"
->
+<img id="previewImage">
 
 </div>
 
 
-
-<!-- SEND -->
 
 <button
 class="whatsapp-button"
@@ -1344,7 +1624,6 @@ onclick="sendOrder()"
 <p class="note">
 
 ඇණවුම යැවීමෙන් පසු WhatsApp විවෘත වේ.<br>
-
 Image එක WhatsApp message එකට attach කර යවන්න.
 
 </p>
@@ -1358,7 +1637,8 @@ Image එක WhatsApp message එකට attach කර යවන්න.
 
 <footer>
 
-AL API 🇱🇰 | ALapiedu.com
+AL අපි 🇱🇰 Advertising |
+ALapiedu.com
 
 </footer>
 
@@ -1367,27 +1647,21 @@ AL API 🇱🇰 | ALapiedu.com
 <script>
 
 
-/* VARIABLES */
-
 let telegram = false;
-
 let whatsapp = false;
-
 let website = false;
 
-
 let telegramPrice = 0;
-
 let telegramName = "";
 
-
 let websitePrice = 0;
-
 let websiteName = "";
 
 
 
-/* WHATSAPP DESCRIPTION */
+/* =========================
+   WHATSAPP TEXT
+========================= */
 
 function updateWhatsappDescription(){
 
@@ -1405,8 +1679,7 @@ text.innerText =
 }
 
 else if(
-telegram ||
-website
+telegram || website
 ){
 
 text.innerText =
@@ -1425,32 +1698,27 @@ text.innerText =
 
 
 
-/* TELEGRAM */
+/* =========================
+   TELEGRAM
+========================= */
 
 function toggleTelegram(){
 
 telegram = !telegram;
 
-
 document
-.getElementById(
-"telegramPlatform"
-)
+.getElementById("telegramPlatform")
 .classList.toggle(
 "selected",
 telegram
 );
 
-
 document
-.getElementById(
-"telegramArea"
-)
+.getElementById("telegramArea")
 .classList.toggle(
 "show",
 telegram
 );
-
 
 updateWhatsappDescription();
 
@@ -1460,23 +1728,21 @@ calculate();
 
 
 
-/* WHATSAPP */
+/* =========================
+   WHATSAPP
+========================= */
 
 function toggleWhatsapp(){
 
 whatsapp = !whatsapp;
 
-
 document
-.getElementById(
-"whatsappPlatform"
-)
+.getElementById("whatsappPlatform")
 .classList.toggle(
 "selected",
 whatsapp
 );
 
-
 updateWhatsappDescription();
 
 calculate();
@@ -1485,32 +1751,27 @@ calculate();
 
 
 
-/* WEBSITE */
+/* =========================
+   WEBSITE
+========================= */
 
 function toggleWebsite(){
 
 website = !website;
 
-
 document
-.getElementById(
-"websitePlatform"
-)
+.getElementById("websitePlatform")
 .classList.toggle(
 "selected",
 website
 );
 
-
 document
-.getElementById(
-"websiteArea"
-)
+.getElementById("websiteArea")
 .classList.toggle(
 "show",
 website
 );
-
 
 updateWhatsappDescription();
 
@@ -1520,14 +1781,15 @@ calculate();
 
 
 
-/* TELEGRAM PACKAGE */
+/* =========================
+   TELEGRAM PACKAGE
+========================= */
 
 function selectTelegramPackage(
 element,
 price,
 name
 ){
-
 
 document
 .querySelectorAll(
@@ -1547,11 +1809,8 @@ element.classList.add(
 "selected"
 );
 
-
 telegramPrice = price;
-
 telegramName = name;
-
 
 calculate();
 
@@ -1559,14 +1818,15 @@ calculate();
 
 
 
-/* WEBSITE PACKAGE */
+/* =========================
+   WEBSITE PACKAGE
+========================= */
 
 function selectWebsitePackage(
 element,
 price,
 name
 ){
-
 
 document
 .querySelectorAll(
@@ -1586,11 +1846,8 @@ element.classList.add(
 "selected"
 );
 
-
 websitePrice = price;
-
 websiteName = name;
-
 
 calculate();
 
@@ -1598,10 +1855,11 @@ calculate();
 
 
 
-/* CALCULATE */
+/* =========================
+   CALCULATE
+========================= */
 
 function calculate(){
-
 
 let total = 0;
 
@@ -1614,7 +1872,6 @@ let items = [];
 if(telegram){
 
 total += telegramPrice;
-
 
 if(telegramName){
 
@@ -1633,13 +1890,14 @@ telegramName
 
 if(whatsapp){
 
-
 let whatsappPrice = 2000;
 
 
 /*
+
 WhatsApp ONLY
-= Rs. 3000
+= Rs. 3,000
+
 */
 
 if(
@@ -1651,9 +1909,7 @@ whatsappPrice = 3000;
 
 }
 
-
 total += whatsappPrice;
-
 
 items.push(
 "🟢 WhatsApp - Rs. " +
@@ -1669,7 +1925,6 @@ whatsappPrice.toLocaleString()
 if(website){
 
 total += websitePrice;
-
 
 if(websiteName){
 
@@ -1688,12 +1943,12 @@ websiteName
 
 document
 .getElementById("total")
-.textContent =
+.innerText =
 total.toLocaleString();
 
 
 
-/* SELECTED ITEMS */
+/* TAGS */
 
 const box =
 document.getElementById(
@@ -1703,9 +1958,7 @@ document.getElementById(
 
 if(items.length === 0){
 
-box.innerHTML =
-
-`
+box.innerHTML = `
 <span class="tag">
 සේවාවක් තෝරන්න
 </span>
@@ -1716,16 +1969,13 @@ box.innerHTML =
 else{
 
 box.innerHTML =
-
 items.map(
 function(item){
 
 return `
-
 <span class="tag">
 ${item}
 </span>
-
 `;
 
 }
@@ -1737,26 +1987,21 @@ ${item}
 
 
 
-/* IMAGE PREVIEW */
+/* =========================
+   IMAGE PREVIEW
+========================= */
 
 function previewImage(event){
-
 
 const file =
 event.target.files[0];
 
-
 if(!file){
-
 return;
-
 }
 
-
 if(
-!file.type.startsWith(
-"image/"
-)
+!file.type.startsWith("image/")
 ){
 
 alert(
@@ -1769,14 +2014,11 @@ return;
 
 }
 
-
 const reader =
 new FileReader();
 
-
 reader.onload =
 function(e){
-
 
 document
 .getElementById(
@@ -1784,7 +2026,6 @@ document
 )
 .src =
 e.target.result;
-
 
 document
 .getElementById(
@@ -1795,17 +2036,17 @@ document
 
 };
 
-
 reader.readAsDataURL(file);
 
 }
 
 
 
-/* SEND ORDER */
+/* =========================
+   SEND ORDER
+========================= */
 
 function sendOrder(){
-
 
 const name =
 document
@@ -1860,8 +2101,6 @@ document
 
 
 
-/* PLATFORM CHECK */
-
 if(
 !telegram &&
 !whatsapp &&
@@ -1878,8 +2117,6 @@ return;
 
 
 
-/* TELEGRAM PACKAGE CHECK */
-
 if(
 telegram &&
 telegramPrice === 0
@@ -1895,8 +2132,6 @@ return;
 
 
 
-/* WEBSITE PACKAGE CHECK */
-
 if(
 website &&
 websitePrice === 0
@@ -1911,8 +2146,6 @@ return;
 }
 
 
-
-/* FORM CHECK */
 
 if(
 !name ||
@@ -1940,12 +2173,10 @@ let services = [];
 if(telegram){
 
 services.push(
-
 "🔵 Telegram: " +
 telegramName +
 " - Rs. " +
 telegramPrice.toLocaleString()
-
 );
 
 }
@@ -1956,9 +2187,7 @@ telegramPrice.toLocaleString()
 
 if(whatsapp){
 
-
 let wp = 2000;
-
 
 if(
 !telegram &&
@@ -1969,12 +2198,9 @@ wp = 3000;
 
 }
 
-
 services.push(
-
 "🟢 WhatsApp: Rs. " +
 wp.toLocaleString()
-
 );
 
 }
@@ -1986,12 +2212,10 @@ wp.toLocaleString()
 if(website){
 
 services.push(
-
 "🌐 Website: " +
 websiteName +
 " - Rs. " +
 websitePrice.toLocaleString()
-
 );
 
 }
@@ -2002,7 +2226,8 @@ websitePrice.toLocaleString()
 
 const message =
 
-`🛍️ AL API 🇱🇰
+`🛍️ AL අපි 🇱🇰 Advertising
+
 නව දැන්වීම් ඇණවුම
 
 ━━━━━━━━━━━━━━
@@ -2031,21 +2256,14 @@ Image එක attach කරමි.
 
 ━━━━━━━━━━━━━━
 
-AL API 🇱🇰
-Advertising Network`;
+AL අපි 🇱🇰 Advertising
+ALapiedu.com`;
 
 
-
-/* WHATSAPP URL */
 
 const url =
-
 "https://wa.me/94782419390?text=" +
-
-encodeURIComponent(
-message
-);
-
+encodeURIComponent(message);
 
 
 window.open(
@@ -2055,10 +2273,7 @@ url,
 
 }
 
-
 </script>
 
-
 </body>
-
 </html>
