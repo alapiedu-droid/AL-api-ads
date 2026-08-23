@@ -13,6 +13,10 @@
 
 <style>
 
+/* =========================
+GLOBAL
+========================= */
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -29,57 +33,86 @@ body{
     color:#111827;
 }
 
-/* ================= HEADER ================= */
+
+/* =========================
+SMART HEADER
+========================= */
 
 header{
     position:sticky;
     top:0;
     z-index:1000;
 
-    padding:12px 6%;
+    background:rgba(255,255,255,.94);
 
-    background:rgba(255,255,255,.92);
     backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 
-    border-bottom:1px solid #e5e7eb;
+    border-bottom:1px solid rgba(226,232,240,.9);
+
+    padding:12px 6%;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    box-shadow:0 4px 20px rgba(15,23,42,.05);
+    box-shadow:
+    0 4px 20px rgba(15,23,42,.05);
 }
 
 .brand{
     display:flex;
     align-items:center;
-    gap:11px;
+    gap:12px;
 
     text-decoration:none;
     color:#111827;
+
+    min-width:0;
 }
 
 .brand-icon{
-    width:43px;
-    height:43px;
+    width:44px;
+    height:44px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    border-radius:13px;
+    border-radius:14px;
 
-    background:linear-gradient(
+    background:
+    linear-gradient(
         135deg,
-        #2563eb,
-        #4f46e5
+        #0f172a,
+        #1d4ed8 55%,
+        #2563eb
     );
 
-    color:#fff;
-    font-size:21px;
+    color:white;
+    font-size:20px;
 
     box-shadow:
     0 7px 20px rgba(37,99,235,.22);
+
+    position:relative;
+    overflow:hidden;
+}
+
+.brand-icon:after{
+    content:"";
+
+    position:absolute;
+
+    width:28px;
+    height:28px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+    top:-10px;
+    right:-10px;
 }
 
 .brand-text{
@@ -92,75 +125,126 @@ header{
     letter-spacing:-.3px;
 }
 
-.brand-subtitle{
-    margin-top:4px;
+.brand-main{
+    background:
+    linear-gradient(
+        90deg,
+        #0f172a,
+        #1d4ed8
+    );
 
-    color:#6b7280;
+    -webkit-background-clip:text;
+    background-clip:text;
 
-    font-size:10px;
+    -webkit-text-fill-color:transparent;
+}
 
-    letter-spacing:.4px;
+.advertising{
+    color:#2563eb;
+    font-weight:900;
 }
 
 .waving-flag{
     display:inline-block;
-
     transform-origin:left center;
-
     animation:flagWave 1.8s ease-in-out infinite;
 }
 
 @keyframes flagWave{
 
     0%{
-        transform:rotateY(0deg) skewY(0deg);
+        transform:
+        perspective(300px)
+        rotateY(0deg)
+        skewY(0deg);
     }
 
     25%{
-        transform:rotateY(-18deg) skewY(3deg);
+        transform:
+        perspective(300px)
+        rotateY(-18deg)
+        skewY(3deg);
     }
 
     50%{
-        transform:rotateY(12deg) skewY(-3deg);
+        transform:
+        perspective(300px)
+        rotateY(12deg)
+        skewY(-3deg);
     }
 
     75%{
-        transform:rotateY(-8deg) skewY(2deg);
+        transform:
+        perspective(300px)
+        rotateY(-8deg)
+        skewY(2deg);
     }
 
     100%{
-        transform:rotateY(0deg) skewY(0deg);
+        transform:
+        perspective(300px)
+        rotateY(0deg)
+        skewY(0deg);
     }
+}
+
+.brand-subtitle{
+    font-size:9px;
+    color:#64748b;
+
+    margin-top:5px;
+
+    letter-spacing:1.2px;
+    font-weight:800;
+    text-transform:uppercase;
 }
 
 .buy-button{
     display:flex;
     align-items:center;
+    justify-content:center;
+
     gap:7px;
 
     padding:11px 17px;
 
-    border-radius:12px;
-
-    background:#111827;
-    color:#fff;
+    border-radius:13px;
 
     text-decoration:none;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #1d4ed8,
+        #2563eb
+    );
 
     font-size:13px;
     font-weight:900;
 
-    box-shadow:0 7px 18px rgba(0,0,0,.12);
+    box-shadow:
+    0 7px 20px rgba(37,99,235,.22);
 
     transition:.2s;
 }
 
 .buy-button:hover{
-    background:#2563eb;
     transform:translateY(-2px);
+
+    box-shadow:
+    0 10px 25px rgba(37,99,235,.30);
 }
 
-/* ================= HERO ================= */
+.cart{
+    font-size:16px;
+}
+
+
+/* =========================
+HERO
+========================= */
 
 .hero{
     padding:70px 20px 65px;
@@ -183,7 +267,6 @@ header{
 .hero h1{
     font-size:39px;
     line-height:1.25;
-
     margin-bottom:15px;
 }
 
@@ -193,13 +276,11 @@ header{
 
 .hero p{
     max-width:720px;
-
     margin:auto;
 
     color:#6b7280;
 
     line-height:1.8;
-
     font-size:15px;
 }
 
@@ -226,7 +307,10 @@ header{
     0 8px 22px rgba(37,99,235,.2);
 }
 
-/* ================= SECTION ================= */
+
+/* =========================
+SECTION
+========================= */
 
 section{
     padding:55px 6%;
@@ -251,42 +335,16 @@ section{
     font-size:14px;
 }
 
-/* ================= ICONS ================= */
 
-.icon-img{
-    width:44px;
-    height:44px;
-
-    object-fit:contain;
-
-    display:block;
-}
-
-.small-icon{
-    width:26px;
-    height:26px;
-
-    object-fit:contain;
-}
-
-.platform-icon{
-    width:45px;
-    height:45px;
-
-    object-fit:contain;
-
-    margin-bottom:8px;
-}
-
-/* ================= NETWORK ================= */
+/* =========================
+NETWORKS
+========================= */
 
 .main-networks{
     max-width:850px;
-
     margin:auto;
 
     display:grid;
-
     grid-template-columns:1fr 1fr;
 
     gap:14px;
@@ -325,6 +383,11 @@ section{
     border-top:4px solid #25D366;
 }
 
+.network-logo{
+    width:44px;
+    height:44px;
+}
+
 .network-card h3{
     font-size:15px;
     margin-top:8px;
@@ -332,9 +395,7 @@ section{
 
 .member-count{
     font-size:28px;
-
     font-weight:900;
-
     margin-top:5px;
 }
 
@@ -346,15 +407,16 @@ section{
     color:#16a34a;
 }
 
-/* ================= SMALL NETWORKS ================= */
+
+/* =========================
+SMALL GROUPS
+========================= */
 
 .network-small{
     max-width:850px;
-
     margin:12px auto 0;
 
     display:grid;
-
     grid-template-columns:1fr 1fr;
 
     gap:9px;
@@ -377,35 +439,35 @@ section{
     text-decoration:none;
 
     color:#111827;
+
+    min-width:0;
 }
 
 .small-left{
     display:flex;
-
     align-items:center;
-
     gap:8px;
 
     min-width:0;
 }
 
+.small-logo{
+    width:25px;
+    height:25px;
+}
+
 .small-name{
     font-size:12px;
-
     font-weight:bold;
 
     white-space:nowrap;
-
     overflow:hidden;
-
     text-overflow:ellipsis;
 }
 
 .small-count{
     font-size:12px;
-
     color:#229ED9;
-
     font-weight:bold;
 
     white-space:nowrap;
@@ -417,7 +479,10 @@ section{
     border-radius:7px;
 }
 
-/* ================= ORDER ================= */
+
+/* =========================
+ORDER
+========================= */
 
 .order-section{
     background:#f5f7fb;
@@ -442,13 +507,14 @@ section{
 
 .step{
     font-size:20px;
-
     font-weight:900;
-
     margin-bottom:17px;
 }
 
-/* ================= PLATFORM ================= */
+
+/* =========================
+PLATFORM
+========================= */
 
 .platform-grid{
     display:grid;
@@ -474,7 +540,7 @@ section{
 
     transition:.2s;
 
-    background:#fff;
+    background:white;
 }
 
 .platform:hover{
@@ -483,20 +549,23 @@ section{
 
 .platform.selected{
     background:#f5f9ff;
-
     border-color:#2563eb;
 }
 
 .platform.whatsapp.selected{
     border-color:#25D366;
-
     background:#f1fff6;
 }
 
 .platform.website.selected{
     border-color:#7c3aed;
-
     background:#faf5ff;
+}
+
+.platform img{
+    width:42px;
+    height:42px;
+    margin-bottom:8px;
 }
 
 .platform h3{
@@ -505,17 +574,17 @@ section{
 
 .platform p{
     font-size:11px;
-
     color:#6b7280;
-
     margin-top:5px;
 }
 
-/* ================= PACKAGES ================= */
+
+/* =========================
+PACKAGES
+========================= */
 
 .package-area{
     display:none;
-
     margin-bottom:28px;
 }
 
@@ -553,7 +622,6 @@ section{
 
 .package.selected{
     border-color:#2563eb;
-
     background:#f4f8ff;
 
     box-shadow:
@@ -577,7 +645,6 @@ section{
     color:white;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -586,7 +653,6 @@ section{
 
 .package-title{
     font-size:16px;
-
     font-weight:900;
 }
 
@@ -610,7 +676,10 @@ section{
     margin-top:8px;
 }
 
-/* ================= TOTAL ================= */
+
+/* =========================
+TOTAL
+========================= */
 
 .total-card{
     margin:25px 0 14px;
@@ -627,13 +696,14 @@ section{
     );
 
     border:2px solid #dbeafe;
+
+    box-shadow:
+    0 8px 25px rgba(37,99,235,.07);
 }
 
 .total-label{
     font-size:13px;
-
     color:#6b7280;
-
     font-weight:bold;
 }
 
@@ -649,9 +719,7 @@ section{
 
 .selected-items{
     display:flex;
-
     flex-wrap:wrap;
-
     gap:7px;
 }
 
@@ -669,7 +737,10 @@ section{
     font-weight:bold;
 }
 
-/* ================= DISCOUNT ================= */
+
+/* =========================
+DISCOUNT
+========================= */
 
 .discount-summary{
     display:none;
@@ -723,7 +794,10 @@ section{
     font-weight:900;
 }
 
-/* ================= QUOTATION ================= */
+
+/* =========================
+QUOTATION
+========================= */
 
 .quotation-preview-wrap{
     margin-top:22px;
@@ -735,20 +809,16 @@ section{
     align-items:center;
     justify-content:space-between;
 
-    gap:10px;
-
     margin-bottom:10px;
 }
 
 .quotation-preview-title h3{
     font-size:17px;
-
     font-weight:900;
 }
 
 .preview-badge{
     background:#eef2ff;
-
     color:#4f46e5;
 
     padding:5px 9px;
@@ -775,55 +845,89 @@ section{
     overflow:hidden;
 }
 
-/* ================= Q HEADER ================= */
+
+/* =========================
+SMART QUOTATION HEADER
+========================= */
 
 .q-header{
     display:flex;
 
     justify-content:space-between;
-
     align-items:flex-start;
 
     gap:15px;
 
-    padding-bottom:16px;
+    padding:15px;
 
-    border-bottom:2px solid #eef2f7;
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f8fbff,
+        #eef4ff
+    );
+
+    border:1px solid #dbeafe;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.q-header:after{
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:rgba(37,99,235,.06);
+
+    right:-50px;
+    top:-50px;
 }
 
 .q-brand-area{
     display:flex;
-
     align-items:center;
-
     gap:10px;
+
+    position:relative;
+    z-index:1;
 }
 
 .q-logo-placeholder{
     width:45px;
     height:45px;
 
-    border-radius:12px;
+    border-radius:13px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
     background:
     linear-gradient(
         135deg,
-        #2563eb,
-        #4f46e5
+        #0f172a,
+        #1d4ed8,
+        #2563eb
     );
 
     color:white;
 
     font-size:22px;
-
     font-weight:900;
 
     flex-shrink:0;
+
+    box-shadow:
+    0 6px 15px rgba(37,99,235,.2);
 }
 
 .q-brand{
@@ -831,15 +935,29 @@ section{
 
     font-weight:900;
 
-    color:#2563eb;
+    background:
+    linear-gradient(
+        90deg,
+        #0f172a,
+        #2563eb
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    -webkit-text-fill-color:transparent;
 }
 
 .q-brand-sub{
-    color:#6b7280;
+    color:#64748b;
 
-    font-size:10px;
+    font-size:9px;
 
-    margin-top:4px;
+    margin-top:5px;
+
+    letter-spacing:1px;
+
+    font-weight:800;
 }
 
 .q-title{
@@ -848,6 +966,11 @@ section{
     font-size:18px;
 
     font-weight:900;
+
+    color:#111827;
+
+    position:relative;
+    z-index:1;
 }
 
 .q-date{
@@ -858,7 +981,10 @@ section{
     margin-top:4px;
 }
 
-/* ================= CUSTOMER ================= */
+
+/* =========================
+CUSTOMER
+========================= */
 
 .q-customer{
     margin-top:17px;
@@ -886,7 +1012,10 @@ section{
     line-height:1.7;
 }
 
-/* ================= SERVICES ================= */
+
+/* =========================
+SERVICES
+========================= */
 
 .q-services{
     margin-top:17px;
@@ -931,22 +1060,17 @@ section{
     height:30px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
     flex-shrink:0;
 
     overflow:hidden;
-
-    background:transparent;
 }
 
-.q-service-icon img{
-    width:27px;
-    height:27px;
-
-    object-fit:contain;
+.q-service-icon svg{
+    width:30px;
+    height:30px;
 
     display:block;
 }
@@ -963,7 +1087,10 @@ section{
     white-space:nowrap;
 }
 
-/* ================= Q TOTAL ================= */
+
+/* =========================
+QUOTATION TOTAL
+========================= */
 
 .q-total-box{
     margin-top:16px;
@@ -1033,7 +1160,10 @@ section{
     font-weight:900;
 }
 
-/* ================= CAPTION ================= */
+
+/* =========================
+CAPTION
+========================= */
 
 .q-caption{
     margin-top:15px;
@@ -1087,7 +1217,10 @@ section{
     font-size:9px;
 }
 
-/* ================= BUTTONS ================= */
+
+/* =========================
+BUTTONS / FORM
+========================= */
 
 .quotation-button{
     width:100%;
@@ -1115,16 +1248,26 @@ section{
 
     margin:0 0 12px;
 
+    box-shadow:
+    0 8px 20px rgba(17,24,39,.16);
+
     transition:.2s;
 }
 
 .quotation-button:hover{
+    transform:translateY(-2px);
+
     background:
     linear-gradient(
         135deg,
         #2563eb,
         #4f46e5
     );
+}
+
+.quotation-button:disabled{
+    opacity:.65;
+    cursor:wait;
 }
 
 .form-group{
@@ -1178,7 +1321,6 @@ textarea{
 
 .upload input{
     border:none;
-
     padding:0;
 }
 
@@ -1192,7 +1334,6 @@ textarea{
 
 .preview img{
     max-width:100%;
-
     max-height:300px;
 
     border-radius:12px;
@@ -1230,7 +1371,10 @@ textarea{
     margin-top:12px;
 }
 
-/* ================= FOOTER ================= */
+
+/* =========================
+FOOTER
+========================= */
 
 footer{
     background:#080c14;
@@ -1244,25 +1388,52 @@ footer{
     font-size:13px;
 }
 
-/* ================= MOBILE ================= */
+
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:700px){
+
+    header{
+        padding:10px 15px;
+    }
+
+    .brand{
+        gap:9px;
+    }
+
+    .brand-icon{
+        width:39px;
+        height:39px;
+
+        border-radius:12px;
+
+        font-size:18px;
+    }
 
     .brand-title{
         font-size:14px;
     }
 
     .brand-subtitle{
-        font-size:9px;
-    }
+        font-size:7px;
 
-    .brand-icon{
-        width:38px;
-        height:38px;
+        letter-spacing:.8px;
+
+        margin-top:4px;
     }
 
     .buy-button{
-        padding:10px 13px;
+        padding:9px 12px;
+
+        border-radius:11px;
+
+        font-size:11px;
+    }
+
+    .cart{
+        font-size:14px;
     }
 
     .hero h1{
@@ -1307,7 +1478,10 @@ footer{
 
 }
 
-/* ================= EXPORT ================= */
+
+/* =========================
+IMAGE EXPORT
+========================= */
 
 .quotation-preview.image-export{
     width:794px !important;
@@ -1325,7 +1499,10 @@ footer{
 
 <body>
 
-<!-- ================= HEADER ================= -->
+
+<!-- =========================
+HEADER
+========================= -->
 
 <header>
 
@@ -1339,28 +1516,48 @@ footer{
 
 <div class="brand-title">
 
+<span class="brand-main">
 AL අපි
-<span class="waving-flag">🇱🇰</span>
+</span>
+
+<span class="waving-flag">
+🇱🇰
+</span>
+
+<span class="advertising">
 Advertising
+</span>
 
 </div>
 
 <div class="brand-subtitle">
-Advertise • Reach • Grow
+Advertising Network • Reach • Grow
 </div>
 
 </div>
 
 </a>
 
-<a href="#order" class="buy-button">
-🛒 Buy Ads
+
+<a
+href="#order"
+class="buy-button"
+>
+
+<span class="cart">
+🛒
+</span>
+
+Buy Ads
+
 </a>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- =========================
+HERO
+========================= -->
 
 <section class="hero">
 
@@ -1393,7 +1590,10 @@ ALapiedu.com හරහා
 
 </p>
 
-<a href="#order" class="hero-btn">
+<a
+href="#order"
+class="hero-btn"
+>
 
 🛒 දැන්වීමක් මිලදී ගන්න
 
@@ -1402,7 +1602,9 @@ ALapiedu.com හරහා
 </section>
 
 
-<!-- ================= NETWORK ================= -->
+<!-- =========================
+NETWORK
+========================= -->
 
 <section class="network-section">
 
@@ -1418,7 +1620,9 @@ ALapiedu.com හරහා
 
 </div>
 
+
 <div class="main-networks">
+
 
 <a
 href="https://t.me/AL_api"
@@ -1427,10 +1631,8 @@ class="network-card telegram"
 >
 
 <img
-class="icon-img"
+class="network-logo"
 src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
-alt="Telegram"
-style="margin:auto;"
 >
 
 <h3>
@@ -1451,10 +1653,8 @@ class="network-card whatsapp"
 >
 
 <img
-class="icon-img"
+class="network-logo"
 src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-alt="WhatsApp"
-style="margin:auto;"
 >
 
 <h3>
@@ -1472,6 +1672,7 @@ WhatsApp Channel
 
 <div class="network-small">
 
+
 <a
 href="https://t.me/mathsbio_api_Team"
 target="_blank"
@@ -1481,9 +1682,8 @@ class="small-card"
 <div class="small-left">
 
 <img
-class="small-icon"
+class="small-logo"
 src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
-alt="Telegram"
 >
 
 <span class="small-name">
@@ -1508,9 +1708,8 @@ class="small-card"
 <div class="small-left">
 
 <img
-class="small-icon"
+class="small-logo"
 src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
-alt="Telegram"
 >
 
 <span class="small-name">
@@ -1535,9 +1734,8 @@ class="small-card"
 <div class="small-left">
 
 <img
-class="small-icon"
+class="small-logo"
 src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
-alt="Telegram"
 >
 
 <span class="small-name">
@@ -1562,9 +1760,8 @@ class="small-card"
 <div class="small-left">
 
 <img
-class="small-icon"
+class="small-logo"
 src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
-alt="Telegram"
 >
 
 <span class="small-name">
@@ -1584,9 +1781,14 @@ ICT අපි
 </section>
 
 
-<!-- ================= ORDER ================= -->
+<!-- =========================
+ORDER
+========================= -->
 
-<section id="order" class="order-section">
+<section
+id="order"
+class="order-section"
+>
 
 <div class="title">
 
@@ -1605,14 +1807,14 @@ ICT අපි
 
 
 <div class="step">
-
 1️⃣ දැන්වීම පළ කිරීමට අවශ්‍ය ස්ථාන
-
 </div>
 
 
 <div class="platform-grid">
 
+
+<!-- TELEGRAM -->
 
 <div
 id="telegramPlatform"
@@ -1621,9 +1823,7 @@ onclick="toggleTelegram()"
 >
 
 <img
-class="platform-icon"
 src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
-alt="Telegram"
 >
 
 <h3>
@@ -1637,6 +1837,8 @@ Telegram
 </div>
 
 
+<!-- WHATSAPP -->
+
 <div
 id="whatsappPlatform"
 class="platform whatsapp"
@@ -1644,9 +1846,7 @@ onclick="toggleWhatsapp()"
 >
 
 <img
-class="platform-icon"
 src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-alt="WhatsApp"
 >
 
 <h3>
@@ -1660,16 +1860,20 @@ WhatsApp පමණක්
 </div>
 
 
+<!-- WEBSITE -->
+
 <div
 id="websitePlatform"
 class="platform website"
 onclick="toggleWebsite()"
 >
 
-<div style="
+<div
+style="
 font-size:40px;
 margin-bottom:8px;
-">
+"
+>
 🌐
 </div>
 
@@ -1686,16 +1890,21 @@ ALapiedu.com
 </div>
 
 
-<!-- TELEGRAM -->
+<!-- TELEGRAM PACKAGES -->
 
-<div id="telegramArea" class="package-area">
+<div
+id="telegramArea"
+class="package-area"
+>
 
 <div class="step">
 
 <img
 src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
-style="width:25px;vertical-align:middle;"
-alt="Telegram"
+style="
+width:25px;
+vertical-align:middle;
+"
 >
 
 Telegram පැකේජය තෝරන්න
@@ -1708,7 +1917,13 @@ Telegram පැකේජය තෝරන්න
 
 <div
 class="package"
-onclick="selectTelegramPackage(this,1500,'දින 3 - Non Repost')"
+onclick="
+selectTelegramPackage(
+this,
+1500,
+'දින 3 - Non Repost'
+)
+"
 >
 
 <div class="package-title">
@@ -1731,7 +1946,13 @@ onclick="selectTelegramPackage(this,1500,'දින 3 - Non Repost')"
 
 <div
 class="package"
-onclick="selectTelegramPackage(this,2500,'දින 3 - Repost')"
+onclick="
+selectTelegramPackage(
+this,
+2500,
+'දින 3 - Repost'
+)
+"
 >
 
 <div class="package-title">
@@ -1756,7 +1977,13 @@ onclick="selectTelegramPackage(this,2500,'දින 3 - Repost')"
 
 <div
 class="package"
-onclick="selectTelegramPackage(this,2000,'දින 7 - Non Repost')"
+onclick="
+selectTelegramPackage(
+this,
+2000,
+'දින 7 - Non Repost'
+)
+"
 >
 
 <div class="package-title">
@@ -1779,7 +2006,13 @@ onclick="selectTelegramPackage(this,2000,'දින 7 - Non Repost')"
 
 <div
 class="package"
-onclick="selectTelegramPackage(this,4000,'දින 7 - Repost')"
+onclick="
+selectTelegramPackage(
+this,
+4000,
+'දින 7 - Repost'
+)
+"
 >
 
 <div class="package-title">
@@ -1807,14 +2040,15 @@ onclick="selectTelegramPackage(this,4000,'දින 7 - Repost')"
 </div>
 
 
-<!-- WEBSITE -->
+<!-- WEBSITE PACKAGES -->
 
-<div id="websiteArea" class="package-area">
+<div
+id="websiteArea"
+class="package-area"
+>
 
 <div class="step">
-
 🌐 ALapiedu.com පැකේජය තෝරන්න
-
 </div>
 
 
@@ -1823,7 +2057,13 @@ onclick="selectTelegramPackage(this,4000,'දින 7 - Repost')"
 
 <div
 class="package"
-onclick="selectWebsitePackage(this,2000,'Website - දින 3')"
+onclick="
+selectWebsitePackage(
+this,
+2000,
+'Website - දින 3'
+)
+"
 >
 
 <div class="package-title">
@@ -1835,9 +2075,7 @@ onclick="selectWebsitePackage(this,2000,'Website - දින 3')"
 </div>
 
 <div class="package-details">
-
 ✅ ALapiedu.com වෙබ් අඩවියේ පළ වේ
-
 </div>
 
 </div>
@@ -1845,7 +2083,13 @@ onclick="selectWebsitePackage(this,2000,'Website - දින 3')"
 
 <div
 class="package"
-onclick="selectWebsitePackage(this,4000,'Website - දින 7')"
+onclick="
+selectWebsitePackage(
+this,
+4000,
+'Website - දින 7'
+)
+"
 >
 
 <div class="package-title">
@@ -1857,9 +2101,7 @@ onclick="selectWebsitePackage(this,4000,'Website - දින 7')"
 </div>
 
 <div class="package-details">
-
 ✅ ALapiedu.com වෙබ් අඩවියේ පළ වේ
-
 </div>
 
 </div>
@@ -1867,7 +2109,13 @@ onclick="selectWebsitePackage(this,4000,'Website - දින 7')"
 
 <div
 class="package"
-onclick="selectWebsitePackage(this,6000,'Website - දින 10')"
+onclick="
+selectWebsitePackage(
+this,
+6000,
+'Website - දින 10'
+)
+"
 >
 
 <div class="package-title">
@@ -1879,9 +2127,7 @@ onclick="selectWebsitePackage(this,6000,'Website - දින 10')"
 </div>
 
 <div class="package-details">
-
 ✅ ALapiedu.com වෙබ් අඩවියේ පළ වේ
-
 </div>
 
 </div>
@@ -1900,13 +2146,14 @@ onclick="selectWebsitePackage(this,6000,'Website - දින 10')"
 </div>
 
 <div class="total">
-
 රු.
 <span id="total">0</span>
-
 </div>
 
-<div id="selectedItems" class="selected-items">
+<div
+id="selectedItems"
+class="selected-items"
+>
 
 <span class="tag">
 සේවාවක් තෝරන්න
@@ -1915,37 +2162,29 @@ onclick="selectWebsitePackage(this,6000,'Website - දින 10')"
 </div>
 
 
-<div id="discountSummary" class="discount-summary">
+<div
+id="discountSummary"
+class="discount-summary"
+>
 
 <div class="original-price">
-
 Original Total:
-
 <span id="originalTotal">
 රු. 0
 </span>
-
 </div>
 
 <div class="discount-line">
-
 🎁 Discount:
-
 <span id="discountAmount">
 රු. 0
 </span>
-
 </div>
 
 <div class="discount-price">
-
 Discount Price:
-
 රු.
-<span id="discountTotal">
-0
-</span>
-
+<span id="discountTotal">0</span>
 </div>
 
 </div>
@@ -1953,7 +2192,9 @@ Discount Price:
 </div>
 
 
-<!-- QUOTATION -->
+<!-- =========================
+QUOTATION PREVIEW
+========================= -->
 
 <div class="quotation-preview-wrap">
 
@@ -1970,10 +2211,16 @@ IMAGE
 </div>
 
 
-<div id="quotationPreview" class="quotation-preview">
+<div
+id="quotationPreview"
+class="quotation-preview"
+>
 
+
+<!-- SMART QUOTATION HEADER -->
 
 <div class="q-header">
+
 
 <div class="q-brand-area">
 
@@ -1988,7 +2235,7 @@ AL අපි 🇱🇰 Advertising
 </div>
 
 <div class="q-brand-sub">
-Advertise • Reach • Grow
+ADVERTISING NETWORK • REACH • GROW
 </div>
 
 </div>
@@ -2002,7 +2249,10 @@ Advertise • Reach • Grow
 QUOTATION
 </div>
 
-<div id="qDate" class="q-date">
+<div
+id="qDate"
+class="q-date"
+>
 Date: --
 </div>
 
@@ -2010,6 +2260,8 @@ Date: --
 
 </div>
 
+
+<!-- CUSTOMER -->
 
 <div class="q-customer">
 
@@ -2034,6 +2286,8 @@ Not provided
 </div>
 
 
+<!-- SERVICES -->
+
 <div class="q-services">
 
 <div class="q-services-title">
@@ -2047,9 +2301,7 @@ SELECTED SERVICES
 <div class="q-service-left">
 
 <div class="q-service-icon">
-
-<span>🌐</span>
-
+🌐
 </div>
 
 <span class="q-service-name">
@@ -2069,6 +2321,8 @@ Rs. 0
 </div>
 
 
+<!-- TOTAL -->
+
 <div class="q-total-box">
 
 <div class="q-total-row">
@@ -2077,7 +2331,10 @@ Rs. 0
 Original Total
 </span>
 
-<span id="qOriginal" class="q-old-total">
+<span
+id="qOriginal"
+class="q-old-total"
+>
 Rs. 0
 </span>
 
@@ -2094,7 +2351,10 @@ style="display:none;"
 Discount
 </span>
 
-<span id="qDiscount" class="q-discount">
+<span
+id="qDiscount"
+class="q-discount"
+>
 - Rs. 0
 </span>
 
@@ -2107,7 +2367,10 @@ Discount
 FINAL TOTAL
 </span>
 
-<span id="qFinal" class="q-final-price">
+<span
+id="qFinal"
+class="q-final-price"
+>
 Rs. 0
 </span>
 
@@ -2116,18 +2379,33 @@ Rs. 0
 </div>
 
 
-<div id="qCaptionBox" class="q-caption" style="display:none;">
+<!-- CAPTION -->
+
+<div
+id="qCaptionBox"
+class="q-caption"
+style="display:none;"
+>
 
 <div class="q-caption-title">
 Advertisement Caption
 </div>
 
-<div id="qCaption" class="q-caption-text"></div>
+<div
+id="qCaption"
+class="q-caption-text"
+></div>
 
 </div>
 
 
-<div id="qLinkBox" class="q-link" style="display:none;">
+<!-- LINK -->
+
+<div
+id="qLinkBox"
+class="q-link"
+style="display:none;"
+>
 
 🔗
 <span id="qLink"></span>
@@ -2136,16 +2414,15 @@ Advertisement Caption
 
 
 <div class="q-footer">
-
-AL අපි 🇱🇰 Advertising |
-ALapiedu.com
-
+AL අපි 🇱🇰 Advertising | ALapiedu.com
 </div>
 
 </div>
 
 </div>
 
+
+<!-- SAVE -->
 
 <button
 id="quotationButton"
@@ -2158,7 +2435,7 @@ onclick="downloadQuotationImage()"
 </button>
 
 
-<!-- FORM -->
+<!-- CUSTOMER FORM -->
 
 <div class="form-group">
 
@@ -2239,14 +2516,14 @@ accept="image/*"
 onchange="previewImage(event)"
 >
 
-<p style="
+<p
+style="
 font-size:13px;
 color:#6b7280;
 margin-top:8px;
-">
-
+"
+>
 ඔබගේ දැන්වීමේ Image එක Upload කරන්න
-
 </p>
 
 </div>
@@ -2254,7 +2531,10 @@ margin-top:8px;
 </div>
 
 
-<div id="previewBox" class="preview">
+<div
+id="previewBox"
+class="preview"
+>
 
 <img id="previewImage">
 
@@ -2299,19 +2579,15 @@ ALapiedu.com
 STATE
 ========================= */
 
-let telegram=false;
+let telegram = false;
+let whatsapp = false;
+let website = false;
 
-let whatsapp=false;
+let telegramPrice = 0;
+let telegramName = "";
 
-let website=false;
-
-let telegramPrice=0;
-
-let telegramName="";
-
-let websitePrice=0;
-
-let websiteName="";
+let websitePrice = 0;
+let websiteName = "";
 
 
 /* =========================
@@ -2320,25 +2596,27 @@ WHATSAPP DESCRIPTION
 
 function updateWhatsappDescription(){
 
-const text=document.getElementById(
-"whatsappDescription"
-);
+const text =
+document.getElementById("whatsappDescription");
 
 if(whatsapp){
 
-text.innerText="WhatsApp නාලිකාවේ පළ වේ";
+text.innerText =
+"WhatsApp නාලිකාවේ පළ වේ";
 
 }
 
 else if(telegram || website){
 
-text.innerText="අවශ්‍ය නම් WhatsApp නාලිකාවෙත්";
+text.innerText =
+"අවශ්‍ය නම් WhatsApp නාලිකාවෙත්";
 
 }
 
 else{
 
-text.innerText="WhatsApp පමණක්";
+text.innerText =
+"WhatsApp පමණක්";
 
 }
 
@@ -2351,27 +2629,24 @@ PRICING
 
 function getPricing(){
 
-let originalTotal=0;
+let originalTotal = 0;
+let discount = 0;
 
-let discount=0;
-
-let services=[];
+let services = [];
 
 
 /* TELEGRAM */
 
 if(telegram){
 
-originalTotal+=telegramPrice;
+originalTotal += telegramPrice;
 
 if(telegramName){
 
 services.push({
 
-name:"Telegram - "+telegramName,
-
+name:"Telegram - " + telegramName,
 price:telegramPrice,
-
 type:"telegram"
 
 });
@@ -2385,22 +2660,20 @@ type:"telegram"
 
 if(whatsapp){
 
-let whatsappPrice=2000;
+let whatsappPrice = 2000;
 
 if(!telegram && !website){
 
-whatsappPrice=3000;
+whatsappPrice = 3000;
 
 }
 
-originalTotal+=whatsappPrice;
+originalTotal += whatsappPrice;
 
 services.push({
 
 name:"WhatsApp Channel",
-
 price:whatsappPrice,
-
 type:"whatsapp"
 
 });
@@ -2412,16 +2685,14 @@ type:"whatsapp"
 
 if(website){
 
-originalTotal+=websitePrice;
+originalTotal += websitePrice;
 
 if(websiteName){
 
 services.push({
 
 name:websiteName,
-
 price:websitePrice,
-
 type:"website"
 
 });
@@ -2435,55 +2706,47 @@ type:"website"
 
 if(
 telegram &&
-telegramPrice===4000 &&
+telegramPrice === 4000 &&
 whatsapp &&
 website
 ){
 
-if(websitePrice===2000){
-
-discount=500;
-
+if(websitePrice === 2000){
+discount = 500;
 }
 
-else if(websitePrice===4000){
-
-discount=1000;
-
+else if(websitePrice === 4000){
+discount = 1000;
 }
 
-else if(websitePrice===6000){
-
-discount=2000;
-
+else if(websitePrice === 6000){
+discount = 2000;
 }
 
 }
 
 else if(
 telegram &&
-telegramPrice>0 &&
-telegramPrice!==4000 &&
+telegramPrice > 0 &&
+telegramPrice !== 4000 &&
 whatsapp &&
 website
 ){
 
-discount=500;
+discount = 500;
 
 }
 
 
-const finalTotal=
-originalTotal-discount;
+const finalTotal =
+originalTotal - discount;
 
 
-return{
-
+return {
 originalTotal,
 discount,
 finalTotal,
 services
-
 };
 
 }
@@ -2495,21 +2758,15 @@ TOGGLE TELEGRAM
 
 function toggleTelegram(){
 
-telegram=!telegram;
+telegram = !telegram;
 
 document
 .getElementById("telegramPlatform")
-.classList.toggle(
-"selected",
-telegram
-);
+.classList.toggle("selected",telegram);
 
 document
 .getElementById("telegramArea")
-.classList.toggle(
-"show",
-telegram
-);
+.classList.toggle("show",telegram);
 
 updateWhatsappDescription();
 
@@ -2524,14 +2781,11 @@ TOGGLE WHATSAPP
 
 function toggleWhatsapp(){
 
-whatsapp=!whatsapp;
+whatsapp = !whatsapp;
 
 document
 .getElementById("whatsappPlatform")
-.classList.toggle(
-"selected",
-whatsapp
-);
+.classList.toggle("selected",whatsapp);
 
 updateWhatsappDescription();
 
@@ -2546,21 +2800,15 @@ TOGGLE WEBSITE
 
 function toggleWebsite(){
 
-website=!website;
+website = !website;
 
 document
 .getElementById("websitePlatform")
-.classList.toggle(
-"selected",
-website
-);
+.classList.toggle("selected",website);
 
 document
 .getElementById("websiteArea")
-.classList.toggle(
-"show",
-website
-);
+.classList.toggle("show",website);
 
 updateWhatsappDescription();
 
@@ -2580,22 +2828,17 @@ name
 ){
 
 document
-.querySelectorAll(
-"#telegramArea .package"
-)
+.querySelectorAll("#telegramArea .package")
 .forEach(function(item){
 
-item.classList.remove(
-"selected"
-);
+item.classList.remove("selected");
 
 });
 
 element.classList.add("selected");
 
-telegramPrice=price;
-
-telegramName=name;
+telegramPrice = price;
+telegramName = name;
 
 calculate();
 
@@ -2613,22 +2856,17 @@ name
 ){
 
 document
-.querySelectorAll(
-"#websiteArea .package"
-)
+.querySelectorAll("#websiteArea .package")
 .forEach(function(item){
 
-item.classList.remove(
-"selected"
-);
+item.classList.remove("selected");
 
 });
 
 element.classList.add("selected");
 
-websitePrice=price;
-
-websiteName=name;
+websitePrice = price;
+websiteName = name;
 
 calculate();
 
@@ -2641,67 +2879,45 @@ CALCULATE
 
 function calculate(){
 
-const pricing=getPricing();
+const pricing = getPricing();
 
 document
 .getElementById("total")
-.innerText=
+.innerText =
 pricing.finalTotal.toLocaleString();
 
 
-const box=
-document.getElementById(
-"selectedItems"
-);
+const box =
+document.getElementById("selectedItems");
 
 
-if(pricing.services.length===0){
+if(pricing.services.length === 0){
 
-box.innerHTML=`
-
+box.innerHTML = `
 <span class="tag">
 සේවාවක් තෝරන්න
 </span>
-
 `;
 
 }
 
 else{
 
-box.innerHTML=
+box.innerHTML =
 pricing.services.map(function(item){
 
-let icon="";
-
-if(item.type==="telegram"){
-
-icon="✈️";
-
-}
-
-else if(item.type==="whatsapp"){
-
-icon="🟢";
-
-}
-
-else{
-
-icon="🌐";
-
-}
-
-return`
+return `
 
 <span class="tag">
 
-${icon}
+${item.type === "telegram" ? "🔵" : ""}
+
+${item.type === "whatsapp" ? "🟢" : ""}
+
+${item.type === "website" ? "🌐" : ""}
 
 ${item.name}
-
 -
-
 Rs. ${item.price.toLocaleString()}
 
 </span>
@@ -2715,31 +2931,29 @@ Rs. ${item.price.toLocaleString()}
 
 /* DISCOUNT */
 
-const discountBox=
-document.getElementById(
-"discountSummary"
-);
+const discountBox =
+document.getElementById("discountSummary");
 
 
-if(pricing.discount>0){
+if(pricing.discount > 0){
 
 discountBox.classList.add("show");
 
 document
 .getElementById("originalTotal")
-.innerText=
-"රු. "+
+.innerText =
+"රු. " +
 pricing.originalTotal.toLocaleString();
 
 document
 .getElementById("discountAmount")
-.innerText=
-"රු. "+
+.innerText =
+"රු. " +
 pricing.discount.toLocaleString();
 
 document
 .getElementById("discountTotal")
-.innerText=
+.innerText =
 pricing.finalTotal.toLocaleString();
 
 }
@@ -2750,53 +2964,40 @@ discountBox.classList.remove("show");
 
 }
 
+
 updateQuotationPreview();
 
 }
 
 
 /* =========================
-ACTUAL ICONS
+ACTUAL TELEGRAM SVG
 ========================= */
 
 function getTelegramIcon(){
 
-return`
+return `
 
-<img
-src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
-alt="Telegram"
+<svg
+width="30"
+height="30"
+viewBox="0 0 48 48"
+xmlns="http://www.w3.org/2000/svg"
 >
 
-`;
+<circle
+cx="24"
+cy="24"
+r="24"
+fill="#229ED9"
+/>
 
-}
+<path
+d="M36.5 11.7L32.2 34.2C31.9 35.8 31 36.2 29.7 35.5L22.2 29.9L18.6 33.4C18.2 33.8 17.9 34.1 17.1 34.1L17.6 26.3L31.8 13.5C32.4 13 31.7 12.7 30.9 13.3L13.4 24.3L5.9 21.9C4.3 21.4 4.3 20.3 6.2 19.5L35.5 8.2C36.9 7.7 38.1 8.5 36.5 11.7Z"
+fill="white"
+/>
 
-
-function getWhatsappIcon(){
-
-return`
-
-<img
-src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-alt="WhatsApp"
->
-
-`;
-
-}
-
-
-function getWebsiteIcon(){
-
-return`
-
-<div style="
-font-size:25px;
-line-height:30px;
-">
-🌐
-</div>
+</svg>
 
 `;
 
@@ -2804,34 +3005,137 @@ line-height:30px;
 
 
 /* =========================
-QUOTATION
+ACTUAL WHATSAPP SVG
+========================= */
+
+function getWhatsappIcon(){
+
+return `
+
+<svg
+width="30"
+height="30"
+viewBox="0 0 48 48"
+xmlns="http://www.w3.org/2000/svg"
+>
+
+<circle
+cx="24"
+cy="24"
+r="24"
+fill="#25D366"
+/>
+
+<path
+d="M34.7 13.3C31.9 10.5 28.2 9 24.2 9C15.9 9 9.2 15.7 9.2 24C9.2 26.6 9.9 29.1 11.1 31.3L9 39L16.9 36.9C19 38 21.6 38.7 24.2 38.7C32.5 38.7 39.2 32 39.2 23.7C39.2 19.8 37.7 16.1 34.7 13.3Z"
+fill="white"
+/>
+
+<path
+d="M30.5 27.1C30.1 26.9 28.2 26 27.8 25.8C27.4 25.7 27.1 25.6 26.8 26C26.5 26.4 25.6 27.3 25.3 27.6C25.1 27.9 24.8 27.9 24.4 27.7C24 27.5 22.8 27.1 21.4 25.8C20.3 24.8 19.6 23.6 19.4 23.2C19.2 22.8 19.4 22.6 19.6 22.4C19.8 22.2 20 21.9 20.2 21.7C20.4 21.5 20.5 21.3 20.6 21C20.7 20.7 20.6 20.5 20.5 20.3C20.4 20 19.7 18.1 19.4 17.3C19.1 16.5 18.8 16.6 18.5 16.6H17.7C17.4 16.6 17 16.7 16.7 17.1C16.4 17.5 15.5 18.3 15.5 20.1C15.5 21.9 16.8 23.7 17 24C17.2 24.3 19.6 28 23.3 29.6C24.2 30 24.9 30.2 25.5 30.4C26.4 30.7 27.2 30.6 27.8 30.5C28.5 30.4 29.9 29.7 30.2 29C30.5 28.3 30.5 27.7 30.5 27.5C30.6 27.4 30.5 27.2 30.5 27.1Z"
+fill="#25D366"
+/>
+
+</svg>
+
+`;
+
+}
+
+
+/* =========================
+WEBSITE SVG
+========================= */
+
+function getWebsiteIcon(){
+
+return `
+
+<svg
+width="30"
+height="30"
+viewBox="0 0 48 48"
+xmlns="http://www.w3.org/2000/svg"
+>
+
+<circle
+cx="24"
+cy="24"
+r="24"
+fill="#7c3aed"
+/>
+
+<circle
+cx="24"
+cy="24"
+r="13"
+fill="none"
+stroke="white"
+stroke-width="2"
+/>
+
+<path
+d="M11 24H37"
+fill="none"
+stroke="white"
+stroke-width="2"
+/>
+
+<path
+d="M24 11C28 15 28 33 24 37"
+fill="none"
+stroke="white"
+stroke-width="2"
+/>
+
+<path
+d="M24 11C20 15 20 33 24 37"
+fill="none"
+stroke="white"
+stroke-width="2"
+/>
+
+</svg>
+
+`;
+
+}
+
+
+/* =========================
+QUOTATION PREVIEW
 ========================= */
 
 function updateQuotationPreview(){
 
-const pricing=getPricing();
+const pricing =
+getPricing();
 
 
-const today=new Date();
+const today =
+new Date();
 
-const date=today.toLocaleDateString(
-"en-GB"
-);
+const date =
+today.toLocaleDateString("en-GB");
+
 
 document
 .getElementById("qDate")
-.innerText=
-"Date: "+date;
+.innerText =
+"Date: " + date;
 
 
 /* CUSTOMER */
 
-const name=document
+const name =
+document
 .getElementById("customerName")
 .value
 .trim();
 
-const phone=document
+
+const phone =
+document
 .getElementById("customerPhone")
 .value
 .trim();
@@ -2839,34 +3143,32 @@ const phone=document
 
 document
 .getElementById("qName")
-.innerText=
-name||"Not provided";
+.innerText =
+name || "Not provided";
 
 
 document
 .getElementById("qPhone")
-.innerText=
-phone||"Not provided";
+.innerText =
+phone || "Not provided";
 
 
 /* SERVICES */
 
-const qServices=
-document.getElementById(
-"qServices"
-);
+const qServices =
+document.getElementById("qServices");
 
 
-if(pricing.services.length===0){
+if(pricing.services.length === 0){
 
-qServices.innerHTML=`
+qServices.innerHTML = `
 
 <div class="q-service">
 
 <div class="q-service-left">
 
 <div class="q-service-icon">
-🌐
+${getWebsiteIcon()}
 </div>
 
 <span class="q-service-name">
@@ -2887,54 +3189,48 @@ Rs. 0
 
 else{
 
-qServices.innerHTML=
+qServices.innerHTML =
 pricing.services.map(function(service){
 
-let icon="";
+let icon = "";
 
-if(service.type==="telegram"){
+if(service.type === "telegram"){
 
-icon=getTelegramIcon();
+icon = getTelegramIcon();
 
 }
 
-else if(service.type==="whatsapp"){
+else if(service.type === "whatsapp"){
 
-icon=getWhatsappIcon();
+icon = getWhatsappIcon();
 
 }
 
 else{
 
-icon=getWebsiteIcon();
+icon = getWebsiteIcon();
 
 }
 
 
-return`
+return `
 
 <div class="q-service">
 
 <div class="q-service-left">
 
 <div class="q-service-icon">
-
 ${icon}
-
 </div>
 
 <span class="q-service-name">
-
 ${service.name}
-
 </span>
 
 </div>
 
 <span class="q-service-price">
-
 Rs. ${service.price.toLocaleString()}
-
 </span>
 
 </div>
@@ -2950,34 +3246,32 @@ Rs. ${service.price.toLocaleString()}
 
 document
 .getElementById("qOriginal")
-.innerText=
-"Rs. "+
+.innerText =
+"Rs. " +
 pricing.originalTotal.toLocaleString();
 
 
 /* DISCOUNT */
 
-const qDiscountRow=
-document.getElementById(
-"qDiscountRow"
-);
+const qDiscountRow =
+document.getElementById("qDiscountRow");
 
 
-if(pricing.discount>0){
+if(pricing.discount > 0){
 
-qDiscountRow.style.display="flex";
+qDiscountRow.style.display = "flex";
 
 document
 .getElementById("qDiscount")
-.innerText=
-"- Rs. "+
+.innerText =
+"- Rs. " +
 pricing.discount.toLocaleString();
 
 }
 
 else{
 
-qDiscountRow.style.display="none";
+qDiscountRow.style.display = "none";
 
 }
 
@@ -2986,73 +3280,69 @@ qDiscountRow.style.display="none";
 
 document
 .getElementById("qFinal")
-.innerText=
-"Rs. "+
+.innerText =
+"Rs. " +
 pricing.finalTotal.toLocaleString();
 
 
 /* CAPTION */
 
-const caption=
+const caption =
 document
 .getElementById("caption")
 .value
 .trim();
 
 
-const qCaptionBox=
-document.getElementById(
-"qCaptionBox"
-);
+const qCaptionBox =
+document.getElementById("qCaptionBox");
 
 
 if(caption){
 
-qCaptionBox.style.display="block";
+qCaptionBox.style.display = "block";
 
 document
 .getElementById("qCaption")
-.innerText=
+.innerText =
 caption;
 
 }
 
 else{
 
-qCaptionBox.style.display="none";
+qCaptionBox.style.display = "none";
 
 }
 
 
 /* LINK */
 
-const link=
+const link =
 document
 .getElementById("adLink")
 .value
 .trim();
 
 
-const qLinkBox=
-document.getElementById(
-"qLinkBox"
-);
+const qLinkBox =
+document.getElementById("qLinkBox");
 
 
 if(link){
 
-qLinkBox.style.display="block";
+qLinkBox.style.display = "block";
 
 document
 .getElementById("qLink")
-.innerText=
+.innerText =
 link;
 
 }
 
 else{
 
-qLinkBox.style.display="none";
+qLinkBox.style.display = "none";
 
 }
 
@@ -3065,8 +3355,9 @@ IMAGE PREVIEW
 
 function previewImage(event){
 
-const file=
+const file =
 event.target.files[0];
+
 
 if(!file){
 
@@ -3074,31 +3365,37 @@ return;
 
 }
 
+
 if(!file.type.startsWith("image/")){
 
-alert(
-"කරුණාකර Image එකක් තෝරන්න."
-);
+alert("කරුණාකර Image එකක් තෝරන්න.");
 
-event.target.value="";
+event.target.value = "";
 
 return;
 
 }
 
-const reader=new FileReader();
 
-reader.onload=function(e){
+const reader =
+new FileReader();
+
+
+reader.onload =
+function(e){
 
 document
 .getElementById("previewImage")
-.src=e.target.result;
+.src =
+e.target.result;
 
 document
 .getElementById("previewBox")
-.style.display="block";
+.style.display =
+"block";
 
 };
+
 
 reader.readAsDataURL(file);
 
@@ -3106,19 +3403,20 @@ reader.readAsDataURL(file);
 
 
 /* =========================
-SAVE QUOTATION
+SAVE QUOTATION IMAGE
 ========================= */
 
 async function downloadQuotationImage(){
 
-const name=
+const name =
 document
 .getElementById("customerName")
 .value
 .trim();
 
 
-const pricing=getPricing();
+const pricing =
+getPricing();
 
 
 if(!telegram && !whatsapp && !website){
@@ -3132,7 +3430,7 @@ return;
 }
 
 
-if(telegram && telegramPrice===0){
+if(telegram && telegramPrice === 0){
 
 alert(
 "කරුණාකර Telegram package එකක් තෝරන්න."
@@ -3143,7 +3441,7 @@ return;
 }
 
 
-if(website && websitePrice===0){
+if(website && websitePrice === 0){
 
 alert(
 "කරුණාකර Website package එකක් තෝරන්න."
@@ -3169,63 +3467,51 @@ return;
 }
 
 
-const button=
-document.getElementById(
-"quotationButton"
-);
+const button =
+document.getElementById("quotationButton");
 
-button.disabled=true;
 
-button.innerText=
+button.disabled = true;
+
+button.innerText =
 "⏳ Image සකස් කරමින්...";
 
 
-const preview=
-document.getElementById(
-"quotationPreview"
-);
+const preview =
+document.getElementById("quotationPreview");
 
 
 try{
 
-preview.classList.add(
-"image-export"
-);
+preview.classList.add("image-export");
+
 
 await new Promise(function(resolve){
 
-setTimeout(resolve,500);
+setTimeout(resolve,200);
 
 });
 
 
-const canvas=
+const canvas =
 await html2canvas(
 preview,
 {
-
 scale:3,
-
 useCORS:true,
-
 allowTaint:false,
-
 backgroundColor:"#ffffff",
-
 logging:false,
-
 imageTimeout:15000
-
 }
 );
 
 
-preview.classList.remove(
-"image-export"
-);
+preview.classList.remove("image-export");
 
 
-canvas.toBlob(function(blob){
+canvas.toBlob(
+function(blob){
 
 if(!blob){
 
@@ -3233,52 +3519,45 @@ alert(
 "Image එක සකස් කිරීමට නොහැකි වුණා."
 );
 
-button.disabled=false;
-
-button.innerText=
-"🖼️ Save Quotation Image";
-
 return;
 
 }
 
 
-const url=
+const url =
 URL.createObjectURL(blob);
 
 
-const link=
+const link =
 document.createElement("a");
 
 
-let safeName=
+let safeName =
 name
-.replace(
-/[^a-zA-Z0-9]/g,
-"_"
-)
+.replace(/[^a-zA-Z0-9]/g,"_")
 .substring(0,30);
 
 
 if(!safeName){
 
-safeName="Customer";
+safeName = "Customer";
 
 }
 
 
-const date=
+const date =
 new Date()
 .toISOString()
 .slice(0,10);
 
 
-link.href=url;
+link.href = url;
 
-link.download=
-"AL_API_Quotation_"+
-safeName+
-"_"+date+
+link.download =
+"AL_API_Quotation_" +
+safeName +
+"_" +
+date +
 ".png";
 
 
@@ -3305,42 +3584,39 @@ navigator.userAgent
 setTimeout(function(){
 
 alert(
-"Quotation Image එක save/download කිරීමට browser එකේ Share / Save Image option එක භාවිතා කරන්න."
+"Quotation Image එක save වෙන්න ආරම්භ වෙයි. iPhone එකක් නම් Share / Save Image option එකෙන් Photos වලට save කරන්න."
 );
 
 },300);
 
 }
 
-
-button.disabled=false;
-
-button.innerText=
-"🖼️ Save Quotation Image";
-
-
-},"image/png");
+},
+"image/png"
+);
 
 
 }
 catch(error){
 
-console.error(error);
+console.error(
+"Quotation image error:",
+error
+);
 
 alert(
 "Quotation Image එක සකස් කිරීමේදී ගැටලුවක් ඇති වුණා. නැවත උත්සාහ කරන්න."
 );
 
-preview.classList.remove(
-"image-export"
-);
-
-button.disabled=false;
-
-button.innerText=
-"🖼️ Save Quotation Image";
+preview.classList.remove("image-export");
 
 }
+
+
+button.disabled = false;
+
+button.innerText =
+"🖼️ Save Quotation Image";
 
 }
 
@@ -3351,37 +3627,42 @@ SEND ORDER
 
 function sendOrder(){
 
-const name=
+const name =
 document
 .getElementById("customerName")
 .value
 .trim();
 
-const phone=
+
+const phone =
 document
 .getElementById("customerPhone")
 .value
 .trim();
 
-const caption=
+
+const caption =
 document
 .getElementById("caption")
 .value
 .trim();
 
-const link=
+
+const link =
 document
 .getElementById("adLink")
 .value
 .trim();
 
-const image=
+
+const image =
 document
 .getElementById("adImage")
 .files[0];
 
 
-const pricing=getPricing();
+const pricing =
+getPricing();
 
 
 if(!telegram && !whatsapp && !website){
@@ -3395,7 +3676,7 @@ return;
 }
 
 
-if(telegram && telegramPrice===0){
+if(telegram && telegramPrice === 0){
 
 alert(
 "කරුණාකර Telegram package එකක් තෝරන්න."
@@ -3406,7 +3687,7 @@ return;
 }
 
 
-if(website && websitePrice===0){
+if(website && websitePrice === 0){
 
 alert(
 "කරුණාකර Website package එකක් තෝරන්න."
@@ -3428,7 +3709,7 @@ return;
 }
 
 
-let services=[];
+let services = [];
 
 
 /* TELEGRAM */
@@ -3436,9 +3717,9 @@ let services=[];
 if(telegram){
 
 services.push(
-"🔵 Telegram: "+
-telegramName+
-" - Rs. "+
+"🔵 Telegram: " +
+telegramName +
+" - Rs. " +
 telegramPrice.toLocaleString()
 );
 
@@ -3449,16 +3730,18 @@ telegramPrice.toLocaleString()
 
 if(whatsapp){
 
-let wp=2000;
+let wp = 2000;
+
 
 if(!telegram && !website){
 
-wp=3000;
+wp = 3000;
 
 }
 
+
 services.push(
-"🟢 WhatsApp: Rs. "+
+"🟢 WhatsApp: Rs. " +
 wp.toLocaleString()
 );
 
@@ -3470,32 +3753,36 @@ wp.toLocaleString()
 if(website){
 
 services.push(
-"🌐 Website: "+
-websiteName+
-" - Rs. "+
+"🌐 Website: " +
+websiteName +
+" - Rs. " +
 websitePrice.toLocaleString()
 );
 
 }
 
 
-let discountText="";
+/* DISCOUNT */
+
+let discountText = "";
 
 
-if(pricing.discount>0){
+if(pricing.discount > 0){
 
-discountText=
+discountText =
 
-"\n🎁 Discount: Rs. "+
-pricing.discount.toLocaleString()+
+"\n🎁 Discount: Rs. " +
+pricing.discount.toLocaleString() +
 
-"\n💚 Discount Price: Rs. "+
+"\n💚 Discount Price: Rs. " +
 pricing.finalTotal.toLocaleString();
 
 }
 
 
-const message=
+/* MESSAGE */
+
+const message =
 
 `🛍️ AL අපි 🇱🇰 Advertising
 
@@ -3532,8 +3819,8 @@ AL අපි 🇱🇰 Advertising
 ALapiedu.com`;
 
 
-const url=
-"https://wa.me/94782419390?text="+
+const url =
+"https://wa.me/94782419390?text=" +
 encodeURIComponent(message);
 
 
