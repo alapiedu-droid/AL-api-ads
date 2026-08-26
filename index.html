@@ -10,22 +10,26 @@ name="viewport"
 content="width=device-width, initial-scale=1.0"
 >
 
-<title>
-AL අපි 🇱🇰 Advertising | Buy Ads
-</title>
+<title>AL අපි 🇱🇰 Advertising | Login</title>
 
-<!-- HTML2CANVAS -->
 <script
 src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
 </script>
 
 <style>
 
+/* =========================================================
+GLOBAL
+========================================================= */
+
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:Arial,"Noto Sans Sinhala",sans-serif;
+    font-family:
+    Arial,
+    "Noto Sans Sinhala",
+    sans-serif;
 }
 
 html{
@@ -37,42 +41,1019 @@ body{
     color:#111827;
 }
 
-/* =========================
+
+/* =========================================================
+LOGIN SCREEN
+========================================================= */
+
+#loginScreen{
+
+    position:fixed;
+    inset:0;
+
+    z-index:99999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at 15% 20%,
+        rgba(59,130,246,.35),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 85% 80%,
+        rgba(124,58,237,.35),
+        transparent 30%
+    ),
+    linear-gradient(
+        135deg,
+        #050816,
+        #0b1125,
+        #111827
+    );
+
+    transition:
+    opacity .8s ease,
+    visibility .8s ease;
+}
+
+#loginScreen.hide{
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+
+/* =========================================================
+ANIMATED BACKGROUND
+========================================================= */
+
+.login-orb{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(2px);
+
+    opacity:.45;
+
+    pointer-events:none;
+
+    animation:
+    orbFloat 9s ease-in-out infinite;
+}
+
+.orb1{
+
+    width:300px;
+    height:300px;
+
+    background:
+    radial-gradient(
+        circle,
+        #2563eb,
+        transparent 70%
+    );
+
+    top:-100px;
+    left:-80px;
+}
+
+.orb2{
+
+    width:260px;
+    height:260px;
+
+    background:
+    radial-gradient(
+        circle,
+        #7c3aed,
+        transparent 70%
+    );
+
+    right:-80px;
+    bottom:-70px;
+
+    animation-delay:2s;
+}
+
+.orb3{
+
+    width:180px;
+    height:180px;
+
+    background:
+    radial-gradient(
+        circle,
+        #06b6d4,
+        transparent 70%
+    );
+
+    left:45%;
+    top:20%;
+
+    animation-delay:4s;
+}
+
+@keyframes orbFloat{
+
+    0%,100%{
+        transform:
+        translate3d(0,0,0)
+        scale(1);
+    }
+
+    50%{
+        transform:
+        translate3d(35px,-25px,0)
+        scale(1.08);
+    }
+}
+
+
+/* =========================================================
+PARTICLES
+========================================================= */
+
+.particles{
+
+    position:absolute;
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+}
+
+.particle{
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    opacity:.35;
+
+    animation:
+    particleMove linear infinite;
+}
+
+.particle:nth-child(1){
+    left:10%;
+    animation-duration:12s;
+    animation-delay:0s;
+}
+
+.particle:nth-child(2){
+    left:22%;
+    animation-duration:16s;
+    animation-delay:2s;
+}
+
+.particle:nth-child(3){
+    left:35%;
+    animation-duration:13s;
+    animation-delay:4s;
+}
+
+.particle:nth-child(4){
+    left:48%;
+    animation-duration:18s;
+    animation-delay:1s;
+}
+
+.particle:nth-child(5){
+    left:62%;
+    animation-duration:14s;
+    animation-delay:5s;
+}
+
+.particle:nth-child(6){
+    left:74%;
+    animation-duration:17s;
+    animation-delay:3s;
+}
+
+.particle:nth-child(7){
+    left:87%;
+    animation-duration:15s;
+    animation-delay:6s;
+}
+
+.particle:nth-child(8){
+    left:95%;
+    animation-duration:11s;
+    animation-delay:2s;
+}
+
+@keyframes particleMove{
+
+    0%{
+        transform:
+        translateY(110vh)
+        scale(.5);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.4;
+    }
+
+    80%{
+        opacity:.4;
+    }
+
+    100%{
+        transform:
+        translateY(-10vh)
+        scale(1.3);
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+LOGIN CARD
+========================================================= */
+
+.login-card{
+
+    position:relative;
+
+    width:min(430px,92%);
+
+    padding:38px 34px;
+
+    border:1px solid
+    rgba(255,255,255,.16);
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.12),
+        rgba(255,255,255,.05)
+    );
+
+    backdrop-filter:
+    blur(25px);
+
+    -webkit-backdrop-filter:
+    blur(25px);
+
+    box-shadow:
+    0 30px 80px
+    rgba(0,0,0,.45),
+    inset 0 1px 0
+    rgba(255,255,255,.12);
+
+    animation:
+    loginCardIn .9s
+    cubic-bezier(.2,.8,.2,1);
+
+    overflow:hidden;
+}
+
+@keyframes loginCardIn{
+
+    0%{
+        opacity:0;
+        transform:
+        translateY(50px)
+        scale(.92)
+        rotateX(8deg);
+    }
+
+    100%{
+        opacity:1;
+        transform:
+        translateY(0)
+        scale(1)
+        rotateX(0);
+    }
+}
+
+
+/* =========================================================
+CARD SHINE
+========================================================= */
+
+.login-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:500px;
+
+    top:-180px;
+    left:-250px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.13),
+        transparent
+    );
+
+    transform:rotate(25deg);
+
+    animation:
+    cardShine 5s
+    ease-in-out infinite;
+
+    pointer-events:none;
+}
+
+@keyframes cardShine{
+
+    0%{
+        left:-280px;
+    }
+
+    45%,100%{
+        left:600px;
+    }
+}
+
+
+/* =========================================================
+LOGIN LOGO
+========================================================= */
+
+.login-logo{
+
+    width:76px;
+    height:76px;
+
+    margin:0 auto 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5,
+        #7c3aed
+    );
+
+    color:#fff;
+
+    font-size:37px;
+
+    box-shadow:
+    0 15px 40px
+    rgba(37,99,235,.4);
+
+    animation:
+    logoPulse 3s
+    ease-in-out infinite;
+}
+
+@keyframes logoPulse{
+
+    0%,100%{
+        transform:
+        translateY(0)
+        rotate(0);
+        box-shadow:
+        0 15px 40px
+        rgba(37,99,235,.4);
+    }
+
+    50%{
+        transform:
+        translateY(-5px)
+        rotate(2deg);
+        box-shadow:
+        0 20px 50px
+        rgba(124,58,237,.5);
+    }
+}
+
+
+/* =========================================================
+LOGIN TEXT
+========================================================= */
+
+.login-title{
+
+    text-align:center;
+
+    color:white;
+
+    font-size:27px;
+
+    font-weight:900;
+
+    letter-spacing:-.5px;
+}
+
+.login-title span{
+
+    color:#60a5fa;
+}
+
+.login-subtitle{
+
+    text-align:center;
+
+    color:
+    rgba(255,255,255,.58);
+
+    font-size:12px;
+
+    margin-top:8px;
+
+    margin-bottom:28px;
+}
+
+
+/* =========================================================
+INPUT
+========================================================= */
+
+.login-field{
+
+    position:relative;
+
+    margin-bottom:17px;
+}
+
+.login-field label{
+
+    display:block;
+
+    color:
+    rgba(255,255,255,.78);
+
+    font-size:12px;
+
+    font-weight:800;
+
+    margin-bottom:7px;
+}
+
+.input-wrap{
+
+    position:relative;
+}
+
+.input-icon{
+
+    position:absolute;
+
+    left:14px;
+    top:50%;
+
+    transform:
+    translateY(-50%);
+
+    font-size:17px;
+
+    opacity:.7;
+
+    pointer-events:none;
+
+    transition:.25s;
+}
+
+.login-input{
+
+    width:100%;
+
+    height:52px;
+
+    padding:
+    0 45px;
+
+    border-radius:14px;
+
+    border:1px solid
+    rgba(255,255,255,.14);
+
+    outline:none;
+
+    color:white;
+
+    background:
+    rgba(0,0,0,.18);
+
+    font-size:14px;
+
+    transition:.25s;
+}
+
+.login-input::placeholder{
+
+    color:
+    rgba(255,255,255,.32);
+}
+
+.login-input:focus{
+
+    border-color:#60a5fa;
+
+    background:
+    rgba(37,99,235,.10);
+
+    box-shadow:
+    0 0 0 4px
+    rgba(59,130,246,.12);
+}
+
+.login-input:focus
+~ .input-icon{
+
+    opacity:1;
+
+    transform:
+    translateY(-50%)
+    scale(1.08);
+}
+
+
+/* =========================================================
+PASSWORD EYE
+========================================================= */
+
+.password-toggle{
+
+    position:absolute;
+
+    right:13px;
+    top:50%;
+
+    transform:
+    translateY(-50%);
+
+    border:0;
+
+    background:transparent;
+
+    color:white;
+
+    opacity:.55;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.2s;
+}
+
+.password-toggle:hover{
+
+    opacity:1;
+
+    transform:
+    translateY(-50%)
+    scale(1.1);
+}
+
+
+/* =========================================================
+LOGIN OPTIONS
+========================================================= */
+
+.login-options{
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    margin:3px 0 20px;
+}
+
+.remember{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    color:
+    rgba(255,255,255,.55);
+
+    font-size:11px;
+
+    cursor:pointer;
+}
+
+.remember input{
+
+    accent-color:#2563eb;
+
+    width:14px;
+    height:14px;
+}
+
+.demo-label{
+
+    color:#60a5fa;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    background:
+    rgba(37,99,235,.12);
+
+    border:
+    1px solid
+    rgba(96,165,250,.18);
+
+    padding:5px 8px;
+
+    border-radius:20px;
+}
+
+
+/* =========================================================
+LOGIN BUTTON
+========================================================= */
+
+.login-button{
+
+    position:relative;
+
+    width:100%;
+
+    height:54px;
+
+    border:0;
+
+    border-radius:15px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    font-size:15px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 12px 30px
+    rgba(37,99,235,.28);
+
+    transition:.25s;
+}
+
+.login-button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:100%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    transition:.5s;
+}
+
+.login-button:hover{
+
+    transform:
+    translateY(-2px);
+
+    box-shadow:
+    0 16px 35px
+    rgba(37,99,235,.38);
+}
+
+.login-button:hover::before{
+
+    left:100%;
+}
+
+.login-button:active{
+
+    transform:
+    translateY(0)
+    scale(.98);
+}
+
+
+/* =========================================================
+LOADING
+========================================================= */
+
+.login-loader{
+
+    display:none;
+
+    width:20px;
+    height:20px;
+
+    border:3px solid
+    rgba(255,255,255,.3);
+
+    border-top-color:white;
+
+    border-radius:50%;
+
+    animation:
+    spin .7s linear infinite;
+
+    margin:auto;
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.login-button.loading
+.login-text{
+
+    display:none;
+}
+
+.login-button.loading
+.login-loader{
+
+    display:block;
+}
+
+
+/* =========================================================
+ERROR
+========================================================= */
+
+.login-error{
+
+    max-height:0;
+
+    opacity:0;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    color:#fca5a5;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+    margin-top:0;
+}
+
+.login-error.show{
+
+    max-height:50px;
+
+    opacity:1;
+
+    margin-top:13px;
+}
+
+.shake{
+
+    animation:
+    loginShake .45s ease;
+}
+
+@keyframes loginShake{
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    20%{
+        transform:translateX(-10px);
+    }
+
+    40%{
+        transform:translateX(10px);
+    }
+
+    60%{
+        transform:translateX(-7px);
+    }
+
+    80%{
+        transform:translateX(7px);
+    }
+}
+
+
+/* =========================================================
+LOGIN FOOTER
+========================================================= */
+
+.login-footer{
+
+    text-align:center;
+
+    color:
+    rgba(255,255,255,.32);
+
+    font-size:10px;
+
+    margin-top:22px;
+}
+
+
+/* =========================================================
+SUCCESS SCREEN
+========================================================= */
+
+.login-success{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+
+    background:
+    rgba(5,8,22,.92);
+
+    backdrop-filter:blur(15px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.4s;
+
+    z-index:10;
+}
+
+.login-success.show{
+
+    opacity:1;
+
+    visibility:visible;
+}
+
+.success-circle{
+
+    width:80px;
+    height:80px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #22c55e,
+        #16a34a
+    );
+
+    color:white;
+
+    font-size:38px;
+
+    box-shadow:
+    0 15px 40px
+    rgba(34,197,94,.3);
+
+    animation:
+    successPop .55s
+    cubic-bezier(.2,1.5,.5,1);
+}
+
+@keyframes successPop{
+
+    0%{
+        transform:
+        scale(0);
+    }
+
+    100%{
+        transform:
+        scale(1);
+    }
+}
+
+.success-text{
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:900;
+
+    margin-top:17px;
+}
+
+.success-sub{
+
+    color:
+    rgba(255,255,255,.55);
+
+    font-size:11px;
+
+    margin-top:6px;
+}
+
+
+/* =========================================================
 HEADER
-========================= */
+========================================================= */
 
 header{
+
     position:sticky;
+
     top:0;
+
     z-index:1000;
 
-    background:rgba(255,255,255,.97);
+    background:
+    rgba(255,255,255,.97);
 
     backdrop-filter:blur(14px);
 
-    border-bottom:1px solid #e5e7eb;
+    border-bottom:
+    1px solid #e5e7eb;
 
     padding:13px 6%;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 }
 
 .brand{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
 
     text-decoration:none;
+
     color:#111827;
 }
 
 .brand-icon{
+
     width:42px;
     height:42px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -86,10 +1067,12 @@ header{
     );
 
     color:white;
+
     font-size:21px;
 
     box-shadow:
-    0 6px 16px rgba(37,99,235,.22);
+    0 6px 16px
+    rgba(37,99,235,.22);
 }
 
 .brand-text{
@@ -97,14 +1080,21 @@ header{
 }
 
 .brand-title{
+
     font-size:17px;
+
     font-weight:900;
 }
 
 .waving-flag{
+
     display:inline-block;
+
     transform-origin:left center;
-    animation:flagWave 1.8s ease-in-out infinite;
+
+    animation:
+    flagWave 1.8s
+    ease-in-out infinite;
 }
 
 @keyframes flagWave{
@@ -112,8 +1102,8 @@ header{
     0%{
         transform:
         perspective(300px)
-        rotateY(0deg)
-        skewY(0deg);
+        rotateY(0)
+        skewY(0);
     }
 
     25%{
@@ -140,21 +1130,28 @@ header{
     100%{
         transform:
         perspective(300px)
-        rotateY(0deg)
-        skewY(0deg);
+        rotateY(0)
+        skewY(0);
     }
 }
 
 .brand-subtitle{
+
     font-size:10px;
+
     color:#6b7280;
+
     margin-top:4px;
+
     letter-spacing:.3px;
 }
 
 .buy-button{
+
     display:flex;
+
     align-items:center;
+
     gap:7px;
 
     padding:11px 16px;
@@ -168,16 +1165,20 @@ header{
     background:#111827;
 
     font-size:13px;
+
     font-weight:900;
 
     box-shadow:
-    0 6px 18px rgba(0,0,0,.12);
+    0 6px 18px
+    rgba(0,0,0,.12);
 
     transition:.2s;
 }
 
 .buy-button:hover{
+
     transform:translateY(-2px);
+
     background:#2563eb;
 }
 
@@ -185,12 +1186,15 @@ header{
     font-size:17px;
 }
 
-/* =========================
+
+/* =========================================================
 HERO
-========================= */
+========================================================= */
 
 .hero{
-    padding:70px 20px 65px;
+
+    padding:
+    70px 20px 65px;
 
     text-align:center;
 
@@ -208,8 +1212,11 @@ HERO
 }
 
 .hero h1{
+
     font-size:39px;
+
     line-height:1.25;
+
     margin-bottom:15px;
 }
 
@@ -218,19 +1225,24 @@ HERO
 }
 
 .hero p{
+
     max-width:720px;
+
     margin:auto;
 
     color:#6b7280;
 
     line-height:1.8;
+
     font-size:15px;
 }
 
 .hero-btn{
+
     display:inline-flex;
 
     align-items:center;
+
     gap:8px;
 
     margin-top:25px;
@@ -238,6 +1250,7 @@ HERO
     padding:14px 24px;
 
     background:#2563eb;
+
     color:white;
 
     border-radius:12px;
@@ -247,51 +1260,68 @@ HERO
     font-weight:900;
 
     box-shadow:
-    0 8px 22px rgba(37,99,235,.2);
+    0 8px 22px
+    rgba(37,99,235,.2);
 }
 
-/* =========================
+
+/* =========================================================
 SECTION
-========================= */
+========================================================= */
 
 section{
-    padding:55px 6%;
+
+    padding:
+    55px 6%;
 }
 
 .network-section{
+
     background:#fff;
 }
 
 .title{
+
     text-align:center;
+
     margin-bottom:28px;
 }
 
 .title h2{
+
     font-size:28px;
+
     margin-bottom:8px;
 }
 
 .title p{
+
     color:#6b7280;
+
     font-size:14px;
 }
 
-/* =========================
+
+/* =========================================================
 NETWORKS
-========================= */
+========================================================= */
 
 .main-networks{
+
     max-width:850px;
+
     margin:auto;
 
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+    1fr 1fr;
 
     gap:14px;
 }
 
 .network-card{
+
     text-decoration:none;
 
     color:#111827;
@@ -307,68 +1337,91 @@ NETWORKS
     text-align:center;
 
     box-shadow:
-    0 6px 24px rgba(0,0,0,.05);
+    0 6px 24px
+    rgba(0,0,0,.05);
 
     transition:.2s;
 }
 
 .network-card:hover{
+
     transform:translateY(-3px);
 }
 
 .network-card.telegram{
-    border-top:4px solid #229ED9;
+
+    border-top:
+    4px solid #229ED9;
 }
 
 .network-card.whatsapp{
-    border-top:4px solid #25D366;
+
+    border-top:
+    4px solid #25D366;
 }
 
 .network-logo{
+
     width:44px;
     height:44px;
 }
 
 .network-card h3{
+
     font-size:15px;
+
     margin-top:8px;
 }
 
 .member-count{
+
     font-size:28px;
+
     font-weight:900;
+
     margin-top:5px;
 }
 
 .telegram .member-count{
+
     color:#229ED9;
 }
 
 .whatsapp .member-count{
+
     color:#16a34a;
 }
 
-/* =========================
+
+/* =========================================================
 SMALL GROUPS
-========================= */
+========================================================= */
 
 .network-small{
+
     max-width:850px;
-    margin:12px auto 0;
+
+    margin:
+    12px auto 0;
 
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+    1fr 1fr;
 
     gap:9px;
 }
 
 .small-card{
+
     display:flex;
 
     justify-content:space-between;
+
     align-items:center;
 
-    padding:11px 13px;
+    padding:
+    11px 13px;
 
     background:#f8fafc;
 
@@ -384,30 +1437,41 @@ SMALL GROUPS
 }
 
 .small-left{
+
     display:flex;
+
     align-items:center;
+
     gap:8px;
 
     min-width:0;
 }
 
 .small-logo{
+
     width:25px;
     height:25px;
 }
 
 .small-name{
+
     font-size:12px;
+
     font-weight:bold;
 
     white-space:nowrap;
+
     overflow:hidden;
+
     text-overflow:ellipsis;
 }
 
 .small-count{
+
     font-size:12px;
+
     color:#229ED9;
+
     font-weight:bold;
 
     white-space:nowrap;
@@ -419,15 +1483,18 @@ SMALL GROUPS
     border-radius:7px;
 }
 
-/* =========================
+
+/* =========================================================
 ORDER
-========================= */
+========================================================= */
 
 .order-section{
+
     background:#f5f7fb;
 }
 
 .order-box{
+
     max-width:900px;
 
     margin:auto;
@@ -441,20 +1508,26 @@ ORDER
     border:1px solid #e5e7eb;
 
     box-shadow:
-    0 10px 35px rgba(0,0,0,.06);
+    0 10px 35px
+    rgba(0,0,0,.06);
 }
 
 .step{
+
     font-size:20px;
+
     font-weight:900;
+
     margin-bottom:17px;
 }
 
-/* =========================
+
+/* =========================================================
 PLATFORM
-========================= */
+========================================================= */
 
 .platform-grid{
+
     display:grid;
 
     grid-template-columns:
@@ -466,7 +1539,9 @@ PLATFORM
 }
 
 .platform{
-    border:2px solid #e5e7eb;
+
+    border:
+    2px solid #e5e7eb;
 
     border-radius:17px;
 
@@ -482,65 +1557,86 @@ PLATFORM
 }
 
 .platform:hover{
+
     transform:translateY(-2px);
 }
 
 .platform.selected{
+
     background:#f5f9ff;
+
     border-color:#2563eb;
 }
 
 .platform.whatsapp.selected{
+
     border-color:#25D366;
+
     background:#f1fff6;
 }
 
 .platform.website.selected{
+
     border-color:#7c3aed;
+
     background:#faf5ff;
 }
 
 .platform img{
+
     width:42px;
     height:42px;
+
     margin-bottom:8px;
 }
 
 .platform h3{
+
     font-size:15px;
 }
 
 .platform p{
+
     font-size:11px;
+
     color:#6b7280;
+
     margin-top:5px;
 }
 
-/* =========================
+
+/* =========================================================
 PACKAGES
-========================= */
+========================================================= */
 
 .package-area{
+
     display:none;
+
     margin-bottom:28px;
 }
 
 .package-area.show{
+
     display:block;
 }
 
 .package-grid{
+
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:
+    1fr 1fr;
 
     gap:12px;
 }
 
 .package{
+
     position:relative;
 
-    border:2px solid #e5e7eb;
+    border:
+    2px solid #e5e7eb;
 
     border-radius:16px;
 
@@ -554,18 +1650,23 @@ PACKAGES
 }
 
 .package:hover{
+
     transform:translateY(-2px);
 }
 
 .package.selected{
+
     border-color:#2563eb;
+
     background:#f4f8ff;
 
     box-shadow:
-    0 8px 22px rgba(37,99,235,.10);
+    0 8px 22px
+    rgba(37,99,235,.10);
 }
 
 .package.selected:after{
+
     content:"✓";
 
     position:absolute;
@@ -579,21 +1680,27 @@ PACKAGES
     border-radius:50%;
 
     background:#2563eb;
+
     color:white;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     font-weight:bold;
 }
 
 .package-title{
+
     font-size:16px;
+
     font-weight:900;
 }
 
 .package-price{
+
     color:#2563eb;
 
     font-size:25px;
@@ -604,6 +1711,7 @@ PACKAGES
 }
 
 .package-details{
+
     color:#6b7280;
 
     font-size:11px;
@@ -613,12 +1721,15 @@ PACKAGES
     margin-top:8px;
 }
 
-/* =========================
+
+/* =========================================================
 TOTAL
-========================= */
+========================================================= */
 
 .total-card{
-    margin:25px 0 14px;
+
+    margin:
+    25px 0 14px;
 
     padding:25px;
 
@@ -631,53 +1742,68 @@ TOTAL
         #f8fbff
     );
 
-    border:2px solid #dbeafe;
+    border:
+    2px solid #dbeafe;
 
     box-shadow:
-    0 8px 25px rgba(37,99,235,.07);
+    0 8px 25px
+    rgba(37,99,235,.07);
 }
 
 .total-label{
+
     font-size:13px;
+
     color:#6b7280;
+
     font-weight:bold;
 }
 
 .total{
+
     color:#2563eb;
 
     font-size:40px;
 
     font-weight:900;
 
-    margin:4px 0 12px;
+    margin:
+    4px 0 12px;
 }
 
 .selected-items{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:7px;
 }
 
 .tag{
+
     background:white;
 
-    border:1px solid #dbeafe;
+    border:
+    1px solid #dbeafe;
 
     border-radius:20px;
 
-    padding:6px 10px;
+    padding:
+    6px 10px;
 
     font-size:11px;
 
     font-weight:bold;
 }
 
-/* =========================
+
+/* =========================================================
 DISCOUNT
-========================= */
+========================================================= */
 
 .discount-summary{
+
     display:none;
 
     margin-top:15px;
@@ -692,10 +1818,12 @@ DISCOUNT
 }
 
 .discount-summary.show{
+
     display:block;
 }
 
 .original-price{
+
     color:#6b7280;
 
     font-size:14px;
@@ -704,6 +1832,7 @@ DISCOUNT
 }
 
 .original-price span{
+
     color:#dc2626;
 
     text-decoration:line-through;
@@ -712,6 +1841,7 @@ DISCOUNT
 }
 
 .discount-line{
+
     margin-top:7px;
 
     color:#dc2626;
@@ -722,6 +1852,7 @@ DISCOUNT
 }
 
 .discount-price{
+
     margin-top:5px;
 
     color:#16a34a;
@@ -731,18 +1862,22 @@ DISCOUNT
     font-weight:900;
 }
 
-/* =========================
+
+/* =========================================================
 QUOTATION
-========================= */
+========================================================= */
 
 .quotation-preview-wrap{
+
     margin-top:22px;
 }
 
 .quotation-preview-title{
+
     display:flex;
 
     align-items:center;
+
     justify-content:space-between;
 
     gap:10px;
@@ -751,12 +1886,16 @@ QUOTATION
 }
 
 .quotation-preview-title h3{
+
     font-size:17px;
+
     font-weight:900;
 }
 
 .preview-badge{
+
     background:#eef2ff;
+
     color:#4f46e5;
 
     padding:5px 9px;
@@ -769,50 +1908,62 @@ QUOTATION
 }
 
 .quotation-preview{
+
     background:#fff;
 
-    border:1px solid #dbe3ef;
+    border:
+    1px solid #dbe3ef;
 
     border-radius:16px;
 
     padding:22px;
 
     box-shadow:
-    0 8px 28px rgba(15,23,42,.08);
+    0 8px 28px
+    rgba(15,23,42,.08);
 
     overflow:hidden;
 }
 
-/* =========================
+
+/* =========================================================
 QUOTATION HEADER
-========================= */
+========================================================= */
 
 .q-header{
+
     display:flex;
 
     justify-content:space-between;
+
     align-items:flex-start;
 
     gap:15px;
 
     padding-bottom:16px;
 
-    border-bottom:2px solid #eef2f7;
+    border-bottom:
+    2px solid #eef2f7;
 }
 
 .q-brand-area{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
 }
 
 .q-logo-placeholder{
+
     width:45px;
     height:45px;
 
     border-radius:12px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -826,12 +1977,14 @@ QUOTATION HEADER
     color:white;
 
     font-size:22px;
+
     font-weight:900;
 
     flex-shrink:0;
 }
 
 .q-brand{
+
     font-size:18px;
 
     font-weight:900;
@@ -840,6 +1993,7 @@ QUOTATION HEADER
 }
 
 .q-brand-sub{
+
     color:#6b7280;
 
     font-size:10px;
@@ -848,6 +2002,7 @@ QUOTATION HEADER
 }
 
 .q-title{
+
     text-align:right;
 
     font-size:18px;
@@ -858,6 +2013,7 @@ QUOTATION HEADER
 }
 
 .q-date{
+
     color:#6b7280;
 
     font-size:9px;
@@ -865,11 +2021,13 @@ QUOTATION HEADER
     margin-top:4px;
 }
 
-/* =========================
+
+/* =========================================================
 CUSTOMER
-========================= */
+========================================================= */
 
 .q-customer{
+
     margin-top:17px;
 
     padding:13px;
@@ -880,6 +2038,7 @@ CUSTOMER
 }
 
 .q-customer strong{
+
     display:block;
 
     font-size:12px;
@@ -888,6 +2047,7 @@ CUSTOMER
 }
 
 .q-customer div{
+
     font-size:11px;
 
     color:#4b5563;
@@ -895,15 +2055,18 @@ CUSTOMER
     line-height:1.7;
 }
 
-/* =========================
+
+/* =========================================================
 SERVICES
-========================= */
+========================================================= */
 
 .q-services{
+
     margin-top:17px;
 }
 
 .q-services-title{
+
     font-size:12px;
 
     font-weight:900;
@@ -912,6 +2075,7 @@ SERVICES
 }
 
 .q-service{
+
     display:flex;
 
     justify-content:space-between;
@@ -922,12 +2086,14 @@ SERVICES
 
     padding:10px 0;
 
-    border-bottom:1px solid #eef2f7;
+    border-bottom:
+    1px solid #eef2f7;
 
     font-size:11px;
 }
 
 .q-service-left{
+
     display:flex;
 
     align-items:center;
@@ -938,6 +2104,7 @@ SERVICES
 }
 
 .q-service-icon{
+
     width:26px;
     height:26px;
 
@@ -946,6 +2113,7 @@ SERVICES
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     flex-shrink:0;
@@ -954,34 +2122,41 @@ SERVICES
 }
 
 .q-service-icon.telegram{
+
     background:#229ED9;
 }
 
 .q-service-icon.whatsapp{
+
     background:#25D366;
 }
 
 .q-service-icon.website{
+
     background:#7c3aed;
 }
 
 .q-service-name{
+
     font-size:11px;
 
     line-height:1.4;
 }
 
 .q-service-price{
+
     font-weight:900;
 
     white-space:nowrap;
 }
 
-/* =========================
+
+/* =========================================================
 TOTAL QUOTATION
-========================= */
+========================================================= */
 
 .q-total-box{
+
     margin-top:16px;
 
     padding:15px;
@@ -992,6 +2167,7 @@ TOTAL QUOTATION
 }
 
 .q-total-row{
+
     display:flex;
 
     justify-content:space-between;
@@ -1006,6 +2182,7 @@ TOTAL QUOTATION
 }
 
 .q-old-total{
+
     color:#dc2626;
 
     text-decoration:line-through;
@@ -1016,12 +2193,14 @@ TOTAL QUOTATION
 }
 
 .q-discount{
+
     color:#dc2626;
 
     font-weight:900;
 }
 
 .q-final-row{
+
     display:flex;
 
     justify-content:space-between;
@@ -1034,16 +2213,19 @@ TOTAL QUOTATION
 
     padding-top:10px;
 
-    border-top:2px solid #e5e7eb;
+    border-top:
+    2px solid #e5e7eb;
 }
 
 .q-final-label{
+
     font-size:13px;
 
     font-weight:900;
 }
 
 .q-final-price{
+
     color:#16a34a;
 
     font-size:22px;
@@ -1051,19 +2233,23 @@ TOTAL QUOTATION
     font-weight:900;
 }
 
-/* =========================
+
+/* =========================================================
 CAPTION
-========================= */
+========================================================= */
 
 .q-caption{
+
     margin-top:15px;
 
     padding-top:13px;
 
-    border-top:1px solid #eef2f7;
+    border-top:
+    1px solid #eef2f7;
 }
 
 .q-caption-title{
+
     font-size:11px;
 
     font-weight:900;
@@ -1072,6 +2258,7 @@ CAPTION
 }
 
 .q-caption-text{
+
     font-size:10px;
 
     color:#4b5563;
@@ -1084,6 +2271,7 @@ CAPTION
 }
 
 .q-link{
+
     margin-top:10px;
 
     font-size:10px;
@@ -1094,11 +2282,13 @@ CAPTION
 }
 
 .q-footer{
+
     margin-top:17px;
 
     padding-top:12px;
 
-    border-top:1px solid #eef2f7;
+    border-top:
+    1px solid #eef2f7;
 
     text-align:center;
 
@@ -1107,11 +2297,13 @@ CAPTION
     font-size:9px;
 }
 
-/* =========================
+
+/* =========================================================
 SAVE IMAGE
-========================= */
+========================================================= */
 
 .quotation-button{
+
     width:100%;
 
     border:0;
@@ -1135,15 +2327,18 @@ SAVE IMAGE
 
     cursor:pointer;
 
-    margin:0 0 12px;
+    margin:
+    0 0 12px;
 
     box-shadow:
-    0 8px 20px rgba(17,24,39,.16);
+    0 8px 20px
+    rgba(17,24,39,.16);
 
     transition:.2s;
 }
 
 .quotation-button:hover{
+
     transform:translateY(-2px);
 
     background:
@@ -1155,19 +2350,24 @@ SAVE IMAGE
 }
 
 .quotation-button:disabled{
+
     opacity:.65;
+
     cursor:wait;
 }
 
-/* =========================
+
+/* =========================================================
 FORM
-========================= */
+========================================================= */
 
 .form-group{
+
     margin-bottom:20px;
 }
 
 label{
+
     display:block;
 
     font-weight:bold;
@@ -1177,11 +2377,13 @@ label{
 
 input,
 textarea{
+
     width:100%;
 
     padding:14px;
 
-    border:1px solid #d1d5db;
+    border:
+    1px solid #d1d5db;
 
     border-radius:10px;
 
@@ -1192,18 +2394,23 @@ textarea{
 
 input:focus,
 textarea:focus{
+
     border-color:#2563eb;
 
     box-shadow:
-    0 0 0 3px rgba(37,99,235,.08);
+    0 0 0 3px
+    rgba(37,99,235,.08);
 }
 
 textarea{
+
     resize:vertical;
 }
 
 .upload{
-    border:2px dashed #cbd5e1;
+
+    border:
+    2px dashed #cbd5e1;
 
     border-radius:14px;
 
@@ -1213,11 +2420,14 @@ textarea{
 }
 
 .upload input{
+
     border:none;
+
     padding:0;
 }
 
 .preview{
+
     display:none;
 
     text-align:center;
@@ -1226,13 +2436,16 @@ textarea{
 }
 
 .preview img{
+
     max-width:100%;
+
     max-height:300px;
 
     border-radius:12px;
 }
 
 .whatsapp-button{
+
     width:100%;
 
     border:0;
@@ -1253,6 +2466,7 @@ textarea{
 }
 
 .note{
+
     text-align:center;
 
     color:#6b7280;
@@ -1264,11 +2478,13 @@ textarea{
     margin-top:12px;
 }
 
-/* =========================
+
+/* =========================================================
 FOOTER
-========================= */
+========================================================= */
 
 footer{
+
     background:#080c14;
 
     color:#9ca3af;
@@ -1280,76 +2496,117 @@ footer{
     font-size:13px;
 }
 
-/* =========================
+
+/* =========================================================
 MOBILE
-========================= */
+========================================================= */
 
 @media(max-width:700px){
 
+    .login-card{
+
+        padding:
+        30px 22px;
+
+        border-radius:24px;
+    }
+
+    .login-logo{
+
+        width:68px;
+        height:68px;
+
+        font-size:32px;
+    }
+
+    .login-title{
+
+        font-size:24px;
+    }
+
     .brand-title{
+
         font-size:14px;
     }
 
     .brand-subtitle{
+
         font-size:9px;
     }
 
     .brand-icon{
+
         width:38px;
         height:38px;
     }
 
     .buy-button{
-        padding:10px 13px;
+
+        padding:
+        10px 13px;
     }
 
     .hero h1{
+
         font-size:29px;
     }
 
     section{
-        padding:45px 15px;
+
+        padding:
+        45px 15px;
     }
 
     .main-networks{
+
         grid-template-columns:1fr;
     }
 
     .platform-grid{
+
         grid-template-columns:1fr;
     }
 
     .package-grid{
+
         grid-template-columns:1fr;
     }
 
     .network-small{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+        1fr 1fr;
     }
 
     .order-box{
+
         padding:20px;
     }
 
     .quotation-preview{
+
         padding:16px;
     }
 
     .q-header{
+
         flex-direction:column;
     }
 
     .q-title{
+
         text-align:left;
     }
 
 }
 
-/* =========================
+
+/* =========================================================
 PRINT / IMAGE CLEAN
-========================= */
+========================================================= */
 
 .quotation-preview.image-export{
+
     width:794px !important;
 
     border-radius:0 !important;
@@ -1365,13 +2622,214 @@ PRINT / IMAGE CLEAN
 
 <body>
 
-<!-- =========================
-HEADER
-========================= -->
+
+<!-- =========================================================
+ANIMATED LOGIN
+========================================================= -->
+
+<div id="loginScreen">
+
+    <div class="login-orb orb1"></div>
+    <div class="login-orb orb2"></div>
+    <div class="login-orb orb3"></div>
+
+    <div class="particles">
+
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+
+    </div>
+
+
+    <div
+    id="loginCard"
+    class="login-card"
+    >
+
+        <div class="login-logo">
+            📢
+        </div>
+
+        <div class="login-title">
+
+            Welcome to
+            <span>AL අපි</span>
+
+        </div>
+
+        <div class="login-subtitle">
+
+            Advertising Management Portal
+            🇱🇰
+
+        </div>
+
+
+        <!-- USERNAME -->
+
+        <div class="login-field">
+
+            <label>
+                USERNAME
+            </label>
+
+            <div class="input-wrap">
+
+                <input
+                id="loginUsername"
+                class="login-input"
+                type="text"
+                placeholder="Enter username"
+                autocomplete="username"
+                >
+
+                <span class="input-icon">
+                    👤
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- PASSWORD -->
+
+        <div class="login-field">
+
+            <label>
+                PASSWORD
+            </label>
+
+            <div class="input-wrap">
+
+                <input
+                id="loginPassword"
+                class="login-input"
+                type="password"
+                placeholder="Enter password"
+                autocomplete="current-password"
+                >
+
+                <span class="input-icon">
+                    🔐
+                </span>
+
+                <button
+                type="button"
+                class="password-toggle"
+                onclick="togglePassword()"
+                id="passwordToggle"
+                >
+                    👁️
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- OPTIONS -->
+
+        <div class="login-options">
+
+            <label class="remember">
+
+                <input
+                type="checkbox"
+                id="rememberMe"
+                >
+
+                Remember me
+
+            </label>
+
+            <span class="demo-label">
+                DEMO LOGIN
+            </span>
+
+        </div>
+
+
+        <!-- LOGIN BUTTON -->
+
+        <button
+        id="loginButton"
+        class="login-button"
+        onclick="performLogin()"
+        >
+
+            <span class="login-text">
+                🔓 Sign In
+            </span>
+
+            <span class="login-loader"></span>
+
+        </button>
+
+
+        <div
+        id="loginError"
+        class="login-error"
+        >
+            ❌ Username හෝ Password වැරදියි.
+        </div>
+
+
+        <div class="login-footer">
+
+            AL අපි 🇱🇰 Advertising<br>
+            Advertise • Reach • Grow
+
+        </div>
+
+
+        <!-- SUCCESS -->
+
+        <div
+        id="loginSuccess"
+        class="login-success"
+        >
+
+            <div class="success-circle">
+                ✓
+            </div>
+
+            <div class="success-text">
+                Login Successful
+            </div>
+
+            <div class="success-sub">
+                Welcome to AL අපි Advertising 🚀
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+MAIN WEBSITE
+========================================================= -->
+
+<div id="mainWebsite">
+
+
+<!-- HEADER -->
 
 <header>
 
-<a href="#" class="brand">
+<a
+href="#"
+class="brand"
+>
 
 <div class="brand-icon">
 📢
@@ -1410,9 +2868,8 @@ Buy Ads
 
 </header>
 
-<!-- =========================
-HERO
-========================= -->
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -1456,9 +2913,8 @@ class="hero-btn"
 
 </section>
 
-<!-- =========================
-NETWORK
-========================= -->
+
+<!-- NETWORK -->
 
 <section class="network-section">
 
@@ -1474,7 +2930,9 @@ NETWORK
 
 </div>
 
+
 <div class="main-networks">
+
 
 <a
 href="https://t.me/AL_api"
@@ -1497,6 +2955,7 @@ AL අපි 🇱🇰
 
 </a>
 
+
 <a
 href="https://whatsapp.com/channel/0029VaandNw0bIdfgGKT6Q1D"
 target="_blank"
@@ -1518,9 +2977,12 @@ WhatsApp Channel
 
 </a>
 
+
 </div>
 
+
 <div class="network-small">
+
 
 <a
 href="https://t.me/mathsbio_api_Team"
@@ -1547,6 +3009,7 @@ Maths Bio අපි
 
 </a>
 
+
 <a
 href="https://t.me/chemistry_api_Team"
 target="_blank"
@@ -1571,6 +3034,7 @@ Chemistry අපි
 </span>
 
 </a>
+
 
 <a
 href="https://t.me/physics_api_Team"
@@ -1597,6 +3061,7 @@ Physics අපි
 
 </a>
 
+
 <a
 href="https://t.me/ict_api_Team"
 target="_blank"
@@ -1622,13 +3087,13 @@ ICT අපි
 
 </a>
 
+
 </div>
 
 </section>
 
-<!-- =========================
-ORDER
-========================= -->
+
+<!-- ORDER -->
 
 <section
 id="order"
@@ -1647,17 +3112,17 @@ class="order-section"
 
 </div>
 
+
 <div class="order-box">
 
+
 <div class="step">
-
 1️⃣ දැන්වීම පළ කිරීමට අවශ්‍ය ස්ථාන
-
 </div>
+
 
 <div class="platform-grid">
 
-<!-- TELEGRAM -->
 
 <div
 id="telegramPlatform"
@@ -1679,7 +3144,6 @@ Telegram
 
 </div>
 
-<!-- WHATSAPP -->
 
 <div
 id="whatsappPlatform"
@@ -1701,7 +3165,6 @@ WhatsApp පමණක්
 
 </div>
 
-<!-- WEBSITE -->
 
 <div
 id="websitePlatform"
@@ -1728,11 +3191,11 @@ ALapiedu.com
 
 </div>
 
+
 </div>
 
-<!-- =========================
-TELEGRAM PACKAGES
-========================= -->
+
+<!-- TELEGRAM PACKAGES -->
 
 <div
 id="telegramArea"
@@ -1753,7 +3216,9 @@ Telegram පැකේජය තෝරන්න
 
 </div>
 
+
 <div class="package-grid">
+
 
 <div
 class="package"
@@ -1782,6 +3247,7 @@ this,
 </div>
 
 </div>
+
 
 <div
 class="package"
@@ -1813,6 +3279,7 @@ this,
 
 </div>
 
+
 <div
 class="package"
 onclick="
@@ -1840,6 +3307,7 @@ this,
 </div>
 
 </div>
+
 
 <div
 class="package"
@@ -1872,13 +3340,13 @@ this,
 
 </div>
 
-</div>
 
 </div>
 
-<!-- =========================
-WEBSITE PACKAGES
-========================= -->
+</div>
+
+
+<!-- WEBSITE PACKAGES -->
 
 <div
 id="websiteArea"
@@ -1886,12 +3354,12 @@ class="package-area"
 >
 
 <div class="step">
-
 🌐 ALapiedu.com පැකේජය තෝරන්න
-
 </div>
 
+
 <div class="package-grid">
+
 
 <div
 class="package"
@@ -1920,6 +3388,7 @@ this,
 
 </div>
 
+
 <div
 class="package"
 onclick="
@@ -1946,6 +3415,7 @@ this,
 </div>
 
 </div>
+
 
 <div
 class="package"
@@ -1974,13 +3444,13 @@ this,
 
 </div>
 
-</div>
 
 </div>
 
-<!-- =========================
-TOTAL
-========================= -->
+</div>
+
+
+<!-- TOTAL -->
 
 <div class="total-card">
 
@@ -2008,1933 +3478,7 @@ class="selected-items"
 
 </div>
 
+
 <div
 id="discountSummary"
-class="discount-summary"
->
-
-<div class="original-price">
-
-Original Total:
-
-<span id="originalTotal">
-රු. 0
-</span>
-
-</div>
-
-<div class="discount-line">
-
-🎁 Discount:
-
-<span id="discountAmount">
-රු. 0
-</span>
-
-</div>
-
-<div class="discount-price">
-
-Discount Price:
-
-රු.
-<span id="discountTotal">
-0
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- =========================
-QUOTATION PREVIEW
-========================= -->
-
-<div class="quotation-preview-wrap">
-
-<div class="quotation-preview-title">
-
-<h3>
-📄 Quotation Preview
-</h3>
-
-<span class="preview-badge">
-IMAGE
-</span>
-
-</div>
-
-<div
-id="quotationPreview"
-class="quotation-preview"
->
-
-<!-- HEADER -->
-
-<div class="q-header">
-
-<div class="q-brand-area">
-
-<div class="q-logo-placeholder">
-📢
-</div>
-
-<div>
-
-<div class="q-brand">
-AL අපි 🇱🇰 Advertising
-</div>
-
-<div class="q-brand-sub">
-Advertise • Reach • Grow
-</div>
-
-</div>
-
-</div>
-
-<div>
-
-<div class="q-title">
-QUOTATION
-</div>
-
-<div
-id="qDate"
-class="q-date"
->
-Date: --
-</div>
-
-</div>
-
-</div>
-
-<!-- CUSTOMER -->
-
-<div class="q-customer">
-
-<strong>
-CUSTOMER DETAILS
-</strong>
-
-<div>
-
-Name:
-
-<span id="qName">
-Not provided
-</span>
-
-</div>
-
-<div>
-
-WhatsApp:
-
-<span id="qPhone">
-Not provided
-</span>
-
-</div>
-
-</div>
-
-<!-- SERVICES -->
-
-<div class="q-services">
-
-<div class="q-services-title">
-SELECTED SERVICES
-</div>
-
-<div id="qServices">
-
-<div class="q-service">
-
-<div class="q-service-left">
-
-<div
-class="q-service-icon website"
->
-🌐
-</div>
-
-<span class="q-service-name">
-No service selected
-</span>
-
-</div>
-
-<span class="q-service-price">
-Rs. 0
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- TOTAL -->
-
-<div class="q-total-box">
-
-<div class="q-total-row">
-
-<span>
-Original Total
-</span>
-
-<span
-id="qOriginal"
-class="q-old-total"
->
-Rs. 0
-</span>
-
-</div>
-
-<div
-id="qDiscountRow"
-class="q-total-row"
-style="display:none;"
->
-
-<span>
-Discount
-</span>
-
-<span
-id="qDiscount"
-class="q-discount"
->
-- Rs. 0
-</span>
-
-</div>
-
-<div class="q-final-row">
-
-<span class="q-final-label">
-FINAL TOTAL
-</span>
-
-<span
-id="qFinal"
-class="q-final-price"
->
-Rs. 0
-</span>
-
-</div>
-
-</div>
-
-<!-- CAPTION -->
-
-<div
-id="qCaptionBox"
-class="q-caption"
-style="display:none;"
->
-
-<div class="q-caption-title">
-Advertisement Caption
-</div>
-
-<div
-id="qCaption"
-class="q-caption-text"
-></div>
-
-</div>
-
-<!-- LINK -->
-
-<div
-id="qLinkBox"
-class="q-link"
-style="display:none;"
->
-
-🔗
-<span id="qLink"></span>
-
-</div>
-
-<div class="q-footer">
-
-AL අපි 🇱🇰 Advertising |
-ALapiedu.com
-
-</div>
-
-</div>
-
-</div>
-
-<!-- =========================
-SAVE IMAGE BUTTON
-========================= -->
-
-<button
-id="quotationButton"
-class="quotation-button"
-onclick="downloadQuotationImage()"
->
-
-🖼️ Save Quotation Image
-
-</button>
-
-<!-- =========================
-CUSTOMER
-========================= -->
-
-<div class="form-group">
-
-<label>
-👤 ඔබගේ නම *
-</label>
-
-<input
-id="customerName"
-type="text"
-placeholder="ඔබගේ නම"
-oninput="updateQuotationPreview()"
->
-
-</div>
-
-<div class="form-group">
-
-<label>
-📱 WhatsApp අංකය *
-</label>
-
-<input
-id="customerPhone"
-type="tel"
-placeholder="07XXXXXXXX"
-oninput="updateQuotationPreview()"
->
-
-</div>
-
-<div class="form-group">
-
-<label>
-📝 දැන්වීමේ Caption එක *
-</label>
-
-<textarea
-id="caption"
-rows="7"
-placeholder="ඔබගේ දැන්වීමේ caption එක..."
-oninput="updateQuotationPreview()"
-></textarea>
-
-</div>
-
-<div class="form-group">
-
-<label>
-🔗 Advertisement Link
-</label>
-
-<input
-id="adLink"
-type="url"
-placeholder="https://..."
-oninput="updateQuotationPreview()"
->
-
-</div>
-
-<div class="form-group">
-
-<label>
-🖼️ Advertisement Image *
-</label>
-
-<div class="upload">
-
-<input
-id="adImage"
-type="file"
-accept="image/*"
-onchange="previewImage(event)"
->
-
-<p
-style="
-font-size:13px;
-color:#6b7280;
-margin-top:8px;
-"
->
-
-ඔබගේ දැන්වීමේ Image එක Upload කරන්න
-
-</p>
-
-</div>
-
-</div>
-
-<div
-id="previewBox"
-class="preview"
->
-
-<img id="previewImage">
-
-</div>
-
-<button
-class="whatsapp-button"
-onclick="sendOrder()"
->
-
-📲 WhatsApp හරහා ඇණවුම යවන්න
-
-</button>
-
-<p class="note">
-
-ඇණවුම යැවීමෙන් පසු WhatsApp විවෘත වේ.<br>
-
-Image එක WhatsApp message එකට attach කර යවන්න.
-
-</p>
-
-</div>
-
-</section>
-
-<footer>
-
-AL අපි 🇱🇰 Advertising |
-ALapiedu.com
-
-</footer>
-
-<script>
-
-/* =========================
-STATE
-========================= */
-
-let telegram = false;
-
-let whatsapp = false;
-
-let website = false;
-
-let telegramPrice = 0;
-
-let telegramName = "";
-
-let websitePrice = 0;
-
-let websiteName = "";
-
-/* =========================
-WHATSAPP DESCRIPTION
-========================= */
-
-function updateWhatsappDescription(){
-
-const text =
-document.getElementById(
-"whatsappDescription"
-);
-
-if(whatsapp){
-
-text.innerText =
-"WhatsApp නාලිකාවේ පළ වේ";
-
-}
-
-else if(
-telegram || website
-){
-
-text.innerText =
-"අවශ්‍ය නම් WhatsApp නාලිකාවෙත්";
-
-}
-
-else{
-
-text.innerText =
-"WhatsApp පමණක්";
-
-}
-
-}
-
-/* =========================
-PRICING
-========================= */
-
-function getPricing(){
-
-let originalTotal = 0;
-
-let discount = 0;
-
-let services = [];
-
-/* TELEGRAM */
-
-if(telegram){
-
-originalTotal += telegramPrice;
-
-if(telegramName){
-
-services.push({
-
-name:
-"Telegram - " +
-telegramName,
-
-price:
-telegramPrice,
-
-type:
-"telegram"
-
-});
-
-}
-
-}
-
-/* WHATSAPP */
-
-if(whatsapp){
-
-let whatsappPrice = 2000;
-
-if(
-!telegram &&
-!website
-){
-
-whatsappPrice = 3000;
-
-}
-
-originalTotal += whatsappPrice;
-
-services.push({
-
-name:
-"WhatsApp Channel",
-
-price:
-whatsappPrice,
-
-type:
-"whatsapp"
-
-});
-
-}
-
-/* WEBSITE */
-
-if(website){
-
-originalTotal += websitePrice;
-
-if(websiteName){
-
-services.push({
-
-name:
-websiteName,
-
-price:
-websitePrice,
-
-type:
-"website"
-
-});
-
-}
-
-}
-
-/*
-================================
-TELEGRAM 4000 SPECIAL DISCOUNT
-================================
-
-Telegram 4000
-+
-WhatsApp 2000
-+
-Website
-
-3 Days
-8000 → 7500
-
-7 Days
-10000 → 9000
-
-10 Days
-12000 → 10000
-*/
-
-if(
-telegram &&
-telegramPrice === 4000 &&
-whatsapp &&
-website
-){
-
-if(websitePrice === 2000){
-
-discount = 500;
-
-}
-
-else if(websitePrice === 4000){
-
-discount = 1000;
-
-}
-
-else if(websitePrice === 6000){
-
-discount = 2000;
-
-}
-
-}
-
-/*
-================================
-OTHER TELEGRAM PACKAGES
-================================
-
-Telegram
-+
-WhatsApp
-+
-Website
-
-Rs.500 discount
-*/
-
-else if(
-telegram &&
-telegramPrice > 0 &&
-telegramPrice !== 4000 &&
-whatsapp &&
-website
-){
-
-discount = 500;
-
-}
-
-const finalTotal =
-originalTotal - discount;
-
-return {
-
-originalTotal,
-discount,
-finalTotal,
-services
-
-};
-
-}
-
-/* =========================
-TOGGLE TELEGRAM
-========================= */
-
-function toggleTelegram(){
-
-telegram = !telegram;
-
-document
-.getElementById(
-"telegramPlatform"
-)
-.classList.toggle(
-"selected",
-telegram
-);
-
-document
-.getElementById(
-"telegramArea"
-)
-.classList.toggle(
-"show",
-telegram
-);
-
-updateWhatsappDescription();
-
-calculate();
-
-}
-
-/* =========================
-TOGGLE WHATSAPP
-========================= */
-
-function toggleWhatsapp(){
-
-whatsapp = !whatsapp;
-
-document
-.getElementById(
-"whatsappPlatform"
-)
-.classList.toggle(
-"selected",
-whatsapp
-);
-
-updateWhatsappDescription();
-
-calculate();
-
-}
-
-/* =========================
-TOGGLE WEBSITE
-========================= */
-
-function toggleWebsite(){
-
-website = !website;
-
-document
-.getElementById(
-"websitePlatform"
-)
-.classList.toggle(
-"selected",
-website
-);
-
-document
-.getElementById(
-"websiteArea"
-)
-.classList.toggle(
-"show",
-website
-);
-
-updateWhatsappDescription();
-
-calculate();
-
-}
-
-/* =========================
-TELEGRAM PACKAGE
-========================= */
-
-function selectTelegramPackage(
-element,
-price,
-name
-){
-
-document
-.querySelectorAll(
-"#telegramArea .package"
-)
-.forEach(
-function(item){
-
-item.classList.remove(
-"selected"
-);
-
-});
-
-element.classList.add(
-"selected"
-);
-
-telegramPrice = price;
-
-telegramName = name;
-
-calculate();
-
-}
-
-/* =========================
-WEBSITE PACKAGE
-========================= */
-
-function selectWebsitePackage(
-element,
-price,
-name
-){
-
-document
-.querySelectorAll(
-"#websiteArea .package"
-)
-.forEach(
-function(item){
-
-item.classList.remove(
-"selected"
-);
-
-});
-
-element.classList.add(
-"selected"
-);
-
-websitePrice = price;
-
-websiteName = name;
-
-calculate();
-
-}
-
-/* =========================
-CALCULATE
-========================= */
-
-function calculate(){
-
-const pricing =
-getPricing();
-
-document
-.getElementById(
-"total"
-)
-.innerText =
-pricing.finalTotal.toLocaleString();
-
-const box =
-document.getElementById(
-"selectedItems"
-);
-
-if(
-pricing.services.length === 0
-){
-
-box.innerHTML = `
-
-<span class="tag">
-සේවාවක් තෝරන්න
-</span>
-
-`;
-
-}
-
-else{
-
-box.innerHTML =
-pricing.services.map(
-function(item){
-
-return `
-
-<span class="tag">
-
-${item.type === "telegram" ? "🔵" : ""}
-
-${item.type === "whatsapp" ? "🟢" : ""}
-
-${item.type === "website" ? "🌐" : ""}
-
-${item.name}
--
-Rs. ${item.price.toLocaleString()}
-
-</span>
-
-`;
-
-}
-).join("");
-
-}
-
-/* DISCOUNT */
-
-const discountBox =
-document.getElementById(
-"discountSummary"
-);
-
-if(pricing.discount > 0){
-
-discountBox.classList.add(
-"show"
-);
-
-document
-.getElementById(
-"originalTotal"
-)
-.innerText =
-"රු. " +
-pricing.originalTotal.toLocaleString();
-
-document
-.getElementById(
-"discountAmount"
-)
-.innerText =
-"රු. " +
-pricing.discount.toLocaleString();
-
-document
-.getElementById(
-"discountTotal"
-)
-.innerText =
-pricing.finalTotal.toLocaleString();
-
-}
-
-else{
-
-discountBox.classList.remove(
-"show"
-);
-
-}
-
-updateQuotationPreview();
-
-}
-
-/* =========================
-INLINE LOGOS
-========================= */
-
-function getTelegramIcon(){
-
-return `
-
-<svg
-width="26"
-height="26"
-viewBox="0 0 24 24"
-xmlns="http://www.w3.org/2000/svg"
->
-
-<circle
-cx="12"
-cy="12"
-r="12"
-fill="#229ED9"
-/>
-
-<path
-d="M17.8 6.8L15.7 17c-.16.72-.59.9-1.2.56l-3.31-2.44-1.6 1.54c-.18.18-.33.33-.68.33l.24-3.38 6.15-5.56c.27-.24-.06-.38-.42-.14l-7.6 4.78-3.27-1.02c-.71-.22-.73-.71.15-1.05l12.78-4.93c.59-.22 1.1.14.86 1.11z"
-fill="white"
-/>
-
-</svg>
-
-`;
-
-}
-
-function getWhatsappIcon(){
-
-return `
-
-<svg
-width="26"
-height="26"
-viewBox="0 0 24 24"
-xmlns="http://www.w3.org/2000/svg"
->
-
-<circle
-cx="12"
-cy="12"
-r="12"
-fill="#25D366"
-/>
-
-<path
-d="M17.45 14.7c-.3-.15-1.77-.87-2.05-.97-.28-.1-.49-.15-.7.15-.2.3-.8.97-.98 1.17-.18.2-.36.22-.66.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.14-.14.3-.36.45-.54.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.7-1.69-.96-2.32-.25-.6-.51-.52-.7-.53h-.6c-.2 0-.53.08-.8.38-.27.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.13 3.25 5.16 4.55.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.08-.12-.28-.2-.58-.35z"
-fill="white"
-/>
-
-</svg>
-
-`;
-
-}
-
-function getWebsiteIcon(){
-
-return `
-
-<svg
-width="26"
-height="26"
-viewBox="0 0 24 24"
-xmlns="http://www.w3.org/2000/svg"
->
-
-<circle
-cx="12"
-cy="12"
-r="12"
-fill="#7c3aed"
-/>
-
-<circle
-cx="12"
-cy="12"
-r="7"
-fill="none"
-stroke="white"
-stroke-width="1.5"
-/>
-
-<path
-d="M5 12h14M12 5c2 2 2 12 0 14M12 5c-2 2-2 12 0 14"
-fill="none"
-stroke="white"
-stroke-width="1.2"
-/>
-
-</svg>
-
-`;
-
-}
-
-/* =========================
-QUOTATION PREVIEW
-========================= */
-
-function updateQuotationPreview(){
-
-const pricing =
-getPricing();
-
-/* DATE */
-
-const today =
-new Date();
-
-const date =
-today.toLocaleDateString(
-"en-GB"
-);
-
-document
-.getElementById(
-"qDate"
-)
-.innerText =
-"Date: " + date;
-
-/* CUSTOMER */
-
-const name =
-document
-.getElementById(
-"customerName"
-)
-.value
-.trim();
-
-const phone =
-document
-.getElementById(
-"customerPhone"
-)
-.value
-.trim();
-
-document
-.getElementById(
-"qName"
-)
-.innerText =
-name ||
-"Not provided";
-
-document
-.getElementById(
-"qPhone"
-)
-.innerText =
-phone ||
-"Not provided";
-
-/* SERVICES */
-
-const qServices =
-document.getElementById(
-"qServices"
-);
-
-if(
-pricing.services.length === 0
-){
-
-qServices.innerHTML = `
-
-<div class="q-service">
-
-<div class="q-service-left">
-
-<div
-class="q-service-icon website"
->
-${getWebsiteIcon()}
-</div>
-
-<span class="q-service-name">
-No service selected
-</span>
-
-</div>
-
-<span class="q-service-price">
-Rs. 0
-</span>
-
-</div>
-
-`;
-
-}
-
-else{
-
-qServices.innerHTML =
-pricing.services.map(
-function(service){
-
-let icon = "";
-
-let iconClass = "";
-
-if(
-service.type === "telegram"
-){
-
-icon =
-getTelegramIcon();
-
-iconClass =
-"telegram";
-
-}
-
-else if(
-service.type === "whatsapp"
-){
-
-icon =
-getWhatsappIcon();
-
-iconClass =
-"whatsapp";
-
-}
-
-else{
-
-icon =
-getWebsiteIcon();
-
-iconClass =
-"website";
-
-}
-
-return `
-
-<div class="q-service">
-
-<div class="q-service-left">
-
-<div
-class="q-service-icon ${iconClass}"
->
-
-${icon}
-
-</div>
-
-<span class="q-service-name">
-
-${service.name}
-
-</span>
-
-</div>
-
-<span class="q-service-price">
-
-Rs.
-${service.price.toLocaleString()}
-
-</span>
-
-</div>
-
-`;
-
-}
-).join("");
-
-}
-
-/* ORIGINAL */
-
-document
-.getElementById(
-"qOriginal"
-)
-.innerText =
-"Rs. " +
-pricing.originalTotal.toLocaleString();
-
-/* DISCOUNT */
-
-const qDiscountRow =
-document.getElementById(
-"qDiscountRow"
-);
-
-if(
-pricing.discount > 0
-){
-
-qDiscountRow.style.display =
-"flex";
-
-document
-.getElementById(
-"qDiscount"
-)
-.innerText =
-"- Rs. " +
-pricing.discount.toLocaleString();
-
-}
-
-else{
-
-qDiscountRow.style.display =
-"none";
-
-}
-
-/* FINAL */
-
-document
-.getElementById(
-"qFinal"
-)
-.innerText =
-"Rs. " +
-pricing.finalTotal.toLocaleString();
-
-/* CAPTION */
-
-const caption =
-document
-.getElementById(
-"caption"
-)
-.value
-.trim();
-
-const qCaptionBox =
-document.getElementById(
-"qCaptionBox"
-);
-
-if(caption){
-
-qCaptionBox.style.display =
-"block";
-
-document
-.getElementById(
-"qCaption"
-)
-.innerText =
-caption;
-
-}
-
-else{
-
-qCaptionBox.style.display =
-"none";
-
-}
-
-/* LINK */
-
-const link =
-document
-.getElementById(
-"adLink"
-)
-.value
-.trim();
-
-const qLinkBox =
-document.getElementById(
-"qLinkBox"
-);
-
-if(link){
-
-qLinkBox.style.display =
-"block";
-
-document
-.getElementById(
-"qLink"
-)
-.innerText =
-link;
-
-}
-
-else{
-
-qLinkBox.style.display =
-"none";
-
-}
-
-}
-
-/* =========================
-IMAGE PREVIEW
-========================= */
-
-function previewImage(event){
-
-const file =
-event.target.files[0];
-
-if(!file){
-
-return;
-
-}
-
-if(
-!file.type.startsWith(
-"image/"
-)
-){
-
-alert(
-"කරුණාකර Image එකක් තෝරන්න."
-);
-
-event.target.value = "";
-
-return;
-
-}
-
-const reader =
-new FileReader();
-
-reader.onload =
-function(e){
-
-document
-.getElementById(
-"previewImage"
-)
-.src =
-e.target.result;
-
-document
-.getElementById(
-"previewBox"
-)
-.style.display =
-"block";
-
-};
-
-reader.readAsDataURL(file);
-
-}
-
-/* =========================
-SAVE QUOTATION AS IMAGE
-========================= */
-
-async function downloadQuotationImage(){
-
-const name =
-document
-.getElementById(
-"customerName"
-)
-.value
-.trim();
-
-const pricing =
-getPricing();
-
-/* VALIDATION */
-
-if(
-!telegram &&
-!whatsapp &&
-!website
-){
-
-alert(
-"කරුණාකර quotation එකට service එකක් තෝරන්න."
-);
-
-return;
-
-}
-
-if(
-telegram &&
-telegramPrice === 0
-){
-
-alert(
-"කරුණාකර Telegram package එකක් තෝරන්න."
-);
-
-return;
-
-}
-
-if(
-website &&
-websitePrice === 0
-){
-
-alert(
-"කරුණාකර Website package එකක් තෝරන්න."
-);
-
-return;
-
-}
-
-if(!name){
-
-alert(
-"කරුණාකර ඔබගේ නම ඇතුළත් කරන්න."
-);
-
-document
-.getElementById(
-"customerName"
-)
-.focus();
-
-return;
-
-}
-
-const button =
-document.getElementById(
-"quotationButton"
-);
-
-button.disabled = true;
-
-button.innerText =
-"⏳ Image සකස් කරමින්...";
-
-const preview =
-document.getElementById(
-"quotationPreview"
-);
-
-try{
-
-/*
-=========================
-EXPORT SIZE
-=========================
-*/
-
-preview.classList.add(
-"image-export"
-);
-
-/*
-=========================
-WAIT FOR RENDER
-=========================
-*/
-
-await new Promise(
-function(resolve){
-
-setTimeout(
-resolve,
-200
-);
-
-});
-
-/*
-=========================
-CREATE CANVAS
-=========================
-*/
-
-const canvas =
-await html2canvas(
-preview,
-{
-
-scale:3,
-
-useCORS:true,
-
-allowTaint:false,
-
-backgroundColor:"#ffffff",
-
-logging:false,
-
-imageTimeout:15000
-
-}
-);
-
-/*
-=========================
-RESTORE
-=========================
-*/
-
-preview.classList.remove(
-"image-export"
-);
-
-/*
-=========================
-CONVERT PNG
-=========================
-*/
-
-canvas.toBlob(
-function(blob){
-
-if(!blob){
-
-alert(
-"Image එක සකස් කිරීමට නොහැකි වුණා."
-);
-
-return;
-
-}
-
-/*
-=========================
-DOWNLOAD
-=========================
-*/
-
-const url =
-URL.createObjectURL(
-blob
-);
-
-const link =
-document.createElement(
-"a"
-);
-
-let safeName =
-name
-.replace(
-/[^a-zA-Z0-9]/g,
-"_"
-)
-.substring(
-0,
-30
-);
-
-if(!safeName){
-
-safeName =
-"Customer";
-
-}
-
-const date =
-new Date()
-.toISOString()
-.slice(
-0,
-10
-);
-
-link.href =
-url;
-
-link.download =
-"AL_API_Quotation_" +
-safeName +
-"_" +
-date +
-".png";
-
-document
-.body
-.appendChild(
-link
-);
-
-link.click();
-
-document
-.body
-.removeChild(
-link
-);
-
-setTimeout(
-function(){
-
-URL.revokeObjectURL(
-url
-);
-
-},
-1000
-);
-
-/*
-=========================
-MOBILE MESSAGE
-=========================
-*/
-
-if(
-/iPhone|iPad|iPod|Android/i.test(
-navigator.userAgent
-)
-){
-
-setTimeout(
-function(){
-
-alert(
-"Quotation Image එක download/save වෙන්න ආරම්භ වෙයි. iPhone එකක් නම් Share/Save Image option එකෙන් Photos වලට save කරන්න."
-);
-
-},
-300
-);
-
-}
-
-},
-"image/png"
-);
-
-}
-catch(error){
-
-console.error(
-"Quotation image error:",
-error
-);
-
-alert(
-"Quotation Image එක සකස් කිරීමේදී ගැටලුවක් ඇති වුණා. නැවත උත්සාහ කරන්න."
-);
-
-preview.classList.remove(
-"image-export"
-);
-
-}
-
-button.disabled = false;
-
-button.innerText =
-"🖼️ Save Quotation Image";
-
-}
-
-/* =========================
-SEND ORDER
-========================= */
-
-function sendOrder(){
-
-const name =
-document
-.getElementById(
-"customerName"
-)
-.value
-.trim();
-
-const phone =
-document
-.getElementById(
-"customerPhone"
-)
-.value
-.trim();
-
-const caption =
-document
-.getElementById(
-"caption"
-)
-.value
-.trim();
-
-const link =
-document
-.getElementById(
-"adLink"
-)
-.value
-.trim();
-
-const image =
-document
-.getElementById(
-"adImage"
-)
-.files[0];
-
-const pricing =
-getPricing();
-
-/* VALIDATION */
-
-if(
-!telegram &&
-!whatsapp &&
-!website
-){
-
-alert(
-"කරුණාකර දැන්වීම පළ කිරීමට අවශ්‍ය ස්ථානය තෝරන්න."
-);
-
-return;
-
-}
-
-if(
-telegram &&
-telegramPrice === 0
-){
-
-alert(
-"කරුණාකර Telegram package එකක් තෝරන්න."
-);
-
-return;
-
-}
-
-if(
-website &&
-websitePrice === 0
-){
-
-alert(
-"කරුණාකර Website package එකක් තෝරන්න."
-);
-
-return;
-
-}
-
-if(
-!name ||
-!phone ||
-!caption ||
-!image
-){
-
-alert(
-"කරුණාකර අවශ්‍ය සියලුම තොරතුරු පුරවන්න."
-);
-
-return;
-
-}
-
-let services = [];
-
-/* TELEGRAM */
-
-if(telegram){
-
-services.push(
-"🔵 Telegram: " +
-telegramName +
-" - Rs. " +
-telegramPrice.toLocaleString()
-);
-
-}
-
-/* WHATSAPP */
-
-if(whatsapp){
-
-let wp = 2000;
-
-if(
-!telegram &&
-!website
-){
-
-wp = 3000;
-
-}
-
-services.push(
-"🟢 WhatsApp: Rs. " +
-wp.toLocaleString()
-);
-
-}
-
-/* WEBSITE */
-
-if(website){
-
-services.push(
-"🌐 Website: " +
-websiteName +
-" - Rs. " +
-websitePrice.toLocaleString()
-);
-
-}
-
-/* DISCOUNT */
-
-let discountText = "";
-
-if(
-pricing.discount > 0
-){
-
-discountText =
-
-"\n🎁 Discount: Rs. " +
-pricing.discount.toLocaleString() +
-
-"\n💚 Discount Price: Rs. " +
-pricing.finalTotal.toLocaleString();
-
-}
-
-/* MESSAGE */
-
-const message =
-
-`🛍️ AL අපි 🇱🇰 Advertising
-
-නව දැන්වීම් ඇණවුම
-
-━━━━━━━━━━━━━━
-
-👤 නම:
-${name}
-
-📱 WhatsApp:
-${phone}
-
-📢 තෝරාගත් සේවාවන්:
-
-${services.join("\n")}
-
-💰 Original Total:
-Rs. ${pricing.originalTotal.toLocaleString()}
-${discountText}
-
-📝 Caption:
-${caption}
-
-🔗 Link:
-${link || "නැත"}
-
-🖼️ Advertisement Image:
-Image එක attach කරමි.
-
-━━━━━━━━━━━━━━
-
-AL අපි 🇱🇰 Advertising
-ALapiedu.com`;
-
-const url =
-"https://wa.me/94782419390?text=" +
-encodeURIComponent(
-message
-);
-
-window.open(
-url,
-"_blank"
-);
-
-}
-
-/* =========================
-INITIAL
-========================= */
-
-updateWhatsappDescription();
-
-updateQuotationPreview();
-
-</script>
-
-</body>
-
-</html>
+class="discount-summary
